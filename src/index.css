@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: #1F2937;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #1565C0;
+    color: #FFFFFF;
+  }
+}
+
+/* Custom Malayalam Font Helper */
+.font-malayalam {
+  font-family: 'Anek Malayalam', 'Manjari', 'Gayathri', sans-serif;
+}
+
+/* Modern Card Glow Shadows */
+.shadow-blue-subtle {
+  box-shadow: 0 10px 30px -5px rgba(21, 101, 192, 0.08), 0 4px 10px -2px rgba(21, 101, 192, 0.04);
+}
+.shadow-blue-hover {
+  box-shadow: 0 20px 35px -8px rgba(21, 101, 192, 0.16), 0 6px 15px -3px rgba(21, 101, 192, 0.08);
+}
+.shadow-green-subtle {
+  box-shadow: 0 10px 30px -5px rgba(25, 135, 84, 0.08), 0 4px 10px -2px rgba(25, 135, 84, 0.04);
+}
+.shadow-red-subtle {
+  box-shadow: 0 10px 30px -5px rgba(229, 57, 53, 0.10), 0 4px 10px -2px rgba(229, 57, 53, 0.05);
+}
+
+/* Modern Glassmorphic Utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-dark {
+  background: rgba(10, 15, 30, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Custom sleek scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F8FAFC;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Subtle pulse */
+@keyframes subtle-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.animate-subtle {
+  animation: subtle-pulse 4s infinite ease-in-out;
+}

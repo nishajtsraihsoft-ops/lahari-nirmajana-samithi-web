@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" fill="none">
+  <!-- Outer Ring with Kerala/India Social Emblem Styling -->
+  <circle cx="60" cy="60" r="56" stroke="#1565C0" stroke-width="3.5" fill="#FFFFFF"/>
+  <circle cx="60" cy="60" r="50" stroke="#198754" stroke-width="1.5" stroke-dasharray="3 3"/>
+  
+  <!-- Shield of Protection & Hope -->
+  <path d="M60 22 C76 22 86 28 86 46 C86 70 60 88 60 88 C60 88 34 70 34 46 C34 28 44 22 60 22 Z" fill="#E3F2FD" stroke="#1565C0" stroke-width="2.5"/>
+  
+  <!-- Laurel / Olive Wreath of Health and Drug-Free Life -->
+  <path d="M30 64 C26 50 32 36 38 28 C36 38 42 48 45 54" stroke="#198754" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M90 64 C94 50 88 36 82 28 C84 38 78 48 75 54" stroke="#198754" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Torch of Enlightenment & Awareness -->
+  <path d="M54 68 L66 68 L63 80 L57 80 Z" fill="#1565C0"/>
+  <path d="M52 64 L68 64 L65 68 L55 68 Z" fill="#198754"/>
+  
+  <!-- Flame of Vigilance (Theme Red & Gold) -->
+  <path d="M60 34 C63 40 70 45 68 52 C66 58 60 62 60 62 C60 62 54 58 52 52 C50 45 57 40 60 34 Z" fill="#E53935"/>
+  <path d="M60 42 C61.5 45 64 48 63 52 C62 55 60 57 60 57 C60 57 58 55 57 52 C56 48 58.5 45 60 42 Z" fill="#FFA726"/>
+
+  <!-- Hands / Unity motif in Green -->
+  <path d="M42 66 C48 60 54 62 60 64 C66 62 72 60 78 66" stroke="#198754" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Ribbon at Bottom -->
+  <path d="M25 96 L60 92 L95 96 L88 104 L60 100 L32 104 Z" fill="#1565C0"/>
+  <circle cx="60" cy="96" r="3" fill="#E53935"/>
+</svg>
