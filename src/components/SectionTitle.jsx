@@ -22,7 +22,7 @@ const SectionTitle = ({
   };
 
   return (
-    <div className={`mb-12 sm:mb-16 ${center ? 'text-center max-w-3xl mx-auto' : 'max-w-2xl'} ${className}`}>
+    <div className={`mb-8 sm:mb-12 lg:mb-16 ${center ? 'text-center max-w-3xl mx-auto' : 'max-w-2xl'} ${className}`}>
       {badge && (
         <div className={`inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-[11px] sm:text-xs font-bold tracking-wider uppercase border shadow-2xs mb-3 transition-transform hover:scale-102 ${badgeColors[badgeColor] || badgeColors.blue}`}>
           <span className={`w-2 h-2 rounded-full ${dotColors[badgeColor] || dotColors.blue} animate-pulse`}></span>

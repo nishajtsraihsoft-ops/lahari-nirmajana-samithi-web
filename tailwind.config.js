@@ -45,8 +45,8 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
-        malayalam: ['Anek Malayalam', 'Manjari', 'Gayathri', 'sans-serif'],
+        sans: ['Noto Sans Malayalam', 'Anek Malayalam', 'Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        malayalam: ['Noto Sans Malayalam', 'Anek Malayalam', 'Manjari', 'Gayathri', 'sans-serif'],
       },
       boxShadow: {
         'card': '0 4px 20px -2px rgba(21, 101, 192, 0.08), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',

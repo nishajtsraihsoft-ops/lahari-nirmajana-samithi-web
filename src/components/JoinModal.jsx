@@ -2,29 +2,29 @@ import React, { useState } from 'react';
 import { X, CheckCircle, Heart, Phone, Mail, MapPin, User, ShieldCheck } from 'lucide-react';
 
 const KERALA_DISTRICTS = [
-  'Thiruvananthapuram',
-  'Kollam',
-  'Pathanamthitta',
-  'Alappuzha',
-  'Kottayam',
-  'Idukki',
-  'Ernakulam',
-  'Thrissur',
-  'Palakkad',
-  'Malappuram',
-  'Kozhikode',
-  'Wayanad',
-  'Kannur',
-  'Kasaragod'
+  'മലപ്പുറം (Malappuram)',
+  'കോഴിക്കോട് (Kozhikode)',
+  'വയനാട് (Wayanad)',
+  'കണ്ണൂർ (Kannur)',
+  'കാസർഗോഡ് (Kasaragod)',
+  'പാലക്കാട് (Palakkad)',
+  'തൃശ്ശൂർ (Thrissur)',
+  'എറണാകുളം (Ernakulam)',
+  'ഇടുക്കി (Idukki)',
+  'കോട്ടയം (Kottayam)',
+  'ആലപ്പുഴ (Alappuzha)',
+  'പത്തനംതിട്ട (Pathanamthitta)',
+  'കൊല്ലം (Kollam)',
+  'തിരുവനന്തപുരം (Thiruvananthapuram)'
 ];
 
 const VOLUNTEER_ROLES = [
-  'Youth & Campus Ambassador',
-  'Public Awareness Speaker',
-  'Event & Rally Coordinator',
-  'Counselling & Support Assistant',
-  'Social Media & Digital Campaigner',
-  'General Grassroots Volunteer'
+  'Youth & Campus Ambassador (വിദ്യാർത്ഥി അംബാസഡർ)',
+  'Awareness Campaign Speaker (ബോധവൽക്കരണ പ്രഭാഷകൻ)',
+  'Event & Rally Coordinator (റാലി & പരിപാടി കോർഡിനേറ്റർ)',
+  'Counseling & Support Volunteer (കൗൺസിലിംഗ് സന്നദ്ധപ്രവർത്തകൻ)',
+  'Social Media Campaigner (സോഷ്യൽ മീഡിയ പ്രചാരകൻ)',
+  'Local Ward Organizer (പ്രാദേശിക വാർഡ് പ്രവർത്തകൻ)'
 ];
 
 const JoinModal = ({ isOpen, onClose }) => {
@@ -32,8 +32,8 @@ const JoinModal = ({ isOpen, onClose }) => {
     fullName: '',
     phone: '',
     email: '',
-    district: 'Thiruvananthapuram',
-    role: 'Youth & Campus Ambassador',
+    district: 'മലപ്പുറം (Malappuram)',
+    role: 'Youth & Campus Ambassador (വിദ്യാർത്ഥി അംബാസഡർ)',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -63,11 +63,10 @@ const JoinModal = ({ isOpen, onClose }) => {
     e.preventDefault();
     if (!validate()) return;
     setIsSubmitting(true);
-    // Simulate API submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 800);
+    }, 700);
   };
 
   const handleReset = () => {
@@ -75,8 +74,8 @@ const JoinModal = ({ isOpen, onClose }) => {
       fullName: '',
       phone: '',
       email: '',
-      district: 'Thiruvananthapuram',
-      role: 'Youth & Campus Ambassador',
+      district: 'മലപ്പുറം (Malappuram)',
+      role: 'Youth & Campus Ambassador (വിദ്യാർത്ഥി അംബാസഡർ)',
       message: ''
     });
     setIsSubmitted(false);
@@ -85,155 +84,139 @@ const JoinModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs transition-opacity animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xs transition-opacity animate-fadeIn font-malayalam">
       <div 
-        className="relative w-full max-w-xl bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100 max-h-[90vh] flex flex-col"
+        className="relative w-full max-w-xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-gray-100 max-h-[92vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header with Theme Blue background */}
-        <div className="bg-themeBlue text-white p-6 relative">
+        {/* ഹെഡർ */}
+        <div className="bg-themeBlue text-white p-4 sm:p-6 relative">
           <button
             onClick={onClose}
-            aria-label="Close modal"
-            className="absolute top-5 right-5 p-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            aria-label="Close"
+            className="absolute top-4 right-4 sm:top-5 sm:right-5 p-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
-          <div className="flex items-center gap-3.5">
-            <img
-              src="/LNS-Logo.png"
-              alt="Lahari Nirmaargana Samithi Logo"
-              className="w-12 h-12 object-contain rounded-xl bg-white p-1 shadow-sm shrink-0"
-            />
-            <div>
-              <div className="flex items-center gap-1.5 text-themeGreen-light text-xs font-semibold tracking-wider uppercase mb-0.5">
-                <ShieldCheck className="w-3.5 h-3.5 text-themeGreen-light" />
-                <span>Volunteer Membership Registration</span>
-              </div>
-              <h3 className="text-xl sm:text-2xl font-bold leading-tight">Join Our Mission</h3>
-              <p className="font-malayalam text-xs text-blue-100 mt-0.5">
-                ലഹരിമുക്ത സമൂഹത്തിനായി നമ്മോടൊപ്പം കൈകോർക്കൂ
-              </p>
-            </div>
+          
+          <div className="flex items-center gap-2 mb-1">
+            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-white/20 text-green-200">
+              Lahari Nirmaargana Samithi (LNS)
+            </span>
           </div>
+          <h3 className="text-xl sm:text-2xl font-black">
+            Join Our Mission
+          </h3>
+          <p className="text-themeGreen-light text-xs sm:text-sm font-bold">
+            ഞങ്ങളോടൊപ്പം ചേരൂ
+          </p>
+          <p className="text-blue-100 text-xs sm:text-sm mt-0.5">
+            ലഹരിമുക്ത സമൂഹത്തിനായി സന്നദ്ധപ്രവർത്തകനായി രജിസ്റ്റർ ചെയ്യാം.
+          </p>
         </div>
 
-        {/* Content */}
-        <div className="p-6 overflow-y-auto space-y-4">
+        {/* ബോഡി */}
+        <div className="p-4 sm:p-6 overflow-y-auto flex-1">
           {isSubmitted ? (
-            <div className="py-8 text-center space-y-4">
-              <div className="w-16 h-16 bg-themeGreen-light rounded-full flex items-center justify-center mx-auto text-themeGreen">
+            <div className="text-center py-6 sm:py-8 space-y-3 sm:space-y-4">
+              <div className="w-16 h-16 bg-themeGreen-light text-themeGreen rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle className="w-10 h-10" />
               </div>
-              <h4 className="text-2xl font-bold text-gray-900">Thank You for Joining!</h4>
-              <p className="font-malayalam text-themeGreen font-medium">
-                നിങ്ങളുടെ പങ്കാളിത്തത്തിന് നന്ദി!
+              <h4 className="text-xl font-black text-gray-900">
+                Registration Successful!
+              </h4>
+              <p className="text-xs sm:text-sm text-gray-700 max-w-md mx-auto leading-relaxed">
+                ലഹരി നിർമ്മാർജന സമിതിയുടെ സന്നദ്ധപ്രവർത്തകനായി താങ്കൾ രജിസ്റ്റർ ചെയ്തിരിക്കുന്നു. ഞങ്ങളുടെ ജില്ലാ കോർഡിനേറ്റർ ഉടൻ താങ്കളെ ബന്ധപ്പെടുന്നതാണ്.
               </p>
-              <p className="text-gray-600 max-w-md mx-auto text-sm leading-relaxed">
-                Your volunteer application has been registered with the <strong>{formData.district}</strong> District Committee. Our volunteer coordinator will reach out to you within 2 business days.
-              </p>
-              <div className="pt-4">
+              <div className="pt-2">
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-6 py-2.5 bg-themeBlue hover:bg-themeBlue-hover text-white rounded-lg font-medium transition-colors shadow-sm"
+                  className="px-6 py-2.5 bg-themeBlue hover:bg-themeBlue-hover text-white rounded-xl text-sm font-bold shadow-md transition-all"
                 >
                   Done
                 </button>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <p className="text-xs sm:text-sm text-gray-600">
-                Be an active warrior against drug abuse. Fill in the details below to enroll as a registered volunteer in your district.
-              </p>
-
+            <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
+              {/* പേര് */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                <label className="block text-xs font-bold text-gray-700 mb-1">
                   Full Name *
                 </label>
-                <div className="relative">
-                  <User className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-                  <input
-                    type="text"
-                    placeholder="Enter your full name"
-                    value={formData.fullName}
-                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                    className={`w-full pl-9 pr-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-themeBlue/30 ${
-                      errors.fullName ? 'border-themeRed' : 'border-gray-300'
-                    }`}
-                  />
-                </div>
+                <input
+                  type="text"
+                  placeholder="Enter your full name"
+                  value={formData.fullName}
+                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                  className={`w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 transition-all ${
+                    errors.fullName ? 'border-themeRed bg-red-50/20' : 'border-gray-300'
+                  }`}
+                />
                 {errors.fullName && <p className="text-xs text-themeRed mt-1">{errors.fullName}</p>}
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* ഫോൺ & ഇമെയിൽ */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
                     Phone Number *
                   </label>
-                  <div className="relative">
-                    <Phone className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-                    <input
-                      type="tel"
-                      placeholder="+91 98765 43210"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className={`w-full pl-9 pr-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-themeBlue/30 ${
-                        errors.phone ? 'border-themeRed' : 'border-gray-300'
-                      }`}
-                    />
-                  </div>
+                  <input
+                    type="tel"
+                    placeholder="10-digit mobile number"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    className={`w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 transition-all ${
+                      errors.phone ? 'border-themeRed bg-red-50/20' : 'border-gray-300'
+                    }`}
+                  />
                   {errors.phone && <p className="text-xs text-themeRed mt-1">{errors.phone}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
                     Email Address *
                   </label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-                    <input
-                      type="email"
-                      placeholder="your.email@domain.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className={`w-full pl-9 pr-3 py-2 text-sm border rounded-lg focus:outline-none focus:ring-2 focus:ring-themeBlue/30 ${
-                        errors.email ? 'border-themeRed' : 'border-gray-300'
-                      }`}
-                    />
-                  </div>
+                  <input
+                    type="email"
+                    placeholder="your.email@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    className={`w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 transition-all ${
+                      errors.email ? 'border-themeRed bg-red-50/20' : 'border-gray-300'
+                    }`}
+                  />
                   {errors.email && <p className="text-xs text-themeRed mt-1">{errors.email}</p>}
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {/* ജില്ല & താല്പര്യമുള്ള മേഖല */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                    Your District *
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    District *
                   </label>
-                  <div className="relative">
-                    <MapPin className="absolute left-3 top-3 w-4 h-4 text-gray-400" />
-                    <select
-                      value={formData.district}
-                      onChange={(e) => setFormData({ ...formData, district: e.target.value })}
-                      className="w-full pl-9 pr-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-themeBlue/30 bg-white"
-                    >
-                      {KERALA_DISTRICTS.map((dist) => (
-                        <option key={dist} value={dist}>{dist}</option>
-                      ))}
-                    </select>
-                  </div>
+                  <select
+                    value={formData.district}
+                    onChange={(e) => setFormData({ ...formData, district: e.target.value })}
+                    className="w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 bg-white"
+                  >
+                    {KERALA_DISTRICTS.map((dist) => (
+                      <option key={dist} value={dist}>{dist}</option>
+                    ))}
+                  </select>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                    Preferred Role
+                  <label className="block text-xs font-bold text-gray-700 mb-1">
+                    Volunteer Role *
                   </label>
                   <select
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-themeBlue/30 bg-white"
+                    className="w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 bg-white"
                   >
                     {VOLUNTEER_ROLES.map((role) => (
                       <option key={role} value={role}>{role}</option>
@@ -242,40 +225,28 @@ const JoinModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
+              {/* സന്ദേശം */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 uppercase tracking-wider mb-1">
-                  How would you like to contribute? (Optional)
+                <label className="block text-xs font-bold text-gray-700 mb-1">
+                  Additional Notes (Optional)
                 </label>
                 <textarea
                   rows="2"
-                  placeholder="Share any special skills, interests, or ideas..."
+                  placeholder="Any prior experience in anti-drug campaigns or social work..."
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-3 py-2 text-sm border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-themeBlue/30"
+                  className="w-full px-3.5 py-2.5 text-base sm:text-sm border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30"
                 ></textarea>
               </div>
 
-              <div className="pt-2 flex items-center justify-end gap-3 border-t border-gray-100">
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                  Cancel
-                </button>
+              {/* സബ്മിറ്റ് ബട്ടൺ */}
+              <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="px-6 py-2.5 bg-themeRed hover:bg-themeRed-hover text-white text-sm font-semibold rounded-lg shadow-md hover:shadow-lg transition-all flex items-center gap-2"
+                  className="w-full py-3 sm:py-3.5 px-4 bg-themeRed hover:bg-themeRed-hover text-white font-bold rounded-xl shadow-md transition-all text-sm active:scale-98"
                 >
-                  {isSubmitting ? (
-                    <span>Registering...</span>
-                  ) : (
-                    <>
-                      <Heart className="w-4 h-4 fill-white" />
-                      <span>Submit Application</span>
-                    </>
-                  )}
+                  {isSubmitting ? 'Submitting Registration...' : 'Complete Registration'}
                 </button>
               </div>
             </form>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Shield, Heart, ArrowRight, ExternalLink, Award } from 'lucide-react';
+import { Phone, Mail, MapPin, Heart, ArrowRight, Award, ShieldCheck, Building } from 'lucide-react';
+import { samithiContact } from '../data/objectives';
 
 const Footer = ({ onOpenJoinModal }) => {
   return (
@@ -12,33 +13,33 @@ const Footer = ({ onOpenJoinModal }) => {
           
           {/* Column 1: Brand & Slogan */}
           <div className="space-y-4">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2.5 sm:gap-3">
               <img
                 src="/LNS-Logo.png"
                 alt="Lahari Nirmaargana Samithi Logo"
-                className="w-13 h-13 bg-white rounded-2xl p-1.5 object-contain shadow-md"
+                className="w-9 h-9 sm:w-10 sm:h-10 bg-white rounded-xl p-1 object-contain shadow-sm shrink-0"
                 onError={(e) => { e.currentTarget.src = '/logo.svg'; }}
               />
-              <div>
-                <span className="block text-sm font-black text-white uppercase tracking-wider">
+              <div className="min-w-0">
+                <span className="block text-xs sm:text-sm font-black text-white tracking-wide uppercase truncate">
                   LAHARI NIRMAARGANA SAMITHI
                 </span>
-                <span className="block font-malayalam text-xs text-themeGreen-light font-bold">
-                  ലഹരി നിർമ്മാർജന സമിതി
+                <span className="block font-malayalam text-[11px] sm:text-xs text-themeGreen-light font-bold truncate">
+                  ലഹരി നിർമ്മാർജന സമിതി (LNS)
                 </span>
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-              A state-level non-governmental social organization dedicated to combating substance abuse through statewide civic vigilance, school campaigns, youth empowerment, and compassionate rehabilitation support.
+            <p className="font-malayalam text-xs sm:text-sm text-gray-400 leading-relaxed font-normal">
+              ലഹരി എന്ന സാമൂഹിക വിപത്തിനെതിരെ ജനകീയ കൂട്ടായ്മയിലൂടെ പ്രതിരോധം തീർക്കുകയും ലഹരിമുക്തമായ ഒരു സമൂഹത്തെ വാർത്തെടുക്കുകയും ചെയ്യുക എന്ന ലക്ഷ്യത്തോടെ പ്രവർത്തിക്കുന്ന സാമൂഹിക പ്രസ്ഥാനമാണ് ലഹരി നിർമ്മാർജന സമിതി.
             </p>
 
             <div className="pt-2">
               <span className="inline-block px-3.5 py-1 bg-gray-900 border border-gray-800 rounded-full text-xs text-themeGreen font-bold">
                 Together for a Drug-Free Society.
               </span>
-              <p className="font-malayalam text-xs text-gray-400 mt-1 font-semibold">
-                ലഹരിമുക്ത സമൂഹത്തിനായി കൈകോർക്കാം
+              <p className="font-malayalam text-xs text-green-300 mt-1 font-bold">
+                ലഹരിക്കെതിരെ ഒന്നിക്കാം... ലഹരിമുക്ത സമൂഹത്തിനായി കൈകോർക്കാം!
               </p>
             </div>
           </div>
@@ -52,67 +53,67 @@ const Footer = ({ onOpenJoinModal }) => {
               <li>
                 <Link to="/" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Home</span>
+                  <span>Home (ഹോം)</span>
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>About Us</span>
+                  <span>About Us (ഞങ്ങളെക്കുറിച്ച്)</span>
                 </Link>
               </li>
               <li>
                 <Link to="/activities" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Our Activities</span>
+                  <span>Our Activities (പ്രവർത്തനങ്ങൾ)</span>
                 </Link>
               </li>
               <li>
                 <Link to="/leadership" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Leadership Directory</span>
+                  <span>Leadership Directory (നേതൃത്വം)</span>
                 </Link>
               </li>
               <li>
                 <Link to="/gallery" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Photo & Media Gallery</span>
+                  <span>Photo & Media Gallery (ഗ്യാലറി)</span>
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Contact Us</span>
+                  <span>Contact Us (ബന്ധപ്പെടുക)</span>
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Important Focus Areas */}
+          {/* Column 3: Key Initiatives */}
           <div className="space-y-4">
             <h4 className="text-white font-extrabold text-sm sm:text-base tracking-wide border-l-2 border-themeGreen pl-3 uppercase">
-              Key Focus Areas
+              Key Initiatives
             </h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-gray-400">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-gray-400 font-malayalam">
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-themeGreen mt-1.5"></span>
-                <span>Campus Anti-Drug Vigilance Cells</span>
+                <span>ക്യാമ്പസ് ലഹരിവിരുദ്ധ പ്രവർത്തനങ്ങൾ</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-themeGreen mt-1.5"></span>
-                <span>Panchayat Ward Sentinel Committees</span>
+                <span>പടയൊരുക്കം ബോധവൽക്കരണ ക്യാമ്പ്</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-themeGreen mt-1.5"></span>
-                <span>Free Confidential Tele-Counselling</span>
+                <span>ബാറുകൾക്കെതിരായ ജനകീയ പ്രതിരോധം</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-themeGreen mt-1.5"></span>
-                <span>Youth Sports & Skill Empowerment</span>
+                <span>വിദ്യാർത്ഥി - യുവജന സംരക്ഷണ ബോധവൽക്കരണം</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 rounded-full bg-themeGreen mt-1.5"></span>
-                <span>Hospital Rehabilitation Referral Network</span>
+                <span>പഞ്ചായത്ത് - വാർഡ് തല ജനകീയ കൂട്ടായ്മകൾ</span>
               </li>
             </ul>
 
@@ -128,22 +129,23 @@ const Footer = ({ onOpenJoinModal }) => {
             </div>
           </div>
 
-          {/* Column 4: Contact & Emergency Helpline */}
+          {/* Column 4: State Office & Helpline */}
           <div className="space-y-4">
             <h4 className="text-white font-extrabold text-sm sm:text-base tracking-wide border-l-2 border-themeRed pl-3 uppercase">
-              Emergency & State Office
+              State Office & Helpline
             </h4>
             
             <div className="bg-gray-900/90 rounded-2xl p-4 border border-gray-800 space-y-2">
-              <p className="text-[11px] uppercase font-black text-themeRed tracking-wider">
-                Emergency Anti-Drug Desk
+              <p className="text-[11px] font-black text-themeRed tracking-wide uppercase">
+                24x7 State Anti-Drug Desk
               </p>
-              <p className="text-xl font-black text-white">
-                <a href="tel:14405" className="hover:text-themeRed transition-colors">14405</a>
-                <span className="text-xs font-normal text-gray-400 ml-2">(Toll-Free 24x7)</span>
+              <p className="text-2xl font-black text-white">
+                <a href={`tel:${samithiContact.helpline}`} className="hover:text-themeRed transition-colors">
+                  {samithiContact.helpline}
+                </a>
               </p>
               <p className="text-xs text-gray-400">
-                Direct Office: <a href="tel:+919447012345" className="text-white hover:underline">+91 94470 12345</a>
+                Toll-free helpline for counseling & assistance
               </p>
             </div>
 
@@ -151,14 +153,10 @@ const Footer = ({ onOpenJoinModal }) => {
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-themeBlue shrink-0 mt-0.5" />
                 <span>
-                  State Headquarters, Samithi Bhavan, MG Road, Thiruvananthapuram, Kerala - 695001
+                  <strong>{samithiContact.name}</strong><br />
+                  {samithiContact.building}, {samithiContact.area},<br />
+                  {samithiContact.state} – {samithiContact.pincode}
                 </span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-themeGreen shrink-0" />
-                <a href="mailto:contact@laharinirmaarganam.org" className="hover:text-white transition-colors">
-                  contact@laharinirmaarganam.org
-                </a>
               </div>
             </div>
           </div>
@@ -166,13 +164,13 @@ const Footer = ({ onOpenJoinModal }) => {
         </div>
 
         {/* Bottom Bar: Copyright */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-xs text-gray-500 text-center sm:text-left">
           <p>
             &copy; {new Date().getFullYear()} Lahari Nirmaargana Samithi (ലഹരി നിർമ്മാർജന സമിതി). All rights reserved.
           </p>
-          <div className="flex items-center gap-5 text-gray-400">
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-5 text-gray-400">
             <span className="font-semibold text-gray-300">"Together for a Drug-Free Society."</span>
-            <span className="hidden sm:inline font-malayalam text-themeGreen font-bold">
+            <span className="font-malayalam text-themeGreen font-bold">
               ലഹരിമുക്ത സമൂഹത്തിനായി കൈകോർക്കാം
             </span>
           </div>

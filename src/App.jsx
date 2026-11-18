@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import JoinModal from './components/JoinModal';
 import AntiDrugPledgeModal from './components/AntiDrugPledgeModal';
+import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Pages
 import Home from './pages/Home';
@@ -33,7 +34,7 @@ function App() {
   const [isPledgeModalOpen, setIsPledgeModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans selection:bg-themeBlue selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans selection:bg-themeBlue selection:text-white w-full max-w-full overflow-x-clip">
       <ScrollToTop />
 
       {/* Navigation */}
@@ -114,6 +115,9 @@ function App() {
       <Footer 
         onOpenJoinModal={() => setIsJoinModalOpen(true)} 
       />
+
+      {/* Floating Scroll-to-Top Button */}
+      <ScrollToTopButton />
     </div>
   );
 }

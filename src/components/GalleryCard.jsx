@@ -9,7 +9,7 @@ const GalleryCard = ({ item, onClick }) => {
       onClick={onClick}
       className="group relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-blue-subtle hover:shadow-blue-hover transition-all duration-300 cursor-pointer flex flex-col hover:-translate-y-1.5"
     >
-      {/* Image Container */}
+      {/* Media Image Container */}
       <div className="relative h-60 sm:h-64 overflow-hidden bg-gray-950">
         <img
           src={isVideo ? item.thumbnail : item.image}
@@ -33,20 +33,20 @@ const GalleryCard = ({ item, onClick }) => {
         {/* Type / Category Badges */}
         <div className="absolute top-3.5 left-3.5 flex items-center gap-2">
           {isVideo ? (
-            <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-themeRed text-white flex items-center gap-1.5 shadow-md">
+            <span className="px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider bg-themeRed text-white flex items-center gap-1.5 shadow-md font-sans">
               <Film className="w-3.5 h-3.5" />
-              <span>{item.duration || 'Video'}</span>
+              <span>Video {item.duration && `(${item.duration})`}</span>
             </span>
           ) : (
-            <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-themeBlue text-white shadow-md">
+            <span className="px-3 py-1 rounded-full text-[11px] font-bold bg-themeBlue text-white shadow-md font-sans">
               Photo
             </span>
           )}
         </div>
 
-        {/* Metadata in Image */}
+        {/* Caption & Metadata (Main Title in Malayalam) */}
         <div className="absolute bottom-3.5 left-4 right-4 text-white">
-          <div className="flex items-center gap-3 text-[11px] text-gray-300 mb-1">
+          <div className="flex items-center gap-3 text-[11px] text-gray-300 mb-1 font-sans">
             {item.date && (
               <span className="flex items-center gap-1">
                 <Calendar className="w-3 h-3 text-blue-300" />
@@ -54,16 +54,13 @@ const GalleryCard = ({ item, onClick }) => {
               </span>
             )}
             {item.location && (
-              <span className="flex items-center gap-1 truncate">
+              <span className="flex items-center gap-1 truncate font-malayalam">
                 <MapPin className="w-3 h-3 text-emerald-300" />
                 <span>{item.location}</span>
               </span>
             )}
           </div>
-          <p className="font-malayalam text-xs text-green-300 font-bold line-clamp-1">
-            {item.malayalamTitle}
-          </p>
-          <h4 className="text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug">
+          <h4 className="font-malayalam text-sm sm:text-base font-extrabold text-white line-clamp-2 leading-snug">
             {item.title}
           </h4>
         </div>

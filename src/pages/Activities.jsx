@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ShieldCheck, 
   Search, 
-  Filter, 
   Calendar, 
   Sparkles, 
   HeartHandshake, 
-  CheckCircle,
   PhoneCall,
-  GraduationCap
+  GraduationCap,
+  Megaphone,
+  HeartPulse,
+  Users,
+  Award,
+  ArrowRight,
+  Flame,
+  CheckCircle2,
+  Filter
 } from 'lucide-react';
-import SectionTitle from '../components/SectionTitle';
-import ActivityCard from '../components/ActivityCard';
 import { activities, activityCategories } from '../data/activities';
+import { samithiContact } from '../data/objectives';
 
 const Activities = ({ onOpenJoinModal }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -24,167 +30,445 @@ const Activities = ({ onOpenJoinModal }) => {
     const matchesSearch = 
       act.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       act.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      act.malayalamTitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
       act.targetAudience.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   });
 
   return (
-    <div className="space-y-20 pb-24">
-      {/* 1. Header Banner */}
-      <section className="relative bg-gradient-to-br from-themeBlue-dark via-themeBlue to-slate-950 text-white py-20 sm:py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 backdrop-blur-md border border-white/20 text-themeGreen-light uppercase tracking-wider">
-            <ShieldCheck className="w-4 h-4 text-themeGreen" />
-            <span>Community Outreach & Vigilance</span>
-          </div>
-          <p className="font-malayalam text-lg sm:text-xl font-bold text-green-300">
-            ഞങ്ങളുടെ പ്രവർത്തനങ്ങൾ
-          </p>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
-            Our Activities & Programmes
-          </h1>
-          <p className="text-base sm:text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
-            Multi-tier grassroots initiatives transforming awareness into action across schools, campuses, and communities.
-          </p>
-        </div>
-      </section>
-
-      {/* 2. Modern Filter & Search Controls */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-3xl p-5 sm:p-7 border border-gray-100 shadow-blue-subtle space-y-4">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+    <div className="bg-[#ECEFF1]/70 py-6 sm:py-10 px-3 sm:px-6 lg:px-8 min-h-screen text-slate-800 selection:bg-themeBlue selection:text-white">
+      
+      {/* =========================================================================
+          MAIN BOXED CONTAINER (Matches Editorial Boxed Layout of Reference Design)
+         ========================================================================= */}
+      <div className="max-w-6xl mx-auto bg-white shadow-2xl rounded-xl sm:rounded-2xl border border-slate-200/80 overflow-hidden">
+        
+        {/* =======================================================================
+            SECTION 1: TOP HERO SECTION
+            Left: 3 Vertical Photo Strips with Attached Red, Blue, and Green Color Tags
+            Right: Top Action Button + "Our Work" Heading + Malayalam Description
+           ======================================================================= */}
+        <section className="p-6 sm:p-8 lg:p-10 border-b border-slate-200">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             
-            {/* Search Input */}
-            <div className="relative w-full md:w-88">
-              <Search className="absolute left-3.5 top-3.5 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search activities or keywords..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-10 py-3 text-sm border border-gray-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 focus:border-themeBlue transition-all"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-3.5 top-3 text-xs text-gray-400 hover:text-gray-600 bg-gray-100 px-2 py-0.5 rounded-full"
-                >
-                  Clear
-                </button>
-              )}
-            </div>
+            {/* Left Column: 3 Vertical Photo Strips with Color Banner Bars (7 Cols on LG) */}
+            <div className="lg:col-span-7 flex flex-col justify-between">
+              <div className="grid grid-cols-3 gap-2.5 sm:gap-3 h-64 sm:h-80 md:h-96">
+                
+                {/* Photo Strip 1 */}
+                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
+                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                    <img 
+                      src="/hero-image.png" 
+                      alt="Campus Vigilance Drives" 
+                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                    />
+                  </div>
+                  {/* Red Solid Tag: VIGILANCE */}
+                  <div className="bg-[#E53935] text-white p-2.5 sm:p-3 text-center select-none shrink-0">
+                    <div className="text-base sm:text-xl lg:text-2xl font-black font-sans uppercase tracking-tight leading-none">
+                      CAMPUS
+                    </div>
+                    <div className="text-[9px] sm:text-[11px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
+                      VIGILANCE
+                    </div>
+                  </div>
+                </div>
 
-            {/* Total Results Counter */}
-            <div className="text-xs text-gray-500 font-semibold self-end md:self-center bg-gray-50 px-3.5 py-2 rounded-xl border border-gray-100">
-              Showing <span className="font-black text-themeBlue">{filteredActivities.length}</span> of {activities.length} programmes
-            </div>
-          </div>
+                {/* Photo Strip 2 */}
+                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
+                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                    <img 
+                      src="/hero-image-2.jpg" 
+                      alt="Mass Public Campaigns" 
+                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                    />
+                  </div>
+                  {/* Blue Solid Tag: DEFENSE */}
+                  <div className="bg-[#1565C0] text-white p-2.5 sm:p-3 text-center select-none shrink-0">
+                    <div className="text-base sm:text-xl lg:text-2xl font-black font-sans uppercase tracking-tight leading-none">
+                      DEFENSE
+                    </div>
+                    <div className="text-[9px] sm:text-[11px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
+                      MASS ACTION
+                    </div>
+                  </div>
+                </div>
 
-          {/* Category Filter Pills */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-1 pt-1 no-scrollbar">
-            {activityCategories.map((cat) => (
-              <button
-                key={cat.id}
-                type="button"
-                onClick={() => setSelectedCategory(cat.id)}
-                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 ${
-                  selectedCategory === cat.id
-                    ? 'bg-themeBlue text-white shadow-xs'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
-                }`}
-              >
-                {cat.name}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+                {/* Photo Strip 3 */}
+                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
+                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                    <img 
+                      src="/hero-image-3.jpg" 
+                      alt="Rehabilitation Support" 
+                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                    />
+                  </div>
+                  {/* Green Solid Tag: RECOVERY */}
+                  <div className="bg-[#198754] text-white p-2.5 sm:p-3 text-center select-none shrink-0">
+                    <div className="text-base sm:text-xl lg:text-2xl font-black font-sans uppercase tracking-tight leading-none">
+                      SUPPORT
+                    </div>
+                    <div className="text-[9px] sm:text-[11px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
+                      &amp; RECOVERY
+                    </div>
+                  </div>
+                </div>
 
-      {/* 3. Activities Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {filteredActivities.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredActivities.map((act) => (
-              <ActivityCard key={act.id} activity={act} />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-16 bg-white rounded-3xl border border-gray-100 p-8 space-y-4">
-            <div className="w-16 h-16 rounded-full bg-gray-100 text-gray-400 flex items-center justify-center mx-auto">
-              <Search className="w-8 h-8" />
-            </div>
-            <h3 className="text-xl font-bold text-gray-900">No activities found</h3>
-            <p className="text-sm text-gray-500 max-w-sm mx-auto">
-              We couldn't find any activity matching "{searchQuery}". Try selecting another category or resetting the search filter.
-            </p>
-            <button
-              onClick={() => {
-                setSelectedCategory('all');
-                setSearchQuery('');
-              }}
-              className="px-5 py-2.5 bg-themeBlue text-white text-xs font-bold rounded-xl hover:bg-themeBlue-hover transition-colors"
-            >
-              Reset Filters
-            </button>
-          </div>
-        )}
-      </section>
-
-      {/* 4. Request an Awareness Program Card */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-themeBlue via-themeBlue-dark to-slate-900 text-white rounded-3xl p-8 sm:p-12 lg:p-16 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-themeGreen/20 rounded-full blur-3xl pointer-events-none"></div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-8 space-y-4">
-              <span className="px-3.5 py-1 bg-themeGreen text-white text-xs font-bold rounded-full uppercase tracking-wider inline-block shadow-xs">
-                For Schools, Colleges & Communities
-              </span>
-              <p className="font-malayalam text-lg font-bold text-green-300">
-                നിങ്ങളുടെ സ്ഥാപനത്തിൽ ലഹരിവിരുദ്ധ സെമിനാർ സംഘടിപ്പിക്കാം
-              </p>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight">
-                Want to Host an Anti-Drug Awareness Session?
-              </h3>
-              <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Our certified resource persons, psychologists, and legal experts provide free anti-drug workshops, street plays, and interactive student assemblies across Kerala.
-              </p>
-
-              <div className="flex flex-wrap items-center gap-4 pt-2 text-xs text-blue-200">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle className="w-4 h-4 text-themeGreen" />
-                  <span>Free of Charge for Educational Institutions</span>
-                </span>
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle className="w-4 h-4 text-themeGreen" />
-                  <span>Customized for Age Groups</span>
-                </span>
               </div>
             </div>
 
-            <div className="lg:col-span-4 flex flex-col gap-3">
+            {/* Right Column: Editorial Intro Block (5 Cols on LG) */}
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-5">
+              
+              {/* Top Red Button */}
+              <div className="flex justify-start lg:justify-end">
+                <button
+                  type="button"
+                  onClick={onOpenJoinModal}
+                  className="bg-[#E53935] hover:bg-[#D32F2F] text-white font-black text-xs sm:text-sm tracking-wider uppercase px-6 py-2.5 rounded shadow-sm hover:shadow transition-all duration-200 active:scale-95"
+                >
+                  JOIN AN ACTIVITY
+                </button>
+              </div>
+
+              {/* Bold Typography */}
+              <div className="space-y-3">
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight font-sans leading-none">
+                  Activities
+                </h1>
+
+                {/* Teal/Blue Uppercase Subtitle */}
+                <h2 className="text-xs sm:text-sm font-black tracking-wider uppercase text-[#0284C7] leading-relaxed">
+                  TRANSFORMING CITIZEN AWARENESS INTO SYSTEMIC ACTION
+                </h2>
+
+                {/* Authentic Malayalam Narrative Content */}
+                <div className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed space-y-2.5 font-normal">
+                  <p>
+                    ലഹരിയുടെ ദൂഷ്യഫലങ്ങളെക്കുറിച്ച് പൊതുസമൂഹത്തിൽ അവബോധം സൃഷ്ടിക്കുക, വിദ്യാർത്ഥികളെയും യുവജനങ്ങളെയും ലഹരിയുടെ പിടിയിൽനിന്ന് സംരക്ഷിക്കുക, വിദ്യാലയങ്ങളിലും കലാലയങ്ങളിലും ബോധവൽക്കരണ പ്രവർത്തനങ്ങൾ സംഘടിപ്പിക്കുക എന്നിവയാണ് സമിതിയുടെ പ്രധാന കർമ്മപരിപാടികൾ.
+                  </p>
+                  <p>
+                    പഞ്ചായത്ത് തലം മുതൽ സംസ്ഥാന തലം വരെയുള്ള നിരന്തര പ്രവർത്തനങ്ങളിലൂടെ കേരളത്തിലെമ്പാടും ലഹരിവിരുദ്ധ ജനകീയ മുന്നേറ്റം സൃഷ്ടിക്കാൻ സമിതിക്ക് സാധിച്ചിട്ടുണ്ട്.
+                  </p>
+                </div>
+              </div>
+
+              {/* Quick Action Badges */}
+              <div className="pt-2 flex items-center gap-3">
+                <a
+                  href="#activities-grid"
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#E53935] hover:text-[#C62828] underline underline-offset-4"
+                >
+                  <span>EXPLORE ALL PROGRAMMES &rarr;</span>
+                </a>
+                <span className="text-slate-300">|</span>
+                <span className="text-[11px] font-bold text-slate-500 font-malayalam">
+                  14 ജില്ലകളിലും സജീവം
+                </span>
+              </div>
+
+            </div>
+
+          </div>
+        </section>
+
+        {/* =======================================================================
+            SECTION 2: THREE COLUMNS WITH DARK HEADERS (Matches Section 2 of Reference)
+            Card 1: CAMPUS VIGILANCE
+            Card 2: PADAYORUKKAM & RALLIES
+            Card 3: CIVIC PROTESTS & DEFENSE
+           ======================================================================= */}
+        <section className="p-6 sm:p-8 lg:p-10 border-b border-slate-200 bg-slate-50/50">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            {/* Card 1: CAMPUS VIGILANCE */}
+            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs">
+              <div className="bg-[#262C38] text-white px-5 py-3.5 flex items-center gap-2.5">
+                <GraduationCap className="w-4 h-4 text-[#0284C7]" />
+                <h3 className="text-sm font-black tracking-widest uppercase font-sans">
+                  CAMPUS VIGILANCE
+                </h3>
+              </div>
+              <div className="p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
+                <p className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed">
+                  വിവിധ വിദ്യാലയങ്ങളിലും കലാലയങ്ങളിലും ലഹരിവിരുദ്ധ ബോധവൽക്കരണ പരിപാടികൾ സംഘടിപ്പിക്കുന്നു. വിദ്യാർത്ഥികളിലും യുവജനങ്ങളിലും ലഹരിക്കെതിരായ അവബോധവും സാമൂഹിക ഉത്തരവാദിത്തബോധവും വളർത്തുന്നു.
+                </p>
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCategory('campus')}
+                    className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded shadow-2xs transition-colors"
+                  >
+                    VIEW INITIATIVES
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: PADAYORUKKAM & RALLIES */}
+            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs">
+              <div className="bg-[#262C38] text-white px-5 py-3.5 flex items-center gap-2.5">
+                <Flame className="w-4 h-4 text-[#E53935]" />
+                <h3 className="text-sm font-black tracking-widest uppercase font-sans">
+                  PADAYORUKKAM RALLY
+                </h3>
+              </div>
+              <div className="p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
+                <p className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed">
+                  പാണക്കാട് അബ്ബാസ് അലി തങ്ങളുടെ വസതിയിൽ നിന്നാരംഭിച്ച് മലപ്പുറം കലക്ടറേറ്റിന് മുന്നിൽ സമാപിച്ച 600-ലധികം പ്രവർത്തകർ പങ്കെടുത്ത ഐതിഹാസിക റാലിയും ലഹരിവിരുദ്ധ ക്യാമ്പും.
+                </p>
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCategory('campaigns')}
+                    className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded shadow-2xs transition-colors"
+                  >
+                    READ DETAILS
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: CIVIC PROTESTS */}
+            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs">
+              <div className="bg-[#262C38] text-white px-5 py-3.5 flex items-center gap-2.5">
+                <ShieldAlert className="w-4 h-4 text-[#198754]" />
+                <h3 className="text-sm font-black tracking-widest uppercase font-sans">
+                  CIVIC PROTESTS
+                </h3>
+              </div>
+              <div className="p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
+                <p className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed">
+                  സമൂഹത്തിൽ ലഹരിയുടെ വ്യാപനത്തിന് കാരണമാകുന്ന സാഹചര്യങ്ങൾക്കെതിരെ സമിതി ശക്തമായ നിലപാട് സ്വീകരിക്കുന്നു. ബാറുകളുടെ എണ്ണം വർധിപ്പിക്കുന്നതിനെതിരെ കോട്ടക്കുന്നിൽ ജനകീയ പ്രതിഷേധം നടത്തി.
+                </p>
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => setSelectedCategory('community')}
+                    className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded shadow-2xs transition-colors"
+                  >
+                    VIEW ACTIONS
+                  </button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* =======================================================================
+            SECTION 3: ACTIVITIES DIRECTORY WITH SEARCH & FILTERS
+           ======================================================================= */}
+        <section id="activities-grid" className="p-6 sm:p-8 lg:p-10 border-b border-slate-200">
+          
+          {/* Header Bar with Search & Category Pills */}
+          <div className="space-y-5 pb-6 border-b border-slate-200">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <h3 className="text-base sm:text-lg font-black tracking-widest uppercase text-slate-900 font-sans">
+                  PROGRAMMES &amp; ACTION DIRECTORY
+                </h3>
+                <span className="text-[11px] text-slate-500 font-malayalam font-bold">
+                  സമിതിയുടെ പ്രധാന പ്രവർത്തനങ്ങൾ
+                </span>
+              </div>
+
+              {/* Search Input */}
+              <div className="relative w-full md:w-80">
+                <Search className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
+                <input
+                  type="text"
+                  placeholder="Search activities or keywords..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-9 pr-8 py-2 text-xs border border-slate-300 rounded focus:outline-none focus:border-themeBlue focus:ring-1 focus:ring-themeBlue font-sans"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-2.5 top-2.5 text-[10px] text-slate-400 hover:text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded"
+                  >
+                    Clear
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Category Filter Pills */}
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar">
+              {activityCategories.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => setSelectedCategory(cat.id)}
+                  className={`px-3.5 py-1.5 text-xs font-bold rounded transition-colors whitespace-nowrap shrink-0 ${
+                    selectedCategory === cat.id
+                      ? 'bg-[#262C38] text-white shadow-2xs'
+                      : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                  }`}
+                >
+                  {cat.englishName} ({cat.name})
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Activities Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
+            {filteredActivities.map((activity) => (
+              <div 
+                key={activity.id}
+                className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-shadow flex flex-col justify-between group"
+              >
+                <div>
+                  {/* Photo Header */}
+                  <div className="relative h-48 sm:h-52 bg-slate-900 overflow-hidden">
+                    <img 
+                      src={activity.image} 
+                      alt={activity.title}
+                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" 
+                    />
+                    <div className="absolute top-3 left-3 bg-[#E53935] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded shadow-xs">
+                      {activity.badge || 'LNS Action'}
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-5 space-y-3">
+                    <h4 className="text-base sm:text-lg font-bold font-malayalam text-slate-900 group-hover:text-themeBlue transition-colors leading-snug">
+                      {activity.title}
+                    </h4>
+
+                    <p className="text-xs sm:text-sm text-slate-600 font-malayalam leading-relaxed">
+                      {activity.description}
+                    </p>
+
+                    <div className="pt-2 flex flex-wrap gap-2 text-[11px] font-semibold">
+                      <span className="bg-slate-100 text-slate-700 px-2.5 py-1 rounded border border-slate-200 font-malayalam">
+                        ലക്ഷ്യവിഭാഗം: {activity.targetAudience}
+                      </span>
+                      {activity.impact && (
+                        <span className="bg-emerald-50 text-emerald-800 px-2.5 py-1 rounded border border-emerald-200 font-malayalam">
+                          {activity.impact}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer Action */}
+                <div className="p-5 pt-0">
+                  <button
+                    type="button"
+                    onClick={onOpenJoinModal}
+                    className="w-full bg-[#262C38] hover:bg-slate-900 text-white text-xs font-black uppercase tracking-wider py-2.5 rounded transition-colors flex items-center justify-center gap-1.5"
+                  >
+                    <span>SUPPORT THIS ACTIVITY</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </section>
+
+        {/* =======================================================================
+            SECTION 4: CORE FOCUS AREAS (Red Square Bulleted List)
+           ======================================================================= */}
+        <section className="p-6 sm:p-8 lg:p-10 border-b border-slate-200 bg-slate-50/50">
+          <div className="border-b-2 border-slate-900 pb-2 mb-6">
+            <h3 className="text-sm sm:text-base font-black tracking-widest uppercase text-slate-900 font-sans">
+              CORE OPERATIONAL PRINCIPLES &bull; പ്രവർത്തന സവിശേഷതകൾ
+            </h3>
+            <span className="text-[11px] text-slate-500 font-malayalam font-bold">
+              സമിതിയുടെ പ്രധാന പ്രവർത്തന രീതികളും ജനകീയ ഇടപെടലുകളും
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3.5 text-xs">
+            <div className="flex items-start gap-2">
+              <span className="w-4 h-4 bg-[#E53935] text-white flex items-center justify-center text-[10px] font-bold rounded-xs shrink-0 mt-0.5">
+                &gt;
+              </span>
+              <div className="font-malayalam text-slate-700 leading-snug">
+                <strong className="text-slate-900 font-sans text-[11.5px] block font-black text-[#E53935]">
+                  വിദ്യാർത്ഥി ജാഗ്രതാ സമിതികൾ
+                </strong>
+                സ്കൂളുകളിലും കോളേജുകളിലും അധ്യാപകരെയും വിദ്യാർത്ഥികളെയും ഉൾപ്പെടുത്തി നിരന്തര ജാഗ്രത ഉറപ്പാക്കുന്നു.
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <span className="w-4 h-4 bg-[#E53935] text-white flex items-center justify-center text-[10px] font-bold rounded-xs shrink-0 mt-0.5">
+                &gt;
+              </span>
+              <div className="font-malayalam text-slate-700 leading-snug">
+                <strong className="text-slate-900 font-sans text-[11.5px] block font-black text-[#1565C0]">
+                  ബോധവൽക്കരണ സദസ്സുകൾ
+                </strong>
+                നാട്ടിൻപുറങ്ങളിലും റെസിഡൻസ് അസോസിയേഷനുകളിലും കുടുംബശ്രീ യൂണിറ്റുകളിലും ബോധവൽക്കരണം സംഘടിപ്പിക്കുന്നു.
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <span className="w-4 h-4 bg-[#E53935] text-white flex items-center justify-center text-[10px] font-bold rounded-xs shrink-0 mt-0.5">
+                &gt;
+              </span>
+              <div className="font-malayalam text-slate-700 leading-snug">
+                <strong className="text-slate-900 font-sans text-[11.5px] block font-black text-[#198754]">
+                  ലഹരി മാഫിയക്കെതിരായ പ്രതിരോധം
+                </strong>
+                വിദ്യാലയ പരിസരങ്ങളിലെ ലഹരി വിൽപ്പന തടയാൻ എക്സൈസ്, പൊലീസ് സംവിധാനങ്ങളുമായി ചേർന്ന് ഇടപെടലുകൾ.
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <span className="w-4 h-4 bg-[#E53935] text-white flex items-center justify-center text-[10px] font-bold rounded-xs shrink-0 mt-0.5">
+                &gt;
+              </span>
+              <div className="font-malayalam text-slate-700 leading-snug">
+                <strong className="text-slate-900 font-sans text-[11.5px] block font-black text-slate-800">
+                  കൗൺസിലിംഗും പുനരധിവാസവും
+                </strong>
+                ലഹരിക്ക് അടിമപ്പെട്ടവരെ കണ്ടെത്തി വിദഗ്ദ്ധ കൗൺസിലിംഗും ചികിത്സാ സഹായങ്ങളും നൽകുന്നു.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* =======================================================================
+            SECTION 5: STATE HEADQUARTERS & ACTION BANNER
+           ======================================================================= */}
+        <section className="bg-slate-900 text-white p-6 sm:p-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-1.5 text-center md:text-left">
+              <span className="text-xs font-bold uppercase tracking-wider text-emerald-400">
+                STATE HEADQUARTERS &bull; കുന്നുമ്മൽ, മലപ്പുറം
+              </span>
+              <p className="text-sm text-slate-300 font-malayalam">
+                {samithiContact.name} &bull; {samithiContact.fullAddress}
+              </p>
+              <div className="flex items-center justify-center md:justify-start gap-3 text-xs text-slate-400 pt-1">
+                <span>24x7 Helpline: <strong className="text-white">{samithiContact.helpline}</strong></span>
+                <span>&bull;</span>
+                <span>14 Active Districts Across Kerala</span>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-3">
               <button
                 type="button"
                 onClick={onOpenJoinModal}
-                className="w-full py-3.5 px-6 rounded-xl bg-themeRed hover:bg-themeRed-hover text-white font-bold text-sm text-center shadow-lg transition-all flex items-center justify-center gap-2"
+                className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-xs font-black uppercase tracking-wider px-6 py-2.5 rounded shadow-sm transition-colors"
               >
-                <GraduationCap className="w-5 h-5" />
-                <span>Request Camp / Speaker</span>
+                JOIN PROGRAMME
               </button>
-
-              <a
-                href="tel:14405"
-                className="w-full py-3 px-6 rounded-xl bg-white/10 hover:bg-white/20 border border-white/20 text-white font-semibold text-sm text-center transition-colors flex items-center justify-center gap-2"
-              >
-                <PhoneCall className="w-4 h-4 text-themeGreen-light" />
-                <span>Call State Help Desk: 14405</span>
-              </a>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+
+      </div>
+
     </div>
   );
 };

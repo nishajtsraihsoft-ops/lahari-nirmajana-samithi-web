@@ -1,162 +1,151 @@
+// ലഹരി നിർമ്മാർജന സമിതി (LNS) - പ്രവർത്തന വിവരങ്ങൾ
+
 export const activityCategories = [
-  { id: 'all', name: 'All Activities' },
-  { id: 'education', name: 'School & College' },
-  { id: 'campaigns', name: 'Rallies & Campaigns' },
-  { id: 'community', name: 'Community Drives' },
-  { id: 'support', name: 'Counselling & Rehab' },
-  { id: 'empowerment', name: 'Youth Empowerment' }
+  { id: 'all', name: 'എല്ലാ പ്രവർത്തനങ്ങളും', englishName: 'All Activities' },
+  { id: 'campus', name: 'വിദ്യാലയം & കലാലയം', englishName: 'Campus & Education' },
+  { id: 'campaigns', name: 'ക്യാമ്പയിനുകളും റാലികളും', englishName: 'Rallies & Campaigns' },
+  { id: 'community', name: 'ജനകീയ കൂട്ടായ്മകൾ', englishName: 'Community Drives' },
+  { id: 'counselling', name: 'കൗൺസിലിംഗും സഹായവും', englishName: 'Counselling & Support' },
+  { id: 'youth', name: 'യുവജന ശാക്തീകരണം', englishName: 'Youth Empowerment' }
 ];
 
 export const activities = [
   {
-    id: 'anti-drug-awareness',
-    category: 'campaigns',
-    title: 'Anti-Drug Awareness Programmes',
-    malayalamTitle: 'ലഹരി വിരുദ്ധ ബോധവൽക്കരണ പരിപാടികൾ',
-    description: 'Comprehensive mass awareness sessions conducted across public town halls, residential colonies, and public transport hubs to educate families about the perils of synthetic and traditional drugs.',
-    image: 'https://images.unsplash.com/photo-1544654803-b69140b285a4?auto=format&fit=crop&w=800&q=80',
-    impact: 'Reaches over 85,000 citizens annually with direct interaction and informative literature.',
-    targetAudience: 'General Public, Parents, Youth',
-    frequency: 'Weekly across all District Chapters',
-    badge: 'Flagship Initiative'
-  },
-  {
-    id: 'school-campaigns',
-    category: 'education',
-    title: 'School Awareness Campaigns',
-    malayalamTitle: 'സ്കൂൾ ബോധവൽക്കരണ ക്യാമ്പയിനുകൾ',
-    description: 'Specialised workshops for high school and higher secondary students focusing on peer pressure management, refusal skills, recognizing early warning signs, and fostering emotional resilience.',
-    image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
-    impact: 'Implemented in 320+ high schools with student peer-leader squads.',
-    targetAudience: 'High School Students & Educators',
-    frequency: 'Academic Year Regular Program',
-    badge: 'Education'
-  },
-  {
-    id: 'college-campaigns',
-    category: 'education',
-    title: 'College Awareness Programmes & Campus Vigilance',
-    malayalamTitle: 'കോളേജ് ക്യാമ്പസ് ലഹരിവിരുദ്ധ സെല്ലുകൾ',
-    description: 'Engaging campus youth through interactive debates, expert legal lectures on NDPS laws, street plays, and forming institutional anti-drug vigilance forums.',
+    id: 'campus-vigilance',
+    category: 'campus',
+    title: 'ക്യാമ്പസ് ലഹരിവിരുദ്ധ പ്രവർത്തനങ്ങൾ',
+    description: 'വിവിധ വിദ്യാലയങ്ങളിലും കലാലയങ്ങളിലും ലഹരിവിരുദ്ധ ബോധവൽക്കരണ പരിപാടികൾ സംഘടിപ്പിക്കുന്നു. വിദ്യാർത്ഥികളിലും യുവജനങ്ങളിലും ലഹരിക്കെതിരായ അവബോധവും സാമൂഹിക ഉത്തരവാദിത്തബോധവും വളർത്തുന്നതിനായി നിരന്തര പ്രവർത്തനങ്ങൾ നടത്തുന്നു.',
     image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
-    impact: 'Active in 110+ Arts, Science, and Professional Colleges across the State.',
-    targetAudience: 'University & College Students',
-    frequency: 'Monthly Campus Drives',
-    badge: 'Youth Wing'
+    impact: 'കേരളത്തിലെ സ്കൂളുകളിലും കോളേജുകളിലും നിരന്തര ബോധവൽക്കരണം.',
+    targetAudience: 'വിദ്യാർത്ഥികൾ, അധ്യാപകർ, രക്ഷിതാക്കൾ',
+    frequency: 'തുടർച്ചയായ ക്യാമ്പയിനുകൾ',
+    badge: 'പ്രധാന പ്രവർത്തനം'
+  },
+  {
+    id: 'padayorukkam-camp',
+    category: 'campaigns',
+    title: 'പടയൊരുക്കം ക്യാമ്പ്',
+    description: 'സംഘടനയുടെ ശ്രദ്ധേയമായ പ്രവർത്തനങ്ങളിലൊന്നാണ് പടയൊരുക്കം ക്യാമ്പ്. പാണക്കാട് അബ്ബാസ് അലി തങ്ങളുടെ വസതിയിൽ നിന്നായിരുന്നു തുടക്കം. 600-ലധികം പേർ പങ്കെടുത്ത ഈ വിപുലമായ പരിപാടിയുടെ സമാപന പ്രവർത്തനങ്ങൾ ജില്ലാ കളക്ടറുടെ വസതിയിൽ ആരംഭിച്ച് കലക്ടറേറ്റിന് മുന്നിൽ സമാപിച്ചു.',
+    image: 'https://images.unsplash.com/photo-1544654803-b69140b285a4?auto=format&fit=crop&w=800&q=80',
+    impact: '600-ലധികം പേർ പങ്കെടുത്ത ജനകീയ ചരിത്ര മുന്നേറ്റം.',
+    targetAudience: 'പൊതുജനങ്ങൾ, യുവജനങ്ങൾ',
+    frequency: 'സംസ്ഥാനതല ക്യാമ്പയിൻ',
+    badge: 'ചരിത്ര സംഭവം'
+  },
+  {
+    id: 'anti-bar-protest',
+    category: 'community',
+    title: 'ബാറുകൾക്കെതിരായ ജനകീയ പ്രതിഷേധം',
+    description: 'സമൂഹത്തിൽ ലഹരിയുടെ വ്യാപനത്തിന് കാരണമാകുന്ന സാഹചര്യങ്ങൾക്കെതിരെ സമിതി ശക്തമായ നിലപാട് സ്വീകരിക്കുന്നു. ബാറുകളുടെ എണ്ണം വർധിപ്പിക്കുന്നതിനെതിരെ കോട്ടക്കുന്നിൽ ശക്തമായ ജനകീയ പ്രതിഷേധ പരിപാടി സംഘടിപ്പിച്ചു.',
+    image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=800&q=80',
+    impact: 'ലഹരിവ്യാപനത്തിനെതിരെ വിട്ടുവീഴ്ചയില്ലാത്ത ജനകീയ ശബ്ദം.',
+    targetAudience: 'സാമൂഹിക പ്രവർത്തകർ, പൊതുസമൂഹം',
+    frequency: 'സാമൂഹിക ഇടപെടൽ',
+    badge: 'ജനകീയ പ്രതിഷേധം'
+  },
+  {
+    id: 'district-office-coordination',
+    category: 'community',
+    title: 'ജില്ലാ ഓഫീസ് കേന്ദ്രീകരിച്ചുള്ള ഏകോപനം',
+    description: 'സംഘടനയുടെ പ്രവർത്തനങ്ങൾ കൂടുതൽ കാര്യക്ഷമമായി ഏകോപിപ്പിക്കുന്നതിനായി മലപ്പുറം ജില്ലയിലെ കുന്നുമ്മലിൽ സമിതിയുടെ പ്രധാന ഓഫീസ് സ്ഥാപിച്ചു പ്രവർത്തിച്ചുവരുന്നു.',
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80',
+    impact: 'വിവിധ ജില്ലകളിലേക്കും മേഖലകളിലേക്കുമുള്ള പ്രവർത്തന ഏകോപനം.',
+    targetAudience: 'സംഘടനാ പ്രവർത്തകർ, പൊതുജനങ്ങൾ',
+    frequency: 'പ്രവർത്തന കേന്ദ്രം',
+    badge: 'സംഘടനാ ശാക്തീകരണം'
+  },
+  {
+    id: 'school-awareness-drives',
+    category: 'campus',
+    title: 'സ്കൂൾ ബോധവൽക്കരണ ക്യാമ്പയിനുകൾ',
+    description: 'ഹൈസ്കൂൾ, ഹയർ സെക്കൻഡറി തലങ്ങളിൽ വിദ്യാർത്ഥികൾക്ക് ലഹരിയുടെ മാരകമായ പ്രത്യാഘാതങ്ങളെക്കുറിച്ച് പ്രത്യേക ക്ലാസുകളും ബോധവൽക്കരണ സെമിനാറുകളും സംഘടിപ്പിക്കുന്നു.',
+    image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
+    impact: 'ആയിരക്കണക്കിന് വിദ്യാർത്ഥികളിൽ ജാഗ്രതാ ബോധം വളർത്തുന്നു.',
+    targetAudience: 'സ്കൂൾ വിദ്യാർത്ഥികൾ',
+    frequency: 'വർഷം മുഴുവൻ',
+    badge: 'വിദ്യാഭ്യാസം'
   },
   {
     id: 'public-meetings-seminars',
     category: 'community',
-    title: 'Public Meetings & Expert Seminars',
-    malayalamTitle: 'പൊതുസമ്മേളനങ്ങളും സെമിനാറുകളും',
-    description: 'State and district-level symposiums featuring eminent psychiatrists, legal luminaries, enforcement officials, and recovered survivors sharing scientifically grounded strategies.',
+    title: 'പൊതുസമ്മേളനങ്ങളും സെമിനാറുകളും',
+    description: 'സമൂഹത്തിലെ വിവിധ തുറകളിലുള്ള പ്രമുഖരെയും ആരോഗ്യ വിദഗ്ധരെയും നിയമജ്ഞരെയും ഉൾപ്പെടുത്തി ലഹരിവിരുദ്ധ പൊതുസമ്മേളനങ്ങളും സെമിനാറുകളും നിരന്തരം സംഘടിപ്പിക്കുന്നു.',
     image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
-    impact: 'Fosters collaborative policy suggestions and community policing partnerships.',
-    targetAudience: 'Civic Leaders, Residents Associations, Kudumbashree Units',
-    frequency: 'Bi-Monthly',
-    badge: 'Leadership'
+    impact: 'പൊതുസമൂഹത്തിൽ ആഴത്തിലുള്ള ലഹരിവിരുദ്ധ ചിന്ത ഉണർത്തുന്നു.',
+    targetAudience: 'പൊതുജനങ്ങൾ, സാംസ്കാരിക നായകർ',
+    frequency: 'പ്രതിമാസ പരിപാടികൾ',
+    badge: 'സെമിനാറുകൾ'
   },
   {
     id: 'awareness-rallies',
     category: 'campaigns',
-    title: 'Statewide Awareness Rallies & Human Chains',
-    malayalamTitle: 'ലഹരി വിരുദ്ധ റാലികളും മനുഷ്യച്ചങ്ങലയും',
-    description: 'Vibrant civic processions, cycle marathons, torch rallies, and solidarity human chains that galvanize thousands of participants carrying anti-substance banners and slogans.',
+    title: 'ലഹരിവിരുദ്ധ റാലികളും കൂട്ടായ്മകളും',
+    description: 'നാടും നഗരവും ഉണർത്തുന്ന ലഹരിവിരുദ്ധ ജാഥകളും പ്ലക്കാർഡ് റാലികളും മനുഷ്യച്ചങ്ങലകളും സംഘടിപ്പിച്ച് ജനകീയ പ്രതിരോധം തീർക്കുന്നു.',
     image: 'https://images.unsplash.com/photo-1569437061241-a848be43cc82?auto=format&fit=crop&w=800&q=80',
-    impact: 'Over 25,000 citizens march synchronously on International Day Against Drug Abuse.',
-    targetAudience: 'Broad Public & Youth Volunteers',
-    frequency: 'Quarterly & Special Observances',
-    badge: 'Mobilisation'
+    impact: 'ആയിരക്കണക്കിന് ആളുകൾ അണിനിരക്കുന്ന ബഹുജന റാലികൾ.',
+    targetAudience: 'പൊതുസമൂഹം, യുവാക്കൾ',
+    frequency: 'പ്രത്യേക ദിനാചരണങ്ങൾ',
+    badge: 'ജനകീയ മുന്നേറ്റം'
   },
   {
     id: 'counselling-support',
-    category: 'support',
-    title: 'Confidential Counselling Support',
-    malayalamTitle: 'രഹസ്യ കൗൺസിലിംഗ് & മാർഗനിർദ്ദേശം',
-    description: 'Trained psychological counselors provide free, non-judgmental, one-on-one and telephonic guidance for individuals struggling with addiction and their distressed family members.',
+    category: 'counselling',
+    title: 'കൗൺസിലിംഗും മാനസിക പിന്തുണയും',
+    description: 'ലഹരിയുടെ പിടിയിൽ അകപ്പെട്ടവർക്കും അവരുടെ കുടുംബാംഗങ്ങൾക്കും വിദഗ്ധ കൗൺസിലർമാരുടെ നേതൃത്വത്തിൽ സൗജന്യവും രഹസ്യവുമായ മാനസിക പിന്തുണയും കൗൺസിലിംഗും നൽകുന്നു.',
     image: 'https://images.unsplash.com/photo-1573497620053-ea5300f94f21?auto=format&fit=crop&w=800&q=80',
-    impact: 'Over 4,200 confidential counseling sessions handled with high recovery retention.',
-    targetAudience: 'Affected Individuals, Family Members',
-    frequency: 'Daily (9:00 AM - 8:00 PM)',
-    badge: 'Free Service'
-  },
-  {
-    id: 'rehabilitation-support',
-    category: 'support',
-    title: 'Rehabilitation Support & Aftercare Linkage',
-    malayalamTitle: 'പുനരധിവാസ സഹായവും തുടർപരിചരണവും',
-    description: 'Bridging patients with certified de-addiction hospitals, facilitating medical detox, and monitoring aftercare to avert relapses and help reintegration into normal social lives.',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
-    impact: 'Assisted 1,800+ patients into sustained medical rehabilitation programs.',
-    targetAudience: 'Persons in recovery & caregivers',
-    frequency: 'Ongoing Patient Coordination',
-    badge: 'Healthcare'
-  },
-  {
-    id: 'community-awareness',
-    category: 'community',
-    title: 'Panchayat & Ward Community Drives',
-    malayalamTitle: 'ഗ്രാമപഞ്ചായത്ത് വാർഡ് തല കർമ്മസമിതികൾ',
-    description: 'Grassroot level vigil squads that keep watch on suspected peddling spots around parks, abandoned buildings, and school perimeters in partnership with local authorities.',
-    image: 'https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?auto=format&fit=crop&w=800&q=80',
-    impact: 'Over 450 ward vigilance committees functioning actively in Kerala.',
-    targetAudience: 'Local Residents, Ward Members, Merchants',
-    frequency: 'Continuous Grassroot Vigil',
-    badge: 'Grassroots'
+    impact: 'നിരവധി കുടുംബങ്ങൾക്ക് ആശ്വാസവും ജീവിതത്തിലേക്ക് തിരിച്ചുവരവും.',
+    targetAudience: 'ലഹരിബാധിതർ, കുടുംബാംഗങ്ങൾ',
+    frequency: 'സൗജന്യ ഹെൽപ്‌ലൈൻ സേവനം',
+    badge: 'സാമൂഹിക സേവനം'
   },
   {
     id: 'youth-empowerment',
-    category: 'empowerment',
-    title: 'Youth Empowerment & Sports Leagues',
-    malayalamTitle: 'യുവജന ശാക്തീകരണവും കായിക കൂട്ടായ്മകളും',
-    description: 'Channeling youth energy into productive avenues including football tourneys, arts festivals, skill training, and social volunteering under the motto "Play Sports, Shun Drugs".',
+    category: 'youth',
+    title: 'യുവജന ശാക്തീകരണവും കായിക പ്രവർത്തനങ്ങളും',
+    description: 'യുവതലമുറയെ ലഹരിയിൽനിന്ന് അകറ്റി കായിക-സാംസ്കാരിക മേഖലകളിലേക്ക് ആകർഷിക്കുന്നതിനായി ഫുട്ബോൾ, അത്‌ലറ്റിക്സ് തുടങ്ങിയ കായിക മത്സരങ്ങളും കലാ കൂട്ടായ്മകളും സംഘടിപ്പിക്കുന്നു.',
     image: 'https://images.unsplash.com/photo-1526676037777-05a232554f77?auto=format&fit=crop&w=800&q=80',
-    impact: 'Engaged 12,000+ youngsters in positive sports and creative cultural clubs.',
-    targetAudience: 'Youth aged 15 - 30 years',
-    frequency: 'Seasonal Tournaments & Weekend Camps',
-    badge: 'Empowerment'
+    impact: 'യുവജനങ്ങളുടെ കഴിവുകൾ ഉത്തമ മാർഗ്ഗങ്ങളിലേക്ക് തിരിച്ചുവിടുന്നു.',
+    targetAudience: 'യുവജനങ്ങൾ',
+    frequency: 'വാർഷിക മത്സരങ്ങൾ',
+    badge: 'യുവജന കൂട്ടായ്മ'
   }
 ];
 
 export const latestActivities = [
   {
     id: 'la-1',
-    title: 'Statewide Youth Anti-Drug Marathon 2026',
-    malayalamTitle: 'സംസ്ഥാനതല ലഹരിവിരുദ്ധ മാരത്തൺ 2026',
-    date: 'February 15, 2026',
-    location: 'Central Stadium, Thiruvananthapuram',
-    image: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=800&q=80',
-    description: 'More than 4,500 students and citizens ran shoulder to shoulder across a 10 km route to spread awareness against synthetic narcotics.',
-    category: 'Rallies & Campaigns'
+    title: 'മലപ്പുറം ജില്ലാ സമ്മേളനം',
+    date: '2022 ഒക്ടോബർ 22',
+    location: 'മക്കരപ്പറമ്പ്, മലപ്പുറം',
+    image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+    description: 'സംഘടനയുടെ പ്രവർത്തനങ്ങൾ വിലയിരുത്തുന്നതിനും ഭാവിപ്രവർത്തനങ്ങൾക്ക് പുതിയ ദിശാബോധം നൽകുന്നതിനും മക്കരപ്പറമ്പ് സമ്മേളനം വേദിയായി.',
+    category: 'ജില്ലാ സമ്മേളനം'
   },
   {
     id: 'la-2',
-    title: 'Comprehensive Campus Vigilance Seminar',
-    malayalamTitle: 'ക്യാമ്പസ് വിജിലൻസ് സെമിനാർ',
-    date: 'January 28, 2026',
-    location: 'Senate Hall, Ernakulam',
-    image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80',
-    description: 'Interactive orientation conducted for college union leaders and NSS coordinators on identifying addiction symptoms and prompt reporting mechanisms.',
-    category: 'School & College'
+    title: 'പടയൊരുക്കം ലഹരിവിരുദ്ധ ക്യാമ്പ്',
+    date: 'സംസ്ഥാന ക്യാമ്പയിൻ',
+    location: 'പാണക്കാട് & മലപ്പുറം കലക്ടറേറ്റ്',
+    image: 'https://images.unsplash.com/photo-1544654803-b69140b285a4?auto=format&fit=crop&w=800&q=80',
+    description: 'പാണക്കാട് അബ്ബാസ് അലി തങ്ങളുടെ വസതിയിൽ തുടങ്ങി കലക്ടറേറ്റിന് മുന്നിൽ സമാപിച്ച 600-ലധികം പേർ പങ്കെടുത്ത പടയൊരുക്കം ക്യാമ്പ്.',
+    category: 'ബഹുജന ക്യാമ്പ്'
   },
   {
     id: 'la-3',
-    title: 'District Community Vigilance Workshop',
-    malayalamTitle: 'ജില്ലാ തല ജാഗ്രതാ സമിതി ശില്പശാല',
-    date: 'January 12, 2026',
-    location: 'Town Hall, Kozhikode',
-    image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80',
-    description: 'Empowering 180 ward-level volunteer representatives with practical legal insights and coordination protocols with Excise and Police departments.',
-    category: 'Community Drives'
+    title: 'ബാറുകൾക്കെതിരായ പ്രതിഷേധ പരിപാടി',
+    date: 'ജനകീയ പ്രക്ഷോഭം',
+    location: 'കോട്ടക്കുന്ന്, മലപ്പുറം',
+    image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=800&q=80',
+    description: 'ബാറുകളുടെ എണ്ണം വർധിപ്പിക്കുന്നതിനെതിരെ കോട്ടക്കുന്നിൽ സംഘടിപ്പിച്ച ശക്തമായ ജനകീയ പ്രതിഷേധ പരിപാടി.',
+    category: 'ജനകീയ പ്രതിഷേധം'
   },
   {
     id: 'la-4',
-    title: 'Parenting in the Digital Era & Drug Prevention',
-    malayalamTitle: 'രക്ഷിതാക്കൾക്കുള്ള ബോധവൽക്കരണ ക്ലാസ്',
-    date: 'December 20, 2025',
-    location: 'Civic Centre, Thrissur',
-    image: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80',
-    description: 'Focused session for parents and guardians on early behavioural changes, cyber drug solicitation risks, and cultivating open family dialogues.',
-    category: 'Counselling & Rehab'
+    title: 'വിദ്യാലയ - കലാലയ ബോധവൽക്കരണ സദസ്സ്',
+    date: 'തുടർ പ്രവർത്തനം',
+    location: 'മാറാക്കര & വിവിധ കേന്ദ്രങ്ങൾ',
+    image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
+    description: 'വിദ്യാർത്ഥികളിൽ ലഹരിവിരുദ്ധ അവബോധവും സാമൂഹിക പ്രതിബദ്ധതയും വളർത്തുന്നതിനായി സംഘടിപ്പിച്ച ബോധവൽക്കരണ പരിപാടി.',
+    category: 'വിദ്യാഭ്യാസം'
   }
 ];
