@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import JoinModal from './components/JoinModal';
-import AntiDrugPledgeModal from './components/AntiDrugPledgeModal';
 import ScrollToTopButton from './components/ScrollToTopButton';
 
 // Pages
@@ -31,7 +30,6 @@ function ScrollToTop() {
 
 function App() {
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
-  const [isPledgeModalOpen, setIsPledgeModalOpen] = useState(false);
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans selection:bg-themeBlue selection:text-white w-full max-w-full overflow-x-clip">
@@ -40,7 +38,6 @@ function App() {
       {/* Navigation */}
       <Navbar
         onOpenJoinModal={() => setIsJoinModalOpen(true)}
-        onOpenPledgeModal={() => setIsPledgeModalOpen(true)}
       />
 
       {/* Main Content Area */}
@@ -51,7 +48,6 @@ function App() {
             element={
               <Home 
                 onOpenJoinModal={() => setIsJoinModalOpen(true)}
-                onOpenPledgeModal={() => setIsPledgeModalOpen(true)}
               />
             } 
           />
@@ -93,22 +89,16 @@ function App() {
             element={
               <Home 
                 onOpenJoinModal={() => setIsJoinModalOpen(true)}
-                onOpenPledgeModal={() => setIsPledgeModalOpen(true)}
               />
             } 
           />
         </Routes>
       </main>
 
-      {/* Global Modals */}
+      {/* Global Join/Volunteer Modal (Connected to WhatsApp) */}
       <JoinModal
         isOpen={isJoinModalOpen}
         onClose={() => setIsJoinModalOpen(false)}
-      />
-
-      <AntiDrugPledgeModal
-        isOpen={isPledgeModalOpen}
-        onClose={() => setIsPledgeModalOpen(false)}
       />
 
       {/* Footer */}

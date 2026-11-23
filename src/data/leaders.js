@@ -5,6 +5,7 @@ export const leadershipCategories = [
   { id: 'state-committee', name: 'സംസ്ഥാന സമിതി', englishName: 'State Committee' },
   { id: 'malappuram-east', name: 'മലപ്പുറം ഈസ്റ്റ്', englishName: 'Malappuram East' },
   { id: 'malappuram-west', name: 'മലപ്പുറം വെസ്റ്റ്', englishName: 'Malappuram West' },
+  { id: 'mandalam', name: 'മണ്ഡലം നേതൃത്വം', englishName: 'Mandalam Leaders' },
 ];
 
 export const leaders = [
@@ -148,4 +149,32 @@ export const leaders = [
     bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ ട്രഷററായി പ്രവർത്തിക്കുന്നു.',
     term: 'District Treasurer'
   }
+];
+
+// Mandalam Leaders (Only Images - No Text as requested)
+export const mandalamLeaders = [
+  { id: 'ml-1', image: '/mandalam-leaders/eranad-mandalam.jpeg' },
+  { id: 'ml-2', image: '/mandalam-leaders/kondotti-mandalam.jpeg' },
+  { id: 'ml-3', image: '/mandalam-leaders/kottakkal-mandalam.jpeg' },
+  { id: 'ml-4', image: '/mandalam-leaders/kottakkal-mandalam-2.jpeg' },
+  { id: 'ml-5', image: '/mandalam-leaders/malappuram-east-jilla.jpeg' },
+  { id: 'ml-6', image: '/mandalam-leaders/malappuram-mandalam.jpeg' },
+  { id: 'ml-7', image: '/mandalam-leaders/malappuram-mandalam-2.jpeg' },
+  { id: 'ml-8', image: '/mandalam-leaders/malappuram-west.jpeg' },
+  { id: 'ml-9', image: '/mandalam-leaders/manjeri-mandalam.jpeg' },
+  { id: 'ml-10', image: '/mandalam-leaders/manjeri-mandalam-2.jpeg' },
+  { id: 'ml-11', image: '/mandalam-leaders/mankada-mandalam.jpeg' },
+  { id: 'ml-12', image: '/mandalam-leaders/mankada-mandalam-2.jpeg' },
+  { id: 'ml-13', image: '/mandalam-leaders/nilmbur-mandalam.jpeg' },
+  { id: 'ml-14', image: '/mandalam-leaders/perinthalamanna-mandalam.jpeg' },
+  { id: 'ml-15', image: '/mandalam-leaders/ponnani-mandalam.jpeg' },
+  { id: 'ml-16', image: '/mandalam-leaders/thanur-mandalam.jpeg' },
+  { id: 'ml-17', image: '/mandalam-leaders/thavanur-mandalam.jpeg' },
+  { id: 'ml-18', image: '/mandalam-leaders/thiroorangadi-mandalam.jpeg' },
+  { id: 'ml-19', image: '/mandalam-leaders/thirur-mandalam.jpeg' },
+  { id: 'ml-20', image: '/mandalam-leaders/vallikkunn-mandalm.jpeg' },
+  { id: 'ml-21', image: '/mandalam-leaders/vengara-mandalam.jpeg' },
+  { id: 'ml-22', image: '/mandalam-leaders/vengara-mandalam-2.jpeg' },
+  { id: 'ml-23', image: '/mandalam-leaders/wandoor-mandalam.jpeg' },
+  { id: 'ml-24', image: '/mandalam-leaders/wandoor-2.jpeg' }
 ];

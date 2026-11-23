@@ -32,7 +32,7 @@ import {
   statistics
 } from '../data/objectives';
 
-const About = ({ onOpenJoinModal, onOpenPledgeModal }) => {
+const About = ({ onOpenJoinModal }) => {
   const [selectedMilestone, setSelectedMilestone] = useState(null);
 
   return (
@@ -46,7 +46,7 @@ const About = ({ onOpenJoinModal, onOpenPledgeModal }) => {
         {/* =======================================================================
             SECTION 1: TOP HERO SECTION
             Left: 3 Vertical Photo Strips with Attached Red, Blue, and Green Tags
-            Right: Top Pledge Button + "Hello" Heading + Mission Description
+            Right: Top Join Button + "About Us" Heading + Mission Description
            ======================================================================= */}
         <section className="p-6 sm:p-8 lg:p-10 border-b border-slate-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
@@ -124,14 +124,14 @@ const About = ({ onOpenJoinModal, onOpenPledgeModal }) => {
             {/* Right Column: Editorial Intro Block (5 Cols on LG) */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-5">
               
-              {/* Top Red Button: MAKE PLEDGE / JOIN */}
+              {/* Top Red Button: JOIN US */}
               <div className="flex justify-start lg:justify-end">
                 <button
                   type="button"
-                  onClick={onOpenPledgeModal}
+                  onClick={onOpenJoinModal}
                   className="bg-[#E53935] hover:bg-[#D32F2F] text-white font-black text-xs sm:text-sm tracking-wider uppercase px-6 py-2.5 rounded shadow-sm hover:shadow transition-all duration-200 active:scale-95"
                 >
-                  TAKE ANTI-DRUG PLEDGE
+                  JOIN OUR MISSION
                 </button>
               </div>
 
@@ -553,13 +553,14 @@ const About = ({ onOpenJoinModal, onOpenPledgeModal }) => {
               >
                 JOIN LNS
               </button>
-              <button
-                type="button"
-                onClick={onOpenPledgeModal}
-                className="bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded border border-white/20 transition-colors"
+              <a
+                href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent('Hello Lahari Nirmaargana Samithi, I would like to contact your office.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#198754] hover:bg-[#157347] text-white text-xs font-bold uppercase tracking-wider px-5 py-2.5 rounded shadow-xs transition-colors"
               >
-                TAKE PLEDGE
-              </button>
+                WHATSAPP US
+              </a>
             </div>
           </div>
         </section>

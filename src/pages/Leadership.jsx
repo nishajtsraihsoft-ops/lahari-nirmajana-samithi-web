@@ -13,18 +13,29 @@ import {
   Clock,
   ArrowRight,
   Flame,
-  CheckCircle2
+  CheckCircle2,
+  X
 } from 'lucide-react';
-import { leaders, leadershipCategories } from '../data/leaders';
+import { leaders, leadershipCategories, mandalamLeaders } from '../data/leaders';
 import { samithiContact } from '../data/objectives';
 import LeaderCard from '../components/LeaderCard';
 
 const Leadership = ({ onOpenJoinModal }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleCategoryClick = (catId) => {
+    setSelectedCategory(catId);
+    if (catId === 'mandalam') {
+      const el = document.getElementById('mandalam-leaders');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   // Filter leaders by category and search query
   const filteredLeaders = leaders.filter((leader) => {
+    if (selectedCategory === 'mandalam') return false;
     const matchesCategory = 
       selectedCategory === 'all' || 
       leader.category === selectedCategory;
@@ -165,11 +176,18 @@ const Leadership = ({ onOpenJoinModal }) => {
                   href="#leaders-grid"
                   className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#E53935] hover:text-[#C62828] underline underline-offset-4"
                 >
-                  <span>VIEW FULL DIRECTORY &rarr;</span>
+                  <span>STATE DIRECTORY &rarr;</span>
+                </a>
+                <span className="text-slate-300 hidden sm:inline">|</span>
+                <a
+                  href="#mandalam-leaders"
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#198754] hover:text-[#146c43] underline underline-offset-4"
+                >
+                  <span>MANDALAM LEADERS ({mandalamLeaders.length}) &darr;</span>
                 </a>
                 <span className="text-slate-300 hidden sm:inline">|</span>
                 <span className="text-[11px] font-bold text-slate-500 font-malayalam">
-                  സംസ്ഥാന - ജില്ലാ നേതൃനിര
+                  സംസ്ഥാന - മണ്ഡലം നേതൃനിര
                 </span>
               </div>
 
@@ -313,13 +331,15 @@ const Leadership = ({ onOpenJoinModal }) => {
               {leadershipCategories.map((cat) => {
                 const count = cat.id === 'all' 
                   ? leaders.length 
-                  : leaders.filter(l => l.category === cat.id).length;
+                  : cat.id === 'mandalam'
+                    ? mandalamLeaders.length
+                    : leaders.filter(l => l.category === cat.id).length;
                 const isActive = selectedCategory === cat.id;
 
                 return (
                   <button
                     key={cat.id}
-                    onClick={() => setSelectedCategory(cat.id)}
+                    onClick={() => handleCategoryClick(cat.id)}
                     className={`px-3.5 sm:px-4 py-1.5 text-xs font-bold rounded-full transition-all whitespace-nowrap shrink-0 flex items-center gap-1.5 ${
                       isActive
                         ? 'bg-[#262C38] text-white shadow-xs font-black'
@@ -348,10 +368,54 @@ const Leadership = ({ onOpenJoinModal }) => {
 
           {filteredLeaders.length === 0 && (
             <div className="py-12 text-center text-slate-500 font-malayalam text-xs sm:text-sm">
-              നേതാക്കളെ കണ്ടെത്താൻ സാധിച്ചില്ല. ദയവായി മറ്റൊരു പേരോ പദവിയോ നൽകി തിരയുക.
+              {selectedCategory === 'mandalam' ? (
+                <span>മണ്ഡലം നേതാക്കളുടെ ചിത്രങ്ങൾ താഴെ കാണാം 👇</span>
+              ) : (
+                <span>നേതാക്കളെ കണ്ടെത്താൻ സാധിച്ചില്ല. ദയവായി മറ്റൊരു പേരോ പദവിയോ നൽകി തിരയുക.</span>
+              )}
             </div>
           )}
 
+        </section>
+
+        {/* =======================================================================
+            SECTION 4: MANDALAM LEADERS (മണ്ഡലം നേതൃത്വം)
+            Only Images - Not Any Texts Wanted - 4 Columns In A Row - Responsive
+           ======================================================================= */}
+        <section id="mandalam-leaders" className="p-4 sm:p-7 lg:p-10 border-b border-slate-200 bg-white">
+          <div className="border-b-2 border-slate-900 pb-2 mb-6 sm:mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <h3 className="text-sm sm:text-base font-black tracking-widest uppercase text-slate-900 font-sans">
+                MANDALAM LEADERS &bull; മണ്ഡലം നേതൃത്വം
+              </h3>
+              <span className="text-[11px] text-slate-500 font-malayalam font-bold">
+                മണ്ഡലം നേതൃത്വ നിര
+              </span>
+            </div>
+            <span className="text-xs font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full self-start sm:self-auto font-sans">
+              {mandalamLeaders.length} Images
+            </span>
+          </div>
+
+          {/* Grid: 4 in a row on Desktop, 2 on Tablet, 1 on Mobile */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {mandalamLeaders.map((item, idx) => (
+              <div
+                key={item.id || idx}
+                onClick={() => setSelectedImage(item.image)}
+                className="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200/90 bg-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer active:scale-98"
+              >
+                <div className="w-full aspect-[3/4.2] overflow-hidden bg-slate-100">
+                  <img
+                    src={item.image}
+                    alt="Mandalam Leader"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
         </section>
 
         {/* =======================================================================
@@ -450,6 +514,32 @@ const Leadership = ({ onOpenJoinModal }) => {
         </section>
 
       </div>
+
+      {/* Lightbox Modal for Full View (Only Image - No Text) */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-xs animate-fadeIn"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div 
+            className="relative max-w-2xl max-h-[92vh] bg-transparent rounded-2xl overflow-hidden flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setSelectedImage(null)}
+              aria-label="Close"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-20 p-2 rounded-full bg-black/70 hover:bg-black text-white transition-colors shadow-lg"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <img
+              src={selectedImage}
+              alt="Mandalam Leader Full View"
+              className="w-full h-auto max-h-[88vh] object-contain rounded-xl shadow-2xl"
+            />
+          </div>
+        </div>
+      )}
 
     </div>
   );

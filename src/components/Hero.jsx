@@ -5,7 +5,7 @@ import {
   ChevronLeft, 
   ChevronRight, 
   HeartHandshake, 
-  Award, 
+  MessageCircle, 
   PhoneCall, 
   ZoomIn, 
   X, 
@@ -43,7 +43,7 @@ const HERO_SLIDES = [
   }
 ];
 
-const Hero = ({ onOpenJoinModal, onOpenPledgeModal }) => {
+const Hero = ({ onOpenJoinModal }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isZoomOpen, setIsZoomOpen] = useState(false);
 
@@ -120,7 +120,7 @@ const Hero = ({ onOpenJoinModal, onOpenPledgeModal }) => {
             {slide.subtitle}
           </p>
 
-          {/* Action Buttons: Outlined DISCOVER MORE + Red JOIN US + Green PLEDGE */}
+          {/* Action Buttons: Outlined DISCOVER MORE + Red JOIN US + Green WHATSAPP */}
           <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-2.5 sm:gap-3.5 w-full sm:w-auto">
             <Link
               to={slide.ctaLink}
@@ -138,14 +138,15 @@ const Hero = ({ onOpenJoinModal, onOpenPledgeModal }) => {
               <span>JOIN US</span>
             </button>
 
-            <button
-              type="button"
-              onClick={onOpenPledgeModal}
-              className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase text-white bg-themeGreen/90 hover:bg-themeGreen shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
+            <a
+              href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent('Hello Lahari Nirmaargana Samithi, I would like to know more about your activities.')}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm tracking-wider uppercase text-white bg-[#198754] hover:bg-[#157347] shadow-lg transition-all duration-200 flex items-center justify-center gap-2"
             >
-              <Award className="w-4 h-4 text-green-200" />
-              <span>ANTI-DRUG PLEDGE</span>
-            </button>
+              <MessageCircle className="w-4 h-4 text-white" />
+              <span>WHATSAPP US</span>
+            </a>
           </div>
         </div>
 

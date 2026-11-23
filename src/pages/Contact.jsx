@@ -11,9 +11,18 @@ import {
   PhoneCall,
   Building,
   ArrowRight,
-  HeartHandshake
+  HeartHandshake,
+  MessageCircle
 } from 'lucide-react';
 import { samithiContact } from '../data/objectives';
+
+const PURPOSE_LABELS = {
+  'school-session': 'സ്കൂൾ / കോളേജ് ബോധവൽക്കരണം (School/College Awareness)',
+  'counseling': 'ലഹരിവിമുക്തി കൗൺസിലിംഗ് സഹായം (De-addiction Counseling)',
+  'volunteer': 'സന്നദ്ധ പ്രവർത്തകനാകാൻ (Volunteer Registration)',
+  'local-committee': 'പ്രാദേശിക കമ്മിറ്റി രൂപീകരിക്കാൻ (Local Committee Formation)',
+  'other': 'മറ്റു കാര്യങ്ങൾ (General Enquiry)'
+};
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -27,6 +36,7 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submittedMessage, setSubmittedMessage] = useState('');
 
   const validate = () => {
     const errs = {};
@@ -53,10 +63,29 @@ const Contact = () => {
     return Object.keys(errs).length === 0;
   };
 
+  const getWhatsAppMessage = (data = formData) => {
+    const purposeText = PURPOSE_LABELS[data.subject] || data.subject;
+    return `*പുതിയ അന്വേഷണം / New Contact Enquiry*\n` +
+      `*ലഹരി നിർമ്മാർജന സമിതി (LNS)*\n\n` +
+      `👤 *പേര് (Name):* ${data.fullName.trim()}\n` +
+      `📞 *ഫോൺ (Phone):* ${data.phone.trim()}\n` +
+      `📧 *ഇമെയിൽ (Email):* ${data.email.trim()}\n` +
+      `📌 *ആവശ്യം (Purpose):* ${purposeText}\n` +
+      `💬 *സന്ദേശം (Message):*\n${data.message.trim()}\n\n` +
+      `---\n_Sent via Lahari Nirmaargana Samithi Website_`;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
     setIsSubmitting(true);
+
+    const waText = getWhatsAppMessage();
+    setSubmittedMessage(waText);
+    const waUrl = `https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent(waText)}`;
+
+    // Open WhatsApp
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
 
     setTimeout(() => {
       setIsSubmitting(false);
@@ -69,7 +98,7 @@ const Contact = () => {
         message: ''
       });
       setErrors({});
-    }, 800);
+    }, 600);
   };
 
   return (
@@ -363,19 +392,32 @@ const Contact = () => {
 
               {isSuccess ? (
                 <div className="p-8 rounded-lg bg-emerald-50 border border-emerald-200 text-center space-y-3">
-                  <CheckCircle className="w-12 h-12 text-emerald-600 mx-auto" />
+                  <div className="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
+                    <CheckCircle className="w-8 h-8" />
+                  </div>
                   <h4 className="text-lg font-bold text-emerald-900 font-malayalam">
-                    സന്ദേശം വിജയകരമായി അയച്ചു!
+                    സന്ദേശം വാട്സ്ആപ്പിലേക്ക് കൈമാറി!
                   </h4>
-                  <p className="text-xs text-emerald-700 font-malayalam">
-                    ലഹരി നിർമ്മാർജന സമിതി ഓഫീസ് ഉടൻ നിങ്ങളെ ബന്ധപ്പെടുന്നതാണ്. നന്ദി.
+                  <p className="text-xs text-emerald-700 font-malayalam max-w-md mx-auto leading-relaxed">
+                    നിങ്ങളുടെ സന്ദേശം ലഹരി നിർമ്മാർജന സമിതിയുടെ ഔദ്യോഗിക വാട്സ്ആപ്പിലേക്ക് (+91 {samithiContact.rawPhone || '9567555661'}) തയ്യാറാക്കി നൽകിയിട്ടുണ്ട്. വാട്സ്ആപ്പ് ഓപ്പൺ ആയില്ലെങ്കിൽ താഴെ ക്ലിക്ക് ചെയ്യുക:
                   </p>
-                  <button
-                    onClick={() => setIsSuccess(false)}
-                    className="mt-3 bg-[#262C38] text-white text-xs font-bold px-4 py-2 rounded"
-                  >
-                    Send Another Message
-                  </button>
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
+                    <a
+                      href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent(submittedMessage)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 bg-[#198754] hover:bg-[#157347] text-white text-xs font-bold rounded shadow-xs transition-colors flex items-center gap-2"
+                    >
+                      <MessageCircle className="w-4 h-4 text-white" />
+                      <span>Open WhatsApp (+91 95675 55661)</span>
+                    </a>
+                    <button
+                      onClick={() => setIsSuccess(false)}
+                      className="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white text-xs font-bold rounded transition-colors"
+                    >
+                      Send Another Message
+                    </button>
+                  </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
@@ -462,11 +504,14 @@ const Contact = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-xs font-black uppercase tracking-wider px-7 py-3 rounded shadow-sm hover:shadow transition-all disabled:opacity-50 flex items-center gap-2"
+                      className="bg-[#198754] hover:bg-[#157347] text-white text-xs font-black uppercase tracking-wider px-7 py-3.5 rounded shadow-sm hover:shadow transition-all disabled:opacity-50 flex items-center gap-2 active:scale-98"
                     >
-                      <Send className="w-3.5 h-3.5" />
-                      <span>{isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}</span>
+                      <MessageCircle className="w-4 h-4 text-white" />
+                      <span>{isSubmitting ? 'CONNECTING WHATSAPP...' : 'SEND ON WHATSAPP (+91 95675 55661)'}</span>
                     </button>
+                    <p className="text-[11px] text-slate-500 font-sans mt-2">
+                      Submitting will format and send your message directly to official WhatsApp (+91 95675 55661).
+                    </p>
                   </div>
                 </form>
               )}

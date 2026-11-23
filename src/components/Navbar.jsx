@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, PhoneCall, HeartHandshake, Award, ChevronRight, ShieldCheck } from 'lucide-react';
+import { Menu, X, PhoneCall, HeartHandshake, ChevronRight, ShieldCheck, MessageCircle } from 'lucide-react';
 import { samithiContact } from '../data/objectives';
 
 const NAV_LINKS = [
   { name: 'Home', path: '/', malayalam: 'ഹോം' },
   { name: 'About Us', path: '/about', malayalam: 'ഞങ്ങളെക്കുറിച്ച്' },
   { name: 'Our Activities', path: '/activities', malayalam: 'പ്രവർത്തനങ്ങൾ' },
-  { name: 'Leadership', path: '/leadership', malayalam: 'നേതൃത്വം' },
+  { name: 'Leaders', path: '/leadership', malayalam: 'നേതൃത്വം' },
   { name: 'Gallery', path: '/gallery', malayalam: 'ഗ്യാലറി' },
   { name: 'Contact Us', path: '/contact', malayalam: 'ബന്ധപ്പെടുക' },
 ];
 
-const Navbar = ({ onOpenJoinModal, onOpenPledgeModal }) => {
+const Navbar = ({ onOpenJoinModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
@@ -62,15 +62,17 @@ const Navbar = ({ onOpenJoinModal, onOpenPledgeModal }) => {
               </span>
             </div>
 
-            {/* Right Action: Anti-Drug Pledge & Malayalam Slogan */}
+            {/* Right Action: WhatsApp Contact & Malayalam Slogan */}
             <div className="flex items-center gap-2 sm:gap-3 text-[11px] text-blue-100">
-              <button
-                onClick={onOpenPledgeModal}
-                className="inline-flex items-center gap-1.5 text-white hover:text-themeGreen-light transition-all font-semibold bg-white/10 hover:bg-white/20 px-2.5 sm:px-3 py-0.5 rounded-full border border-white/15 text-[10px] sm:text-[11px]"
+              <a
+                href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent('Hello Lahari Nirmaargana Samithi, I would like to contact your office.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-white hover:text-green-200 transition-all font-semibold bg-white/10 hover:bg-white/20 px-2.5 sm:px-3 py-0.5 rounded-full border border-white/15 text-[10px] sm:text-[11px]"
               >
-                <Award className="w-3.5 h-3.5 text-yellow-300" />
-                <span>Anti-Drug Pledge</span>
-              </button>
+                <MessageCircle className="w-3.5 h-3.5 text-green-300" />
+                <span>WhatsApp: {samithiContact.rawPhone || '9567555661'}</span>
+              </a>
               <span className="hidden lg:inline text-blue-200 font-malayalam font-bold">
                 ലഹരിമുക്ത സമൂഹത്തിനായി കൈകോർക്കാം
               </span>
@@ -185,12 +187,7 @@ const Navbar = ({ onOpenJoinModal, onOpenPledgeModal }) => {
                     }`
                   }
                 >
-                  <div className="flex flex-col">
-                    <span>{link.name}</span>
-                    <span className="font-malayalam text-[11px] opacity-80 font-normal">
-                      {link.malayalam}
-                    </span>
-                  </div>
+                  <span>{link.name}</span>
                   <ChevronRight className="w-4 h-4 opacity-50" />
                 </NavLink>
               ))}
@@ -206,20 +203,19 @@ const Navbar = ({ onOpenJoinModal, onOpenPledgeModal }) => {
                 className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl text-white font-bold bg-themeRed hover:bg-themeRed-hover shadow-md text-sm"
               >
                 <HeartHandshake className="w-5 h-5" />
-                <span>Join Our Mission (ഞങ്ങളോടൊപ്പം ചേരൂ)</span>
+                <span>Join Our Mission</span>
               </button>
 
-              <button
-                type="button"
-                onClick={() => {
-                  setIsMobileMenuOpen(false);
-                  onOpenPledgeModal();
-                }}
+              <a
+                href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent('Hello Lahari Nirmaargana Samithi, I would like to contact your office.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-themeGreen-dark font-bold bg-themeGreen-light hover:bg-green-100 border border-themeGreen/25 text-sm"
               >
-                <Award className="w-4 h-4 text-themeGreen" />
-                <span>Take Anti-Drug Pledge (പ്രതിജ്ഞ)</span>
-              </button>
+                <MessageCircle className="w-4 h-4 text-themeGreen" />
+                <span>WhatsApp Contact (9567555661)</span>
+              </a>
             </div>
           </div>
         )}

@@ -25,7 +25,7 @@ import Hero from '../components/Hero';
 import { objectives, samithiContact, organisationRegions } from '../data/objectives';
 import { activities } from '../data/activities';
 
-const Home = ({ onOpenJoinModal, onOpenPledgeModal }) => {
+const Home = ({ onOpenJoinModal }) => {
   return (
     <div className="space-y-0 pb-16 sm:pb-24 bg-white text-gray-800">
       
@@ -34,7 +34,6 @@ const Home = ({ onOpenJoinModal, onOpenPledgeModal }) => {
          ========================================================================= */}
       <Hero 
         onOpenJoinModal={onOpenJoinModal} 
-        onOpenPledgeModal={onOpenPledgeModal} 
       />
 
       {/* =========================================================================
@@ -599,7 +598,7 @@ const Home = ({ onOpenJoinModal, onOpenPledgeModal }) => {
                 </div>
                 <div className="p-6 sm:p-8 space-y-3 text-left">
                   <span className="text-[10px] font-black uppercase tracking-wider text-themeGreen block">
-                    CAMPUS PROGRAM &bull; CITIZEN PLEDGE
+                    CAMPUS PROGRAM &bull; AWARENESS CAMPAIGN
                   </span>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-themeGreen transition-colors leading-snug">
                     Empowering Students: Anti-Substance Seminars Across Schools
@@ -614,11 +613,11 @@ const Home = ({ onOpenJoinModal, onOpenPledgeModal }) => {
               <div className="p-6 sm:p-8 pt-0">
                 <button
                   type="button"
-                  onClick={onOpenPledgeModal}
+                  onClick={onOpenJoinModal}
                   className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-themeGreen hover:bg-themeGreen-hover text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all group/btn"
                 >
-                  <Award className="w-4 h-4" />
-                  <span>Take Pledge Now</span>
+                  <HeartHandshake className="w-4 h-4" />
+                  <span>Join Our Awareness Network</span>
                 </button>
               </div>
             </div>

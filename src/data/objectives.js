@@ -230,6 +230,8 @@ export const samithiContact = {
   phone: '+91 95675 55661',
   helpline: '+91 95675 55661',
   rawPhone: '9567555661',
+  whatsappNumber: '919567555661',
+  whatsappUrl: 'https://wa.me/919567555661',
   fullAddress: 'സി.എച്ച്. ബിൽഡിംഗ്, കുന്നുമ്മൽ, മലപ്പുറം, കേരളം – 676505.'
 };
 

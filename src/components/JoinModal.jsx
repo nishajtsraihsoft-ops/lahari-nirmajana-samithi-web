@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { X, CheckCircle, Heart, Phone, Mail, MapPin, User, ShieldCheck } from 'lucide-react';
+import { X, CheckCircle, Heart, Phone, Mail, MapPin, User, ShieldCheck, MessageCircle } from 'lucide-react';
+import { samithiContact } from '../data/objectives';
 
 const KERALA_DISTRICTS = [
   'മലപ്പുറം (Malappuram)',
@@ -59,14 +60,33 @@ const JoinModal = ({ isOpen, onClose }) => {
     return Object.keys(errs).length === 0;
   };
 
+  const getWhatsAppMessage = (data = formData) => {
+    return `*പുതിയ വളണ്ടിയർ രജിസ്ട്രേഷൻ / New Volunteer Registration*\n` +
+      `*ലഹരി നിർമ്മാർജന സമിതി (LNS)*\n\n` +
+      `👤 *പേര് (Name):* ${data.fullName.trim()}\n` +
+      `📞 *ഫോൺ (Phone):* ${data.phone.trim()}\n` +
+      `📧 *ഇമെയിൽ (Email):* ${data.email.trim()}\n` +
+      `📍 *ജില്ല (District):* ${data.district}\n` +
+      `🎯 *മേഖല (Role):* ${data.role}\n` +
+      (data.message.trim() ? `💬 *കുറിപ്പ് (Notes):* ${data.message.trim()}\n` : '') +
+      `\n---\n_Sent via Lahari Nirmaargana Samithi Website_`;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!validate()) return;
     setIsSubmitting(true);
+
+    const waText = getWhatsAppMessage();
+    const waUrl = `https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent(waText)}`;
+
+    // Open WhatsApp directly
+    window.open(waUrl, '_blank', 'noopener,noreferrer');
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 700);
+    }, 400);
   };
 
   const handleReset = () => {
@@ -111,7 +131,7 @@ const JoinModal = ({ isOpen, onClose }) => {
             ഞങ്ങളോടൊപ്പം ചേരൂ
           </p>
           <p className="text-blue-100 text-xs sm:text-sm mt-0.5">
-            ലഹരിമുക്ത സമൂഹത്തിനായി സന്നദ്ധപ്രവർത്തകനായി രജിസ്റ്റർ ചെയ്യാം.
+            ലഹരിമുക്ത സമൂഹത്തിനായി സന്നദ്ധപ്രവർത്തകനായി രജിസ്റ്റർ ചെയ്യാം. വിവരങ്ങൾ ഔദ്യോഗിക വാട്സ്ആപ്പിലേക്ക് നേരിട്ട് കൈമാറാം.
           </p>
         </div>
 
@@ -119,20 +139,29 @@ const JoinModal = ({ isOpen, onClose }) => {
         <div className="p-4 sm:p-6 overflow-y-auto flex-1">
           {isSubmitted ? (
             <div className="text-center py-6 sm:py-8 space-y-3 sm:space-y-4">
-              <div className="w-16 h-16 bg-themeGreen-light text-themeGreen rounded-full flex items-center justify-center mx-auto shadow-inner">
+              <div className="w-16 h-16 bg-[#198754]/15 text-[#198754] rounded-full flex items-center justify-center mx-auto shadow-inner">
                 <CheckCircle className="w-10 h-10" />
               </div>
               <h4 className="text-xl font-black text-gray-900">
-                Registration Successful!
+                Connecting to WhatsApp!
               </h4>
               <p className="text-xs sm:text-sm text-gray-700 max-w-md mx-auto leading-relaxed">
-                ലഹരി നിർമ്മാർജന സമിതിയുടെ സന്നദ്ധപ്രവർത്തകനായി താങ്കൾ രജിസ്റ്റർ ചെയ്തിരിക്കുന്നു. ഞങ്ങളുടെ ജില്ലാ കോർഡിനേറ്റർ ഉടൻ താങ്കളെ ബന്ധപ്പെടുന്നതാണ്.
+                ലഹരി നിർമ്മാർജന സമിതിയുടെ ഔദ്യോഗിക വാട്സ്ആപ്പിലേക്ക് (+91 {samithiContact.rawPhone || '9567555661'}) വിവരങ്ങൾ കൈമാറിയിരിക്കുന്നു. വാട്സ്ആപ്പ് ഓപ്പൺ ആയില്ലെങ്കിൽ താഴെ ക്ലിക്ക് ചെയ്യുക:
               </p>
-              <div className="pt-2">
+              <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a
+                  href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent(getWhatsAppMessage())}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto px-6 py-2.5 bg-[#198754] hover:bg-[#157347] text-white rounded-xl text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Open WhatsApp (+91 95675 55661)</span>
+                </a>
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-6 py-2.5 bg-themeBlue hover:bg-themeBlue-hover text-white rounded-xl text-sm font-bold shadow-md transition-all"
+                  className="w-full sm:w-auto px-6 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-sm font-bold shadow-md transition-all"
                 >
                   Done
                 </button>
@@ -143,7 +172,7 @@ const JoinModal = ({ isOpen, onClose }) => {
               {/* പേര് */}
               <div>
                 <label className="block text-xs font-bold text-gray-700 mb-1">
-                  Full Name *
+                  Full Name (പൂർണ്ണ നാമം) *
                 </label>
                 <input
                   type="text"
@@ -161,7 +190,7 @@ const JoinModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-700 mb-1">
-                    Phone Number *
+                    Phone Number (ഫോൺ നമ്പർ) *
                   </label>
                   <input
                     type="tel"
@@ -177,7 +206,7 @@ const JoinModal = ({ isOpen, onClose }) => {
 
                 <div>
                   <label className="block text-xs font-bold text-gray-700 mb-1">
-                    Email Address *
+                    Email Address (ഇമെയിൽ) *
                   </label>
                   <input
                     type="email"
@@ -196,7 +225,7 @@ const JoinModal = ({ isOpen, onClose }) => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 <div>
                   <label className="block text-xs font-bold text-gray-700 mb-1">
-                    District *
+                    District (ജില്ല) *
                   </label>
                   <select
                     value={formData.district}
@@ -211,7 +240,7 @@ const JoinModal = ({ isOpen, onClose }) => {
 
                 <div>
                   <label className="block text-xs font-bold text-gray-700 mb-1">
-                    Volunteer Role *
+                    Volunteer Role (മേഖല) *
                   </label>
                   <select
                     value={formData.role}
@@ -228,7 +257,7 @@ const JoinModal = ({ isOpen, onClose }) => {
               {/* സന്ദേശം */}
               <div>
                 <label className="block text-xs font-bold text-gray-700 mb-1">
-                  Additional Notes (Optional)
+                  Additional Notes (കൂടുതൽ വിവരങ്ങൾ - Optional)
                 </label>
                 <textarea
                   rows="2"
@@ -239,15 +268,21 @@ const JoinModal = ({ isOpen, onClose }) => {
                 ></textarea>
               </div>
 
-              {/* സബ്മിറ്റ് ബട്ടൺ */}
+              {/* സബ്മിറ്റ് ബട്ടൺ - Connected to WhatsApp */}
               <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3 sm:py-3.5 px-4 bg-themeRed hover:bg-themeRed-hover text-white font-bold rounded-xl shadow-md transition-all text-sm active:scale-98"
+                  className="w-full py-3.5 px-4 bg-[#198754] hover:bg-[#157347] text-white font-bold rounded-xl shadow-md transition-all text-sm active:scale-98 flex items-center justify-center gap-2.5"
                 >
-                  {isSubmitting ? 'Submitting Registration...' : 'Complete Registration'}
+                  <MessageCircle className="w-5 h-5 text-white" />
+                  <span>
+                    {isSubmitting ? 'Opening WhatsApp...' : 'Register on WhatsApp (+91 95675 55661)'}
+                  </span>
                 </button>
+                <p className="text-center text-[11px] text-gray-500 mt-2 font-sans">
+                  Submitting will format and open this registration directly on official WhatsApp (9567555661).
+                </p>
               </div>
             </form>
           )}
