@@ -92,13 +92,13 @@ const Contact = () => {
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div className="grid grid-cols-3 gap-2.5 sm:gap-3 h-64 sm:h-80 md:h-96">
                 
-                {/* Photo Strip 1 */}
+                {/* Photo Strip 1 (Full Color, No Grayscale) */}
                 <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                  <div className="relative flex-grow overflow-hidden bg-slate-100">
                     <img 
                       src="/hero-image.png" 
                       alt="State Headquarters Kunnummal" 
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   {/* Red Solid Tag: HEADQUARTERS */}
@@ -112,13 +112,13 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Photo Strip 2 */}
+                {/* Photo Strip 2 (Full Color, No Grayscale) */}
                 <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                  <div className="relative flex-grow overflow-hidden bg-slate-100">
                     <img 
                       src="/hero-image-2.jpg" 
                       alt="24x7 Anti-Drug Helpline" 
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   {/* Blue Solid Tag: HELPLINE */}
@@ -132,13 +132,13 @@ const Contact = () => {
                   </div>
                 </div>
 
-                {/* Photo Strip 3 */}
+                {/* Photo Strip 3 (Full Color, No Grayscale) */}
                 <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                  <div className="relative flex-grow overflow-hidden bg-slate-100">
                     <img 
                       src="/hero-image-3.jpg" 
                       alt="Statewide Network" 
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   {/* Green Solid Tag: NETWORK */}
@@ -158,18 +158,18 @@ const Contact = () => {
             {/* Right Column: Editorial Intro Block (5 Cols on LG) */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-5">
               
-              {/* Top Red Action Button */}
+              {/* Top Red Button */}
               <div className="flex justify-start lg:justify-end">
                 <a
                   href={`tel:${samithiContact.helpline}`}
                   className="bg-[#E53935] hover:bg-[#D32F2F] text-white font-black text-xs sm:text-sm tracking-wider uppercase px-6 py-2.5 rounded shadow-sm hover:shadow transition-all duration-200 active:scale-95 flex items-center gap-1.5"
                 >
                   <PhoneCall className="w-4 h-4" />
-                  <span>CALL HELPLINE</span>
+                  <span>24X7 HELPLINE</span>
                 </a>
               </div>
 
-              {/* Bold Display Heading */}
+              {/* Bold Typography */}
               <div className="space-y-3">
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight font-sans leading-none">
                   Contact
@@ -177,25 +177,28 @@ const Contact = () => {
 
                 {/* Teal/Blue Uppercase Subtitle */}
                 <h2 className="text-xs sm:text-sm font-black tracking-wider uppercase text-[#0284C7] leading-relaxed">
-                  GET IN TOUCH WITH LAHARI NIRMAARGANA SAMITHI
+                  GET IN TOUCH WITH STATE HEADQUARTERS &bull; LAHARI NIRMAARGANA SAMITHI
                 </h2>
 
                 {/* Authentic Malayalam Narrative Content */}
                 <div className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed space-y-2.5 font-normal">
                   <p>
-                    ലഹരിവിരുദ്ധ ബോധവൽക്കരണ പരിപാടികൾ വിദ്യാലയങ്ങളിലോ പ്രദേശങ്ങളിലോ സംഘടിപ്പിക്കുന്നതിനും, ലഹരിമുക്തി കൗൺസിലിംഗ് സഹായങ്ങൾക്കുമായി ലഹരി നിർമ്മാർജന സമിതിയുമായി ബന്ധപ്പെടാം.
+                    ലഹരിവിമുക്തി കൗൺസിലിംഗ്, വിദ്യാലയങ്ങളിലെ ബോധവൽക്കരണ പരിപാടികൾ സംഘടിപ്പിക്കൽ, സമിതിയിൽ സന്നദ്ധ പ്രവർത്തകരാകൽ തുടങ്ങിയ ആവശ്യങ്ങൾക്ക് സംസ്ഥാന ഓഫീസുമായോ 24 മണിക്കൂറും പ്രവർത്തിക്കുന്ന ഹെൽപ്‌ലൈനുമായോ ബന്ധപ്പെടാം.
                   </p>
                   <p>
-                    സംസ്ഥാനത്തെ എല്ലാ ജില്ലകളിലും സമിതിയുടെ കർമ്മസമിതികൾ സജീവമായി പ്രവർത്തിക്കുന്നു.
+                    നിങ്ങളുടെ പ്രദേശത്തെ ലഹരിവിരുദ്ധ പ്രവർത്തനങ്ങൾക്ക് സമിതിയുടെ പൂർണ്ണ പിന്തുണ ലഭ്യമാണ്.
                   </p>
                 </div>
               </div>
 
               {/* Quick Action Badges */}
               <div className="pt-2 flex items-center gap-3">
-                <span className="text-xs font-black uppercase tracking-wider text-[#E53935]">
-                  TOLL-FREE: {samithiContact.helpline}
-                </span>
+                <a
+                  href="#contact-form"
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#E53935] hover:text-[#C62828] underline underline-offset-4"
+                >
+                  <span>SEND AN ENQUIRY &rarr;</span>
+                </a>
                 <span className="text-slate-300">|</span>
                 <span className="text-[11px] font-bold text-slate-500 font-malayalam">
                   മലപ്പുറം &bull; കേരളം

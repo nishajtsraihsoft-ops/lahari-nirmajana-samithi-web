@@ -227,7 +227,9 @@ export const samithiContact = {
   area: 'കുന്നുമ്മൽ, മലപ്പുറം (Kunnummal, Malappuram)',
   state: 'കേരളം (Kerala)',
   pincode: '676505',
-  helpline: '1234567890',
+  phone: '+91 95675 55661',
+  helpline: '+91 95675 55661',
+  rawPhone: '9567555661',
   fullAddress: 'സി.എച്ച്. ബിൽഡിംഗ്, കുന്നുമ്മൽ, മലപ്പുറം, കേരളം – 676505.'
 };
 

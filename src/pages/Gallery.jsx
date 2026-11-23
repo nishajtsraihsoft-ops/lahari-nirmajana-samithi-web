@@ -72,13 +72,13 @@ const Gallery = () => {
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div className="grid grid-cols-3 gap-2.5 sm:gap-3 h-64 sm:h-80 md:h-96">
                 
-                {/* Photo Strip 1 */}
+                {/* Photo Strip 1 (Full Color, No Grayscale) */}
                 <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                  <div className="relative flex-grow overflow-hidden bg-slate-100">
                     <img 
                       src="/hero-image.png" 
                       alt="Historic Anti-drug Campaign Archive" 
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   {/* Red Solid Tag: RALLIES */}
@@ -92,13 +92,13 @@ const Gallery = () => {
                   </div>
                 </div>
 
-                {/* Photo Strip 2 */}
+                {/* Photo Strip 2 (Full Color, No Grayscale) */}
                 <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                  <div className="relative flex-grow overflow-hidden bg-slate-100">
                     <img 
                       src="/hero-image-2.jpg" 
                       alt="State Conference Moments" 
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   {/* Blue Solid Tag: CONVENTIONS */}
@@ -112,13 +112,13 @@ const Gallery = () => {
                   </div>
                 </div>
 
-                {/* Photo Strip 3 */}
+                {/* Photo Strip 3 (Full Color, No Grayscale) */}
                 <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                  <div className="relative flex-grow overflow-hidden bg-slate-100">
                     <img 
                       src="/hero-image-3.jpg" 
                       alt="Campus Vigilance Sessions" 
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   {/* Green Solid Tag: CAMPUS */}
@@ -306,7 +306,7 @@ const Gallery = () => {
             </div>
           </div>
 
-          {/* Media Grid */}
+          {/* Media Grid (100% Full Color Photos, No Grayscale) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
             {displayedItems.map((item) => (
               <div
@@ -315,16 +315,14 @@ const Gallery = () => {
                 className="group cursor-pointer bg-white rounded-lg border border-slate-200 overflow-hidden shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative h-56 bg-slate-900 overflow-hidden">
+                  <div className="relative h-56 bg-slate-100 overflow-hidden">
                     <img
                       src={item.image}
                       alt={item.title}
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500"
+                      loading="lazy"
                     />
                     
-                    {/* Dark gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
-
                     {/* Media Type Icon Badge */}
                     <div className="absolute top-3 left-3 bg-[#E53935] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded shadow-xs flex items-center gap-1">
                       {item.type === 'video' ? <Play className="w-3 h-3 fill-white" /> : <ImageIcon className="w-3 h-3" />}
@@ -332,7 +330,7 @@ const Gallery = () => {
                     </div>
 
                     {/* Location Badge */}
-                    <div className="absolute bottom-3 left-3 text-white text-[11px] font-semibold flex items-center gap-1 bg-black/50 backdrop-blur-sm px-2.5 py-1 rounded font-malayalam">
+                    <div className="absolute bottom-3 left-3 text-white text-[11px] font-semibold flex items-center gap-1 bg-black/60 backdrop-blur-xs px-2.5 py-1 rounded font-malayalam">
                       <MapPin className="w-3 h-3 text-red-400 shrink-0" />
                       <span className="truncate max-w-[200px]">{item.location}</span>
                     </div>

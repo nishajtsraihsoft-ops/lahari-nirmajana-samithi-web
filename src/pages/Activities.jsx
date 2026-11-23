@@ -54,13 +54,13 @@ const Activities = ({ onOpenJoinModal }) => {
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div className="grid grid-cols-3 gap-2.5 sm:gap-3 h-64 sm:h-80 md:h-96">
                 
-                {/* Photo Strip 1 */}
+                {/* Photo Strip 1 (Full Color, No Grayscale) */}
                 <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                  <div className="relative flex-grow overflow-hidden bg-slate-100">
                     <img 
                       src="/hero-image.png" 
                       alt="Campus Vigilance Drives" 
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   {/* Red Solid Tag: VIGILANCE */}
@@ -74,13 +74,13 @@ const Activities = ({ onOpenJoinModal }) => {
                   </div>
                 </div>
 
-                {/* Photo Strip 2 */}
+                {/* Photo Strip 2 (Full Color, No Grayscale) */}
                 <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                  <div className="relative flex-grow overflow-hidden bg-slate-100">
                     <img 
                       src="/hero-image-2.jpg" 
                       alt="Mass Public Campaigns" 
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   {/* Blue Solid Tag: DEFENSE */}
@@ -94,13 +94,13 @@ const Activities = ({ onOpenJoinModal }) => {
                   </div>
                 </div>
 
-                {/* Photo Strip 3 */}
+                {/* Photo Strip 3 (Full Color, No Grayscale) */}
                 <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-900">
+                  <div className="relative flex-grow overflow-hidden bg-slate-100">
                     <img 
                       src="/hero-image-3.jpg" 
                       alt="Rehabilitation Support" 
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                     />
                   </div>
                   {/* Green Solid Tag: RECOVERY */}
@@ -184,19 +184,19 @@ const Activities = ({ onOpenJoinModal }) => {
             {/* Card 1: CAMPUS VIGILANCE */}
             <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs">
               <div className="bg-[#262C38] text-white px-5 py-3.5 flex items-center gap-2.5">
-                <GraduationCap className="w-4 h-4 text-[#0284C7]" />
+                <GraduationCap className="w-4 h-4 text-[#E53935]" />
                 <h3 className="text-sm font-black tracking-widest uppercase font-sans">
                   CAMPUS VIGILANCE
                 </h3>
               </div>
               <div className="p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
                 <p className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed">
-                  വിവിധ വിദ്യാലയങ്ങളിലും കലാലയങ്ങളിലും ലഹരിവിരുദ്ധ ബോധവൽക്കരണ പരിപാടികൾ സംഘടിപ്പിക്കുന്നു. വിദ്യാർത്ഥികളിലും യുവജനങ്ങളിലും ലഹരിക്കെതിരായ അവബോധവും സാമൂഹിക ഉത്തരവാദിത്തബോധവും വളർത്തുന്നു.
+                  വിദ്യാർത്ഥികളിലും യുവജനങ്ങളിലും ലഹരിക്കെതിരായ അവബോധം സൃഷ്ടിക്കാൻ സ്കൂളുകളിലും കോളേജുകളിലും നിരന്തര ബോധവൽക്കരണ പരിപാടികൾ.
                 </p>
                 <div>
                   <button
                     type="button"
-                    onClick={() => setSelectedCategory('campus')}
+                    onClick={() => setSelectedCategory('awareness')}
                     className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded shadow-2xs transition-colors"
                   >
                     VIEW INITIATIVES
@@ -208,46 +208,46 @@ const Activities = ({ onOpenJoinModal }) => {
             {/* Card 2: PADAYORUKKAM & RALLIES */}
             <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs">
               <div className="bg-[#262C38] text-white px-5 py-3.5 flex items-center gap-2.5">
-                <Flame className="w-4 h-4 text-[#E53935]" />
+                <Megaphone className="w-4 h-4 text-[#0284C7]" />
                 <h3 className="text-sm font-black tracking-widest uppercase font-sans">
-                  PADAYORUKKAM RALLY
+                  MASS MOBILISATION
                 </h3>
               </div>
               <div className="p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
                 <p className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed">
-                  പാണക്കാട് അബ്ബാസ് അലി തങ്ങളുടെ വസതിയിൽ നിന്നാരംഭിച്ച് മലപ്പുറം കലക്ടറേറ്റിന് മുന്നിൽ സമാപിച്ച 600-ലധികം പ്രവർത്തകർ പങ്കെടുത്ത ഐതിഹാസിക റാലിയും ലഹരിവിരുദ്ധ ക്യാമ്പും.
+                  കളക്ടറേറ്റ് മാർച്ച്, മനുഷ്യച്ചങ്ങല, ബോധവൽക്കരണ റാലികൾ എന്നിവയിലൂടെ ജനമനസ്സുകളിൽ ലഹരിവിരുദ്ധ പ്രതിരോധം ഉണർത്തുന്നു.
                 </p>
                 <div>
                   <button
                     type="button"
-                    onClick={() => setSelectedCategory('campaigns')}
+                    onClick={() => setSelectedCategory('campaign')}
                     className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded shadow-2xs transition-colors"
                   >
-                    READ DETAILS
+                    VIEW CAMPAIGNS
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Card 3: CIVIC PROTESTS */}
+            {/* Card 3: CIVIC PROTESTS & DEFENSE */}
             <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs">
               <div className="bg-[#262C38] text-white px-5 py-3.5 flex items-center gap-2.5">
-                <ShieldAlert className="w-4 h-4 text-[#198754]" />
+                <ShieldCheck className="w-4 h-4 text-[#198754]" />
                 <h3 className="text-sm font-black tracking-widest uppercase font-sans">
                   CIVIC PROTESTS
                 </h3>
               </div>
               <div className="p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
                 <p className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed">
-                  സമൂഹത്തിൽ ലഹരിയുടെ വ്യാപനത്തിന് കാരണമാകുന്ന സാഹചര്യങ്ങൾക്കെതിരെ സമിതി ശക്തമായ നിലപാട് സ്വീകരിക്കുന്നു. ബാറുകളുടെ എണ്ണം വർധിപ്പിക്കുന്നതിനെതിരെ കോട്ടക്കുന്നിൽ ജനകീയ പ്രതിഷേധം നടത്തി.
+                  ബാറുകളുടെ എണ്ണം വർധിപ്പിക്കുന്നതിനെതിരെയും ജനവാസ മേഖലകളിലെ ലഹരി വിൽപന ശാലകൾക്കെതിരെയും ശക്തമായ ജനകീയ സമരങ്ങൾ.
                 </p>
                 <div>
                   <button
                     type="button"
-                    onClick={() => setSelectedCategory('community')}
+                    onClick={() => setSelectedCategory('protest')}
                     className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded shadow-2xs transition-colors"
                   >
-                    VIEW ACTIONS
+                    VIEW PROTESTS
                   </button>
                 </div>
               </div>
@@ -257,7 +257,7 @@ const Activities = ({ onOpenJoinModal }) => {
         </section>
 
         {/* =======================================================================
-            SECTION 3: ACTIVITIES DIRECTORY WITH SEARCH & FILTERS
+            SECTION 3: ACTIVITIES LISTING WITH CATEGORY FILTERS
            ======================================================================= */}
         <section id="activities-grid" className="p-6 sm:p-8 lg:p-10 border-b border-slate-200">
           
@@ -266,31 +266,23 @@ const Activities = ({ onOpenJoinModal }) => {
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
               <div>
                 <h3 className="text-base sm:text-lg font-black tracking-widest uppercase text-slate-900 font-sans">
-                  PROGRAMMES &amp; ACTION DIRECTORY
+                  FEATURED PROGRAMMES &bull; കർമ്മപദ്ധതികൾ
                 </h3>
                 <span className="text-[11px] text-slate-500 font-malayalam font-bold">
-                  സമിതിയുടെ പ്രധാന പ്രവർത്തനങ്ങൾ
+                  സമിതി നടപ്പിലാക്കുന്ന വിവിധ ബോധവൽക്കരണ പരിപാടികൾ
                 </span>
               </div>
 
               {/* Search Input */}
-              <div className="relative w-full md:w-80">
+              <div className="relative w-full md:w-72">
                 <Search className="absolute left-3 top-3 w-4 h-4 text-slate-400" />
                 <input
                   type="text"
-                  placeholder="Search activities or keywords..."
+                  placeholder="Search activities..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-9 pr-8 py-2 text-xs border border-slate-300 rounded focus:outline-none focus:border-themeBlue focus:ring-1 focus:ring-themeBlue font-sans"
+                  className="w-full pl-9 pr-4 py-2 text-xs border border-slate-300 rounded focus:outline-none focus:border-themeBlue focus:ring-1 focus:ring-themeBlue font-sans"
                 />
-                {searchQuery && (
-                  <button
-                    onClick={() => setSearchQuery('')}
-                    className="absolute right-2.5 top-2.5 text-[10px] text-slate-400 hover:text-slate-600 bg-slate-100 px-1.5 py-0.5 rounded"
-                  >
-                    Clear
-                  </button>
-                )}
               </div>
             </div>
 
@@ -312,7 +304,7 @@ const Activities = ({ onOpenJoinModal }) => {
             </div>
           </div>
 
-          {/* Activities Grid */}
+          {/* Activities Grid (100% Full Color Photos, No Grayscale) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6">
             {filteredActivities.map((activity) => (
               <div 
@@ -321,11 +313,12 @@ const Activities = ({ onOpenJoinModal }) => {
               >
                 <div>
                   {/* Photo Header */}
-                  <div className="relative h-48 sm:h-52 bg-slate-900 overflow-hidden">
+                  <div className="relative h-48 sm:h-52 bg-slate-100 overflow-hidden">
                     <img 
                       src={activity.image} 
                       alt={activity.title}
-                      className="w-full h-full object-cover grayscale contrast-125 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-500" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
+                      loading="lazy"
                     />
                     <div className="absolute top-3 left-3 bg-[#E53935] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded shadow-xs">
                       {activity.badge || 'LNS Action'}

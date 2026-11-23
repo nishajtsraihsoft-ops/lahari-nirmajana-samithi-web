@@ -1,115 +1,151 @@
-// Lahari Nirmaargana Samithi (LNS) - Leadership Directory
+// Lahari Nirmaargana Samithi (LNS) - Official Leadership Directory
 
 export const leadershipCategories = [
   { id: 'all', name: 'എല്ലാ നേതാക്കളും', englishName: 'All Leaders' },
-  { id: 'office-bearers', name: 'പ്രധാന ഭാരവാഹികൾ', englishName: 'Office Bearers' },
   { id: 'state-committee', name: 'സംസ്ഥാന സമിതി', englishName: 'State Committee' },
-  { id: 'district-committees', name: 'ജില്ലാ സമിതികൾ', englishName: 'District Committees' },
-  { id: 'advisory-board', name: 'ഉപദേശക സമിതി', englishName: 'Advisory Board' },
+  { id: 'malappuram-east', name: 'മലപ്പുറം ഈസ്റ്റ്', englishName: 'Malappuram East' },
+  { id: 'malappuram-west', name: 'മലപ്പുറം വെസ്റ്റ്', englishName: 'Malappuram West' },
 ];
 
 export const leaders = [
+  // 1. Kurukkoli Moideen MLA - State President
   {
     id: 'lead-1',
-    name: 'ഉബൈദുള്ള (എം.എൽ.എ)',
-    englishName: 'Ubaidulla (MLA)',
-    designation: 'സംസ്ഥാന & ജില്ലാ പ്രസിഡന്റ്',
-    englishDesignation: 'State & District President',
+    name: 'കുറുക്കോളി മൊയ്തീൻ (എം.എൽ.എ)',
+    englishName: 'Kurukkoli Moideen (MLA)',
+    designation: 'സംസ്ഥാന പ്രസിഡന്റ്',
+    englishDesignation: 'State President, LNS',
     committee: 'State Committee',
-    category: 'office-bearers',
-    district: 'മലപ്പുറം (Malappuram)',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
-    bio: '2007-ലെ പ്രഥമ മലപ്പുറം ജില്ലാ കമ്മിറ്റിയുടെയും 2013-ലെ പ്രഥമ സംസ്ഥാന കമ്മിറ്റിയുടെയും പ്രസിഡന്റായി പ്രവർത്തിച്ചു സംഘടനയെ നയിക്കുന്നു.',
-    term: 'Founding President'
+    category: 'state-committee',
+    district: 'കേരളം / മലപ്പുറം',
+    image: '/leaders/Kurukkoli_Moideen_MLA_State_President_LNS.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി (LNS) സംസ്ഥാന പ്രസിഡന്റ്. നിയമസഭയിലും പൊതുസമൂഹത്തിലും ലഹരിവിരുദ്ധ പ്രവർത്തനങ്ങൾക്ക് നേതൃത്വം നൽകുന്നു.',
+    term: 'State President'
   },
+  // 2. O.K. Kunjikomu Master - Working President
   {
     id: 'lead-2',
     name: 'ഒ.കെ. കുഞ്ഞിക്കോമു മാസ്റ്റർ',
     englishName: 'O. K. Kunjikomu Master',
-    designation: 'സ്ഥാപക ജനറൽ സെക്രട്ടറി',
-    englishDesignation: 'Founding General Secretary',
-    committee: 'State Committee',
-    category: 'office-bearers',
-    district: 'മലപ്പുറം (Malappuram)',
-    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80',
-    bio: '2005 ഒക്ടോബർ 25-ന് മാറാക്കരയിൽ ലഹരി നിർമ്മാർജന സമിതിക്ക് തുടക്കം കുറിച്ച സ്ഥാപക നേതാവ്. പ്രഥമ ജില്ലാ, സംസ്ഥാന ജനറൽ സെക്രട്ടറി.',
-    term: 'Founding General Secretary'
-  },
-  {
-    id: 'lead-3',
-    name: 'കെ.കെ.എസ്. തങ്ങൾ',
-    englishName: 'K. K. S. Thangal',
-    designation: 'ആദ്യ ജില്ലാ ട്രഷറർ',
-    englishDesignation: 'First District Treasurer',
-    committee: 'District Committee',
-    category: 'district-committees',
-    district: 'മലപ്പുറം (Malappuram)',
-    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
-    bio: '2007 ഏപ്രിൽ 15-ന് രൂപീകരിച്ച പ്രഥമ മലപ്പുറം ജില്ലാ കമ്മിറ്റിയുടെ ട്രഷററായി പ്രവർത്തിച്ചു.',
-    term: 'First District Treasurer'
-  },
-  {
-    id: 'lead-4',
-    name: 'അഷ്റഫ്',
-    englishName: 'Ashraf',
-    designation: 'സംസ്ഥാന ട്രഷറർ',
-    englishDesignation: 'State Treasurer (2013)',
-    committee: 'State Committee',
-    category: 'office-bearers',
-    district: 'കേരളം (Kerala)',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80',
-    bio: '2013-ൽ രൂപീകരിച്ച ലഹരി നിർമ്മാർജന സമിതി സംസ്ഥാന കമ്മിറ്റിയുടെ ആദ്യ ട്രഷറർ.',
-    term: 'State Treasurer'
-  },
-  {
-    id: 'lead-5',
-    name: 'പാണക്കാട് സാദിഖലി ശിഹാബ് തങ്ങൾ',
-    englishName: 'Panakkad Sadiqali Shihab Thangal',
-    designation: 'മുഖ്യ രക്ഷാധികാരി',
-    englishDesignation: 'Chief Patron & Inaugurator (2008)',
-    committee: 'Advisory Board',
-    category: 'advisory-board',
-    district: 'മലപ്പുറം (Malappuram)',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
-    bio: '2008-ലെ മലപ്പുറം ജില്ലാ സമ്മേളനം ഉദ്ഘാടനം ചെയ്യുകയും സംഘടനയുടെ പ്രവർത്തനങ്ങൾക്ക് വലിയ പ്രചോദനം നൽകുകയും ചെയ്തു.',
-    term: 'Chief Patron'
-  },
-  {
-    id: 'lead-6',
-    name: 'പാണക്കാട് അബ്ബാസ് അലി തങ്ങൾ',
-    designation: 'രക്ഷാധികാരി & മാർഗ്ഗദർശി',
-    englishDesignation: 'Patron & Campaign Guide',
-    committee: 'Advisory Board',
-    category: 'advisory-board',
-    district: 'മലപ്പുറം (Malappuram)',
-    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=600&q=80',
-    bio: '600-ലധികം പേർ പങ്കെടുത്ത ചരിത്രപ്രസിദ്ധമായ പടയൊരുക്കം ലഹരിവിരുദ്ധ ക്യാമ്പിന് നേതൃത്വപരമായ പിന്തുണ നൽകി.',
-    term: 'Campaign Patron'
-  },
-  {
-    id: 'lead-7',
-    name: 'ബാലകൃഷ്ണൻ (മുൻ ജില്ലാ കളക്ടർ)',
-    englishName: 'Balakrishnan (Former District Collector)',
-    designation: 'ഉപദേശക സമിതി അംഗം',
-    englishDesignation: 'Advisory Member & 2006 Inaugurator',
-    committee: 'Advisory Board',
-    category: 'advisory-board',
-    district: 'മലപ്പുറം (Malappuram)',
-    image: 'https://images.unsplash.com/photo-1511556532299-8f662fc26c06?auto=format&fit=crop&w=600&q=80',
-    bio: 'മാറാക്കര ഹൈസ്കൂളിൽ നടന്ന സമിതിയുടെ ആദ്യ ചരിത്ര സമ്മേളനം ഉദ്ഘാടനം ചെയ്ത അന്നത്തെ മലപ്പുറം ജില്ലാ കളക്ടർ.',
-    term: 'Advisory Member'
-  },
-  {
-    id: 'lead-8',
-    name: 'ശ്രീമതി. ലതിക സുരേഷ്',
-    englishName: 'Smt. Lathika Suresh',
-    designation: 'സംസ്ഥാന വൈസ് പ്രസിഡന്റ്',
-    englishDesignation: 'State Vice President',
+    designation: 'വർക്കിംഗ് പ്രസിഡന്റ് & സ്ഥാപകൻ',
+    englishDesignation: 'Working President & Founder',
     committee: 'State Committee',
     category: 'state-committee',
-    district: 'തൃശ്ശൂർ (Thrissur)',
-    image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80',
-    bio: 'കുടുംബങ്ങളിലും സ്ത്രീകൾക്കിടയിലും ലഹരിവിരുദ്ധ ജാഗ്രത വളർത്തുന്നതിൽ പ്രധാന പങ്കുവഹിക്കുന്നു.',
-    term: 'Vice President'
+    district: 'മാറാക്കക, മലപ്പുറം',
+    image: '/leaders/O_K_Kunjikko_Mu_Master_Working_President_Lahari_Nirmarjana_Samithi_State_Committee.png',
+    bio: '2005 ഒക്ടോബർ 25-ന് മാറാക്കരയിൽ ലഹരി നിർമ്മാർജന സമിതിക്ക് തുടക്കം കുറിച്ച സ്ഥാപക നേതാവ്. നിലവിൽ സംസ്ഥാന വർക്കിംഗ് പ്രസിഡന്റായി പ്രവർത്തിക്കുന്നു.',
+    term: 'Working President'
+  },
+  // 3. P.M.K. Kanjiyoor - General Secretary, State Committee
+  {
+    id: 'lead-3',
+    name: 'പി.എം.കെ. കാഞ്ഞിയൂർ',
+    englishName: 'P. M. K. Kanjiyoor',
+    designation: 'സംസ്ഥാന ജനറൽ സെക്രട്ടറി',
+    englishDesignation: 'General Secretary, LNS State Committee',
+    committee: 'State Committee',
+    category: 'state-committee',
+    district: 'മലപ്പുറം (Malappuram)',
+    image: '/leaders/PMK_Kanjiyoor_General_Secretary_LNS_State_Committee.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി സംസ്ഥാന കമ്മിറ്റിയുടെ ജനറൽ സെക്രട്ടറിയായി സംസ്ഥാനതല പ്രവർത്തനങ്ങൾ ഏകോപിപ്പിക്കുന്നു.',
+    term: 'General Secretary'
+  },
+  // 4. M.K.A. Latheef Aluva - State Treasurer
+  {
+    id: 'lead-4',
+    name: 'എം.കെ.എ. ലത്തീഫ് (ആലുവ)',
+    englishName: 'M. K. A. Latheef (Aluva)',
+    designation: 'സംസ്ഥാന ട്രഷറർ',
+    englishDesignation: 'State Treasurer, LNS',
+    committee: 'State Committee',
+    category: 'state-committee',
+    district: 'എറണാകുളം - ആലുവ',
+    image: '/leaders/M_K_A_Latheef_State_Treasurer_Lahari_Nirmarjana_Samithi_LNS_Aluva.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി സംസ്ഥാന കമ്മിറ്റിയുടെ ട്രഷററായി സാമ്പത്തിക കാര്യങ്ങളും സംഘടനാ പ്രവർത്തനങ്ങളും നയിക്കുന്നു.',
+    term: 'State Treasurer'
+  },
+  // 5. Syed Fazal Jifri Thangal - President, Malappuram East District
+  {
+    id: 'lead-5',
+    name: 'സയ്യിദ് ഫസൽ ജിഫ്രി തങ്ങൾ',
+    englishName: 'Syed Fazal Jifri Thangal',
+    designation: 'ജില്ലാ പ്രസിഡന്റ്, മലപ്പുറം ഈസ്റ്റ്',
+    englishDesignation: 'President, LNS Malappuram East District Committee',
+    committee: 'Malappuram East',
+    category: 'malappuram-east',
+    district: 'മലപ്പുറം ഈസ്റ്റ് (Malappuram East)',
+    image: '/leaders/Syed_Fazal_Jifri_Thangal_President_Lahari_Nirmarjana_Samithi_LNS_Malappuram_East_District_Committee.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം ഈസ്റ്റ് ജില്ലാ കമ്മിറ്റി പ്രസിഡന്റ്. ജില്ലാതല ലഹരിവിരുദ്ധ കാമ്പയിനുകൾക്ക് നേതൃത്വം നൽകുന്നു.',
+    term: 'District President'
+  },
+  // 6. P.P. Abubacker Manu Edavanna - General Secretary, Malappuram East District
+  {
+    id: 'lead-6',
+    name: 'പി.പി. അബൂബക്കർ മനു (എടവണ്ണ)',
+    englishName: 'P. P. Abubacker Manu (Edavanna)',
+    designation: 'ജില്ലാ ജനറൽ സെക്രട്ടറി, മലപ്പുറം ഈസ്റ്റ്',
+    englishDesignation: 'General Secretary, LNS Malappuram East District',
+    committee: 'Malappuram East',
+    category: 'malappuram-east',
+    district: 'മലപ്പുറം ഈസ്റ്റ് (Malappuram East)',
+    image: '/leaders/P_P_Abubacker_Manu_Edavanna_General_Secretary_LNS_Malappuram_East_District.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം ഈസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ ജനറൽ സെക്രട്ടറിയായി പ്രവർത്തനങ്ങൾ ഏകോപിപ്പിക്കുന്നു.',
+    term: 'District General Secretary'
+  },
+  // 7. Moidheen Kutty Haji Palace Panakkad - Treasurer, Malappuram East District
+  {
+    id: 'lead-7',
+    name: 'മൊയ്തീൻ കുട്ടി ഹാജി പാലസ് (പാണക്കാട്)',
+    englishName: 'Moidheen Kutty Haji Palace (Panakkad)',
+    designation: 'ജില്ലാ ട്രഷറർ, മലപ്പുറം ഈസ്റ്റ്',
+    englishDesignation: 'Treasurer, LNS Malappuram East District',
+    committee: 'Malappuram East',
+    category: 'malappuram-east',
+    district: 'മലപ്പുറം ഈസ്റ്റ് (Malappuram East)',
+    image: '/leaders/Moidheen_Kutty_Haji_Palace_Panakkad_Treasurer_LNS_Malappuram_East_District.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം ഈസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ ട്രഷററായി പ്രവർത്തിക്കുന്നു.',
+    term: 'District Treasurer'
+  },
+  // 8. CKM Bappu Haji Tanur - President, Malappuram West District
+  {
+    id: 'lead-8',
+    name: 'സി.കെ.എം. ബാപ്പു ഹാജി (താനൂർ)',
+    englishName: 'C. K. M. Bappu Haji (Tanur)',
+    designation: 'ജില്ലാ പ്രസിഡന്റ്, മലപ്പുറം വെസ്റ്റ്',
+    englishDesignation: 'President, LNS Malappuram West District',
+    committee: 'Malappuram West',
+    category: 'malappuram-west',
+    district: 'മലപ്പുറം വെസ്റ്റ് (Malappuram West)',
+    image: '/leaders/CKM_Bappu_Haji_Tanur_President_LNS_Malappuram_West_District.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ പ്രസിഡന്റായി തീരദേശ മേഖലകളിലടക്കം പ്രവർത്തനങ്ങൾ നയിക്കുന്നു.',
+    term: 'District President'
+  },
+  // 9. Shanavas Thurakkal Kadampuzha - General Secretary, Malappuram West District
+  {
+    id: 'lead-9',
+    name: 'ഷാനവാസ് തുറക്കൽ (കാടാമ്പുഴ)',
+    englishName: 'Shanavas Thurakkal (Kadampuzha)',
+    designation: 'ജില്ലാ ജനറൽ സെക്രട്ടറി, മലപ്പുറം വെസ്റ്റ്',
+    englishDesignation: 'General Secretary, LNS Malappuram West District',
+    committee: 'Malappuram West',
+    category: 'malappuram-west',
+    district: 'മലപ്പുറം വെസ്റ്റ് (Malappuram West)',
+    image: '/leaders/Shanavas_Thurakkal_Kadampuzha_General_Secretary_LNS_Malappuram_West_District.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ ജനറൽ സെക്രട്ടറിയായി വിപുലമായ പ്രവർത്തനങ്ങൾ സംഘടിപ്പിക്കുന്നു.',
+    term: 'District General Secretary'
+  },
+  // 10. P.P. Kunjimuhammed Thavanur - Treasurer, Malappuram West District
+  {
+    id: 'lead-10',
+    name: 'പി.പി. കുഞ്ഞിമുഹമ്മദ് (തവനൂർ)',
+    englishName: 'P. P. Kunjimuhammed (Thavanur)',
+    designation: 'ജില്ലാ ട്രഷറർ, മലപ്പുറം വെസ്റ്റ്',
+    englishDesignation: 'Treasurer, LNS Malappuram West District',
+    committee: 'Malappuram West',
+    category: 'malappuram-west',
+    district: 'മലപ്പുറം വെസ്റ്റ് (Malappuram West)',
+    image: '/leaders/PP_Kunjimuhammed_Thavanur_Treasurer_LNS_Malappuram_West_District.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ ട്രഷററായി പ്രവർത്തിക്കുന്നു.',
+    term: 'District Treasurer'
   }
 ];
