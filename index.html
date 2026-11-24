@@ -83,7 +83,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@400;500;600;700;800&family=Noto+Sans+Malayalam:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   </head>
   <body class="bg-white text-gray-900 antialiased font-malayalam selection:bg-themeBlue selection:text-white">
-    <div id="root"></div>
+    <div id="root">
+      <!-- Instant Initial Preloader (Native CSS, zero JS bundle latency) -->
+      <div style="min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background-color: #FFFFFF; font-family: system-ui, -apple-system, sans-serif; padding: 24px;">
+        <div style="position: relative; width: 88px; height: 88px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+          <!-- Dual-color spinning border -->
+          <div style="position: absolute; inset: 0; border-radius: 50%; border: 3px solid transparent; border-top-color: #1565C0; border-right-color: #00A859; animation: lnsSpin 0.9s linear infinite;"></div>
+          <!-- Centered Logo with soft shadow -->
+          <img src="/LNS-Logo.png" alt="LNS Logo" style="width: 60px; height: 60px; object-fit: contain; border-radius: 50%; box-shadow: 0 4px 14px rgba(21,101,192,0.12);" />
+        </div>
+        <div style="font-size: 15px; font-weight: 700; color: #1E293B; letter-spacing: 0.2px; margin-bottom: 12px; text-align: center;">
+          ലഹരി നിർമ്മാർജന സമിതി (LNS)
+        </div>
+        <!-- Progress bar line -->
+        <div style="width: 160px; height: 4px; background: #F1F5F9; border-radius: 9999px; overflow: hidden; position: relative;">
+          <div style="position: absolute; top: 0; left: 0; bottom: 0; width: 45%; background: linear-gradient(90deg, #1565C0, #00A859); border-radius: 9999px; animation: lnsBar 1.2s infinite ease-in-out;"></div>
+        </div>
+        <div style="font-size: 11px; color: #64748B; margin-top: 10px; font-weight: 500;">
+          ലോഡിംഗ്... ദയവായി കാത്തിരിക്കുക
+        </div>
+        <style>
+          @keyframes lnsSpin { to { transform: rotate(360deg); } }
+          @keyframes lnsBar {
+            0% { left: -40%; width: 30%; }
+            50% { left: 35%; width: 50%; }
+            100% { left: 105%; width: 30%; }
+          }
+        </style>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

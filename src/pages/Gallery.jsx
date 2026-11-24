@@ -1,10 +1,46 @@
 import React, { useState, useEffect } from 'react';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, ImageIcon } from 'lucide-react';
 import { galleryImages } from '../data/gallery';
 import SEO from '../components/SEO';
 
+// Individual gallery image card with skeleton placeholder and smooth fade-in
+const GalleryItem = ({ img, idx, onClick }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  return (
+    <div
+      onClick={onClick}
+      className="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200/90 bg-slate-100 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer active:scale-98"
+    >
+      <div className="w-full aspect-[3/2] overflow-hidden bg-slate-100 relative">
+        {/* Shimmer skeleton placeholder */}
+        {!isLoaded && (
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-200 via-slate-100 to-slate-200 animate-pulse flex items-center justify-center">
+            <ImageIcon className="w-6 h-6 text-slate-300 animate-pulse" />
+          </div>
+        )}
+        <img
+          src={img.image}
+          alt=""
+          onLoad={() => setIsLoaded(true)}
+          className={`w-full h-full object-cover group-hover:scale-106 transition-all duration-500 ${
+            isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+          loading="lazy"
+        />
+      </div>
+    </div>
+  );
+};
+
 const Gallery = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(null);
+  const [lightboxLoaded, setLightboxLoaded] = useState(false);
+
+  useEffect(() => {
+    // Reset lightbox loaded state on image change
+    setLightboxLoaded(false);
+  }, [activeImageIndex]);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -55,20 +91,12 @@ const Gallery = () => {
         {/* Images Grid (4 in a row on Desktop, 3 on Tablet, 2 on Mobile) */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
           {galleryImages.map((img, idx) => (
-            <div
+            <GalleryItem
               key={img.id || idx}
+              img={img}
+              idx={idx}
               onClick={() => setActiveImageIndex(idx)}
-              className="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200/90 bg-slate-100 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer active:scale-98"
-            >
-              <div className="w-full aspect-[3/2] overflow-hidden bg-slate-100">
-                <img
-                  src={img.image}
-                  alt=""
-                  className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-500"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+            />
           ))}
         </div>
 
@@ -107,15 +135,25 @@ const Gallery = () => {
             <ChevronRight className="w-6 h-6" />
           </button>
 
-          {/* Image Display */}
+          {/* Image Display with Loader */}
           <div
-            className="relative max-w-5xl max-h-[92vh] flex items-center justify-center"
+            className="relative max-w-5xl max-h-[92vh] flex items-center justify-center min-w-[280px] min-h-[220px]"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Lightbox spinner while downloading high-res image */}
+            {!lightboxLoaded && (
+              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+                <div className="w-10 h-10 border-3 border-white/20 border-t-white rounded-full animate-spin" />
+                <span className="text-xs text-white/70 font-mono">Loading...</span>
+              </div>
+            )}
             <img
               src={galleryImages[activeImageIndex].image}
               alt=""
-              className="w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-xl sm:rounded-2xl shadow-2xl"
+              onLoad={() => setLightboxLoaded(true)}
+              className={`w-auto h-auto max-w-full max-h-[90vh] object-contain rounded-xl sm:rounded-2xl shadow-2xl transition-opacity duration-300 ${
+                lightboxLoaded ? 'opacity-100' : 'opacity-0'
+              }`}
             />
           </div>
         </div>

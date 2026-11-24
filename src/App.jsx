@@ -1,17 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import JoinModal from './components/JoinModal';
 import ScrollToTopButton from './components/ScrollToTopButton';
+import TopLoadingBar from './components/TopLoadingBar';
+import PageLoader from './components/PageLoader';
 
-// Pages
-import Home from './pages/Home';
-import About from './pages/About';
-import Activities from './pages/Activities';
-import Leadership from './pages/Leadership';
-import Gallery from './pages/Gallery';
-import Contact from './pages/Contact';
+// Code-split pages for faster initial load & smoother transitions
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Activities = lazy(() => import('./pages/Activities'));
+const Leadership = lazy(() => import('./pages/Leadership'));
+const Gallery = lazy(() => import('./pages/Gallery'));
+const Contact = lazy(() => import('./pages/Contact'));
 
 // ScrollToTop on route change
 function ScrollToTop() {
@@ -33,6 +35,9 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans selection:bg-themeBlue selection:text-white w-full max-w-full overflow-x-clip">
+      {/* Top Navigation Loading Indicator */}
+      <TopLoadingBar />
+
       <ScrollToTop />
 
       {/* Navigation */}
@@ -40,59 +45,79 @@ function App() {
         onOpenJoinModal={() => setIsJoinModalOpen(true)}
       />
 
-      {/* Main Content Area */}
+      {/* Main Content Area with Suspense Fallback */}
       <main className="flex-grow">
-        <Routes>
-          <Route 
-            path="/" 
-            element={
-              <Home 
-                onOpenJoinModal={() => setIsJoinModalOpen(true)}
-              />
-            } 
-          />
-          <Route 
-            path="/about" 
-            element={
-              <About 
-                onOpenJoinModal={() => setIsJoinModalOpen(true)} 
-              />
-            } 
-          />
-          <Route 
-            path="/activities" 
-            element={
-              <Activities 
-                onOpenJoinModal={() => setIsJoinModalOpen(true)} 
-              />
-            } 
-          />
-          <Route 
-            path="/leadership" 
-            element={
-              <Leadership 
-                onOpenJoinModal={() => setIsJoinModalOpen(true)} 
-              />
-            } 
-          />
-          <Route 
-            path="/gallery" 
-            element={<Gallery />} 
-          />
-          <Route 
-            path="/contact" 
-            element={<Contact />} 
-          />
-          {/* Fallback to Home */}
-          <Route 
-            path="*" 
-            element={
-              <Home 
-                onOpenJoinModal={() => setIsJoinModalOpen(true)}
-              />
-            } 
-          />
-        </Routes>
+        <Suspense fallback={<PageLoader />}>
+          <Routes>
+            <Route 
+              path="/" 
+              element={
+                <div className="animate-page-fade">
+                  <Home 
+                    onOpenJoinModal={() => setIsJoinModalOpen(true)}
+                  />
+                </div>
+              } 
+            />
+            <Route 
+              path="/about" 
+              element={
+                <div className="animate-page-fade">
+                  <About 
+                    onOpenJoinModal={() => setIsJoinModalOpen(true)} 
+                  />
+                </div>
+              } 
+            />
+            <Route 
+              path="/activities" 
+              element={
+                <div className="animate-page-fade">
+                  <Activities 
+                    onOpenJoinModal={() => setIsJoinModalOpen(true)} 
+                  />
+                </div>
+              } 
+            />
+            <Route 
+              path="/leadership" 
+              element={
+                <div className="animate-page-fade">
+                  <Leadership 
+                    onOpenJoinModal={() => setIsJoinModalOpen(true)} 
+                  />
+                </div>
+              } 
+            />
+            <Route 
+              path="/gallery" 
+              element={
+                <div className="animate-page-fade">
+                  <Gallery />
+                </div>
+              } 
+            />
+            <Route 
+              path="/contact" 
+              element={
+                <div className="animate-page-fade">
+                  <Contact />
+                </div>
+              } 
+            />
+            {/* Fallback to Home */}
+            <Route 
+              path="*" 
+              element={
+                <div className="animate-page-fade">
+                  <Home 
+                    onOpenJoinModal={() => setIsJoinModalOpen(true)}
+                  />
+                </div>
+              } 
+            />
+          </Routes>
+        </Suspense>
       </main>
 
       {/* Global Join/Volunteer Modal (Connected to WhatsApp) */}
