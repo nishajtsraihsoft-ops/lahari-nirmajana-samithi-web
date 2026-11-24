@@ -142,9 +142,8 @@ const Gallery = () => {
           >
             {/* Lightbox spinner while downloading high-res image */}
             {!lightboxLoaded && (
-              <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
+              <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-10 h-10 border-3 border-white/20 border-t-white rounded-full animate-spin" />
-                <span className="text-xs text-white/70 font-mono">Loading...</span>
               </div>
             )}
             <img
