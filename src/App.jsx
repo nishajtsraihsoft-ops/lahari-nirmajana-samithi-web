@@ -6,6 +6,7 @@ import JoinModal from './components/JoinModal';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import TopLoadingBar from './components/TopLoadingBar';
 import PageLoader from './components/PageLoader';
+import InitialLoader from './components/InitialLoader';
 
 // Code-split pages for faster initial load & smoother transitions
 const Home = lazy(() => import('./pages/Home'));
@@ -35,6 +36,9 @@ function App() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans selection:bg-themeBlue selection:text-white w-full max-w-full overflow-x-clip">
+      {/* Initial Website Open Logo Splash Loader */}
+      <InitialLoader />
+
       {/* Top Navigation Loading Indicator */}
       <TopLoadingBar />
 
