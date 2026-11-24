@@ -232,6 +232,9 @@ export const samithiContact = {
   rawPhone: '9567555661',
   whatsappNumber: '919567555661',
   whatsappUrl: 'https://wa.me/919567555661',
+  joinWhatsAppNumber: '9567555661',
+  joinWhatsAppFormatted: '+91 95675 55661',
+  joinWhatsAppUrl: 'https://wa.me/919567555661',
   fullAddress: 'സി.എച്ച്. ബിൽഡിംഗ്, കുന്നുമ്മൽ, മലപ്പുറം, കേരളം – 676505.'
 };
 

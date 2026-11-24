@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { activities, activityCategories } from '../data/activities';
 import { samithiContact } from '../data/objectives';
+import SEO from '../components/SEO';
 
 const Activities = ({ onOpenJoinModal }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -36,6 +37,19 @@ const Activities = ({ onOpenJoinModal }) => {
 
   return (
     <div className="bg-[#ECEFF1]/70 py-6 sm:py-10 px-3 sm:px-6 lg:px-8 min-h-screen text-slate-800 selection:bg-themeBlue selection:text-white">
+      <SEO
+        title="കർമ്മപദ്ധതികൾ & പ്രവർത്തനങ്ങൾ | Activities"
+        description="ക്യാമ്പസ് വിജിലൻസ്, പടയൊരുക്കം ക്യാമ്പുകൾ, ജനകീയ പ്രതിഷേധങ്ങൾ, കൗൺസിലിംഗ് തുടങ്ങിയ ലഹരി നിർമ്മാർജന സമിതിയുടെ കർമ്മപദ്ധതികൾ."
+        canonicalPath="/activities"
+        type="website"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "ലഹരി നിർമ്മാർജന സമിതി - കർമ്മപദ്ധതികൾ",
+          "description": "വിദ്യാലയ-കലാലയ ബോധവൽക്കരണം, ജനകീയ ക്യാമ്പയിനുകൾ, കൗൺസിലിംഗ് പ്രവർത്തനങ്ങൾ.",
+          "url": "https://www.laharinirmarjanasamithi.com/activities"
+        }}
+      />
       
       {/* =========================================================================
           MAIN BOXED CONTAINER (Matches Editorial Boxed Layout of Reference Design)
@@ -50,66 +64,90 @@ const Activities = ({ onOpenJoinModal }) => {
         <section className="p-6 sm:p-8 lg:p-10 border-b border-slate-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             
-            {/* Left Column: 3 Vertical Photo Strips with Color Banner Bars (7 Cols on LG) */}
+            {/* Left Column: 4 Vertical Photo Strips with Color Banner Bars (7 Cols on LG) */}
             <div className="lg:col-span-7 flex flex-col justify-between">
-              <div className="grid grid-cols-3 gap-2.5 sm:gap-3 h-64 sm:h-80 md:h-96">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-2.5 h-80 sm:h-80 md:h-96">
                 
-                {/* Photo Strip 1 (Full Color, No Grayscale) */}
-                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-100">
+                {/* Photo Strip 1: COMMUNITY VOLUNTEERING */}
+                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-xs border border-slate-200 group">
+                  <div className="relative flex-grow min-h-[110px] overflow-hidden bg-slate-100">
                     <img 
-                      src="/hero-image.png" 
-                      alt="Campus Vigilance Drives" 
+                      src="/Home/community-volunteering.png" 
+                      alt="Community Volunteering" 
                       className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                      onError={(e) => { e.currentTarget.src = '/Home/COMMUNITY VOLUNTEERING.png'; }}
                     />
                   </div>
-                  {/* Red Solid Tag: VIGILANCE */}
-                  <div className="bg-[#E53935] text-white p-2.5 sm:p-3 text-center select-none shrink-0">
-                    <div className="text-base sm:text-xl lg:text-2xl font-black font-sans uppercase tracking-tight leading-none">
+                  {/* Red Solid Tag: COMMUNITY VOLUNTEERING */}
+                  <div className="bg-[#E53935] text-white p-2 sm:p-2.5 md:p-3 text-center select-none shrink-0">
+                    <div className="text-xs sm:text-base lg:text-lg font-black font-sans uppercase tracking-tight leading-none">
+                      COMMUNITY
+                    </div>
+                    <div className="text-[8px] sm:text-[9.5px] lg:text-[10.5px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
+                      VOLUNTEERING
+                    </div>
+                  </div>
+                </div>
+
+                {/* Photo Strip 2: CAMPUS VIGILANCE */}
+                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-xs border border-slate-200 group">
+                  <div className="relative flex-grow min-h-[110px] overflow-hidden bg-slate-100">
+                    <img 
+                      src="/Home/campus-vigilance.png" 
+                      alt="Campus Vigilance Drives" 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                      onError={(e) => { e.currentTarget.src = '/Home/CAMPUS VIGILANCE.png'; }}
+                    />
+                  </div>
+                  {/* Teal Solid Tag: CAMPUS VIGILANCE */}
+                  <div className="bg-[#00897B] text-white p-2 sm:p-2.5 md:p-3 text-center select-none shrink-0">
+                    <div className="text-xs sm:text-base lg:text-lg font-black font-sans uppercase tracking-tight leading-none">
                       CAMPUS
                     </div>
-                    <div className="text-[9px] sm:text-[11px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
+                    <div className="text-[8px] sm:text-[9.5px] lg:text-[10.5px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
                       VIGILANCE
                     </div>
                   </div>
                 </div>
 
-                {/* Photo Strip 2 (Full Color, No Grayscale) */}
-                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-100">
+                {/* Photo Strip 3: MASS ACTION CAMPS */}
+                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-xs border border-slate-200 group">
+                  <div className="relative flex-grow min-h-[110px] overflow-hidden bg-slate-100">
                     <img 
-                      src="/hero-image-2.jpg" 
-                      alt="Mass Public Campaigns" 
+                      src="/Home/mass-action-camps.jpeg" 
+                      alt="Mass Action Camps" 
                       className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                      onError={(e) => { e.currentTarget.src = '/Home/MASS ACTION CAMPS.jpeg'; }}
                     />
                   </div>
-                  {/* Blue Solid Tag: DEFENSE */}
-                  <div className="bg-[#1565C0] text-white p-2.5 sm:p-3 text-center select-none shrink-0">
-                    <div className="text-base sm:text-xl lg:text-2xl font-black font-sans uppercase tracking-tight leading-none">
-                      DEFENSE
-                    </div>
-                    <div className="text-[9px] sm:text-[11px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
+                  {/* Blue Solid Tag: MASS ACTION */}
+                  <div className="bg-[#1565C0] text-white p-2 sm:p-2.5 md:p-3 text-center select-none shrink-0">
+                    <div className="text-xs sm:text-base lg:text-lg font-black font-sans uppercase tracking-tight leading-none">
                       MASS ACTION
+                    </div>
+                    <div className="text-[8px] sm:text-[9.5px] lg:text-[10.5px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
+                      CAMPS
                     </div>
                   </div>
                 </div>
 
-                {/* Photo Strip 3 (Full Color, No Grayscale) */}
-                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-sm group">
-                  <div className="relative flex-grow overflow-hidden bg-slate-100">
+                {/* Photo Strip 4: COUNSELING & REHAB */}
+                <div className="flex flex-col h-full rounded-lg overflow-hidden shadow-xs border border-slate-200 group">
+                  <div className="relative flex-grow min-h-[110px] overflow-hidden bg-slate-100">
                     <img 
-                      src="/hero-image-3.jpg" 
-                      alt="Rehabilitation Support" 
+                      src="/Home/counseling-rehab.png" 
+                      alt="Counseling & Rehab Support" 
                       className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
+                      onError={(e) => { e.currentTarget.src = '/Home/COUNSELING & REHAB.png'; }}
                     />
                   </div>
-                  {/* Green Solid Tag: RECOVERY */}
-                  <div className="bg-[#198754] text-white p-2.5 sm:p-3 text-center select-none shrink-0">
-                    <div className="text-base sm:text-xl lg:text-2xl font-black font-sans uppercase tracking-tight leading-none">
-                      SUPPORT
+                  {/* Green Solid Tag: COUNSELING & REHAB */}
+                  <div className="bg-[#198754] text-white p-2 sm:p-2.5 md:p-3 text-center select-none shrink-0">
+                    <div className="text-xs sm:text-base lg:text-lg font-black font-sans uppercase tracking-tight leading-none">
+                      COUNSELING
                     </div>
-                    <div className="text-[9px] sm:text-[11px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
-                      &amp; RECOVERY
+                    <div className="text-[8px] sm:text-[9.5px] lg:text-[10.5px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
+                      &amp; REHAB
                     </div>
                   </div>
                 </div>
@@ -173,31 +211,80 @@ const Activities = ({ onOpenJoinModal }) => {
         </section>
 
         {/* =======================================================================
-            SECTION 2: THREE COLUMNS WITH DARK HEADERS (Matches Section 2 of Reference)
-            Card 1: CAMPUS VIGILANCE
-            Card 2: PADAYORUKKAM & RALLIES
-            Card 3: CIVIC PROTESTS & DEFENSE
+            SECTION 2: FOUR STRATEGIC PILLARS WITH IMAGES FROM HOME FOLDER
+            Card 1: COMMUNITY VOLUNTEERING
+            Card 2: CAMPUS VIGILANCE
+            Card 3: MASS ACTION CAMPS
+            Card 4: COUNSELING & REHAB
            ======================================================================= */}
-        <section className="p-6 sm:p-8 lg:p-10 border-b border-slate-200 bg-slate-50/50">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section className="p-4 sm:p-8 lg:p-10 border-b border-slate-200 bg-slate-50/50">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
             
-            {/* Card 1: CAMPUS VIGILANCE */}
-            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs">
-              <div className="bg-[#262C38] text-white px-5 py-3.5 flex items-center gap-2.5">
-                <GraduationCap className="w-4 h-4 text-[#E53935]" />
-                <h3 className="text-sm font-black tracking-widest uppercase font-sans">
+            {/* Card 1: COMMUNITY VOLUNTEERING */}
+            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs group hover:shadow-md transition-shadow">
+              <div className="relative h-28 sm:h-36 md:h-40 overflow-hidden bg-slate-100">
+                <img 
+                  src="/Home/community-volunteering.png" 
+                  alt="Community Volunteering" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.currentTarget.src = '/Home/COMMUNITY VOLUNTEERING.png'; }}
+                />
+              </div>
+              <div className="bg-[#262C38] text-white px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-1.5 sm:gap-2">
+                <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E53935] shrink-0" />
+                <h3 className="text-[10.5px] sm:text-xs md:text-sm font-black tracking-wider uppercase font-sans truncate">
+                  COMMUNITY
+                </h3>
+              </div>
+              <div className="p-3 sm:p-5 flex-grow flex flex-col justify-between space-y-2.5 sm:space-y-4 bg-[#F8FAFC]">
+                <p className="text-slate-600 font-malayalam text-[11px] sm:text-xs leading-relaxed line-clamp-3 sm:line-clamp-none">
+                  പ്രാദേശിക വാർഡുകളിലും പഞ്ചായത്തുകളിലും ലഹരിക്കെതിരായ ജനകീയ ജാഗ്രതാ സമിതികളും ബോധവൽക്കരണ കൂട്ടായ്മകളും.
+                </p>
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedCategory('community');
+                      const el = document.getElementById('activities-grid');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="w-full bg-[#E53935] hover:bg-[#D32F2F] text-white text-[9.5px] sm:text-[11px] font-black uppercase tracking-wider px-2.5 sm:px-4 py-1.5 sm:py-2 rounded shadow-2xs transition-colors"
+                  >
+                    VIEW COMMUNITY
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: CAMPUS VIGILANCE */}
+            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs group hover:shadow-md transition-shadow">
+              <div className="relative h-28 sm:h-36 md:h-40 overflow-hidden bg-slate-100">
+                <img 
+                  src="/Home/campus-vigilance.png" 
+                  alt="Campus Vigilance" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.currentTarget.src = '/Home/CAMPUS VIGILANCE.png'; }}
+                />
+              </div>
+              <div className="bg-[#262C38] text-white px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-1.5 sm:gap-2">
+                <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#00897B] shrink-0" />
+                <h3 className="text-[10.5px] sm:text-xs md:text-sm font-black tracking-wider uppercase font-sans truncate">
                   CAMPUS VIGILANCE
                 </h3>
               </div>
-              <div className="p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
-                <p className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed">
+              <div className="p-3 sm:p-5 flex-grow flex flex-col justify-between space-y-2.5 sm:space-y-4 bg-[#F8FAFC]">
+                <p className="text-slate-600 font-malayalam text-[11px] sm:text-xs leading-relaxed line-clamp-3 sm:line-clamp-none">
                   വിദ്യാർത്ഥികളിലും യുവജനങ്ങളിലും ലഹരിക്കെതിരായ അവബോധം സൃഷ്ടിക്കാൻ സ്കൂളുകളിലും കോളേജുകളിലും നിരന്തര ബോധവൽക്കരണ പരിപാടികൾ.
                 </p>
                 <div>
                   <button
                     type="button"
-                    onClick={() => setSelectedCategory('awareness')}
-                    className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded shadow-2xs transition-colors"
+                    onClick={() => {
+                      setSelectedCategory('campus');
+                      const el = document.getElementById('activities-grid');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="w-full bg-[#E53935] hover:bg-[#D32F2F] text-white text-[9.5px] sm:text-[11px] font-black uppercase tracking-wider px-2.5 sm:px-4 py-1.5 sm:py-2 rounded shadow-2xs transition-colors"
                   >
                     VIEW INITIATIVES
                   </button>
@@ -205,23 +292,35 @@ const Activities = ({ onOpenJoinModal }) => {
               </div>
             </div>
 
-            {/* Card 2: PADAYORUKKAM & RALLIES */}
-            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs">
-              <div className="bg-[#262C38] text-white px-5 py-3.5 flex items-center gap-2.5">
-                <Megaphone className="w-4 h-4 text-[#0284C7]" />
-                <h3 className="text-sm font-black tracking-widest uppercase font-sans">
-                  MASS MOBILISATION
+            {/* Card 3: MASS ACTION CAMPS */}
+            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs group hover:shadow-md transition-shadow">
+              <div className="relative h-28 sm:h-36 md:h-40 overflow-hidden bg-slate-100">
+                <img 
+                  src="/Home/mass-action-camps.jpeg" 
+                  alt="Mass Action Camps" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.currentTarget.src = '/Home/MASS ACTION CAMPS.jpeg'; }}
+                />
+              </div>
+              <div className="bg-[#262C38] text-white px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-1.5 sm:gap-2">
+                <Megaphone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#0284C7] shrink-0" />
+                <h3 className="text-[10.5px] sm:text-xs md:text-sm font-black tracking-wider uppercase font-sans truncate">
+                  MASS ACTION
                 </h3>
               </div>
-              <div className="p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
-                <p className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed">
-                  കളക്ടറേറ്റ് മാർച്ച്, മനുഷ്യച്ചങ്ങല, ബോധവൽക്കരണ റാലികൾ എന്നിവയിലൂടെ ജനമനസ്സുകളിൽ ലഹരിവിരുദ്ധ പ്രതിരോധം ഉണർത്തുന്നു.
+              <div className="p-3 sm:p-5 flex-grow flex flex-col justify-between space-y-2.5 sm:space-y-4 bg-[#F8FAFC]">
+                <p className="text-slate-600 font-malayalam text-[11px] sm:text-xs leading-relaxed line-clamp-3 sm:line-clamp-none">
+                  കളക്ടറേറ്റ് മാർച്ച്, മനുഷ്യച്ചങ്ങല, പടയൊരുക്കം ക്യാമ്പുകൾ എന്നിവയിലൂടെ ജനമനസ്സുകളിൽ ലഹരിവിരുദ്ധ പ്രതിരോധം ഉണർത്തുന്നു.
                 </p>
                 <div>
                   <button
                     type="button"
-                    onClick={() => setSelectedCategory('campaign')}
-                    className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded shadow-2xs transition-colors"
+                    onClick={() => {
+                      setSelectedCategory('campaigns');
+                      const el = document.getElementById('activities-grid');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="w-full bg-[#E53935] hover:bg-[#D32F2F] text-white text-[9.5px] sm:text-[11px] font-black uppercase tracking-wider px-2.5 sm:px-4 py-1.5 sm:py-2 rounded shadow-2xs transition-colors"
                   >
                     VIEW CAMPAIGNS
                   </button>
@@ -229,25 +328,37 @@ const Activities = ({ onOpenJoinModal }) => {
               </div>
             </div>
 
-            {/* Card 3: CIVIC PROTESTS & DEFENSE */}
-            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs">
-              <div className="bg-[#262C38] text-white px-5 py-3.5 flex items-center gap-2.5">
-                <ShieldCheck className="w-4 h-4 text-[#198754]" />
-                <h3 className="text-sm font-black tracking-widest uppercase font-sans">
-                  CIVIC PROTESTS
+            {/* Card 4: COUNSELING & REHAB */}
+            <div className="flex flex-col bg-white rounded-lg overflow-hidden border border-slate-200/80 shadow-xs group hover:shadow-md transition-shadow">
+              <div className="relative h-28 sm:h-36 md:h-40 overflow-hidden bg-slate-100">
+                <img 
+                  src="/Home/counseling-rehab.png" 
+                  alt="Counseling & Rehab" 
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.currentTarget.src = '/Home/COUNSELING & REHAB.png'; }}
+                />
+              </div>
+              <div className="bg-[#262C38] text-white px-3 sm:px-4 py-2.5 sm:py-3 flex items-center gap-1.5 sm:gap-2">
+                <HeartPulse className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#198754] shrink-0" />
+                <h3 className="text-[10.5px] sm:text-xs md:text-sm font-black tracking-wider uppercase font-sans truncate">
+                  COUNSELING &amp; REHAB
                 </h3>
               </div>
-              <div className="p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
-                <p className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed">
-                  ബാറുകളുടെ എണ്ണം വർധിപ്പിക്കുന്നതിനെതിരെയും ജനവാസ മേഖലകളിലെ ലഹരി വിൽപന ശാലകൾക്കെതിരെയും ശക്തമായ ജനകീയ സമരങ്ങൾ.
+              <div className="p-3 sm:p-5 flex-grow flex flex-col justify-between space-y-2.5 sm:space-y-4 bg-[#F8FAFC]">
+                <p className="text-slate-600 font-malayalam text-[11px] sm:text-xs leading-relaxed line-clamp-3 sm:line-clamp-none">
+                  24x7 ഹെൽപ്‌ലൈനിലൂടെ ലഹരിബാധിതർക്കും കുടുംബങ്ങൾക്കും സൗജന്യ കൗൺസിലിംഗും പുനരധിവാസ മാർഗനിർദ്ദേശവും.
                 </p>
                 <div>
                   <button
                     type="button"
-                    onClick={() => setSelectedCategory('protest')}
-                    className="bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded shadow-2xs transition-colors"
+                    onClick={() => {
+                      setSelectedCategory('counselling');
+                      const el = document.getElementById('activities-grid');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="w-full bg-[#198754] hover:bg-[#157347] text-white text-[9.5px] sm:text-[11px] font-black uppercase tracking-wider px-2.5 sm:px-4 py-1.5 sm:py-2 rounded shadow-2xs transition-colors"
                   >
-                    VIEW PROTESTS
+                    VIEW REHAB
                   </button>
                 </div>
               </div>
@@ -319,6 +430,7 @@ const Activities = ({ onOpenJoinModal }) => {
                       alt={activity.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-all duration-500" 
                       loading="lazy"
+                      onError={(e) => { e.currentTarget.src = '/hero-image.png'; }}
                     />
                     <div className="absolute top-3 left-3 bg-[#E53935] text-white text-[10px] font-black uppercase px-2.5 py-1 rounded shadow-xs">
                       {activity.badge || 'LNS Action'}

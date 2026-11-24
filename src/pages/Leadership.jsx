@@ -19,6 +19,7 @@ import {
 import { leaders, leadershipCategories, mandalamLeaders } from '../data/leaders';
 import { samithiContact } from '../data/objectives';
 import LeaderCard from '../components/LeaderCard';
+import SEO from '../components/SEO';
 
 const Leadership = ({ onOpenJoinModal }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -38,7 +39,8 @@ const Leadership = ({ onOpenJoinModal }) => {
     if (selectedCategory === 'mandalam') return false;
     const matchesCategory = 
       selectedCategory === 'all' || 
-      leader.category === selectedCategory;
+      leader.category === selectedCategory ||
+      (selectedCategory === 'women-wing' && leader.isWomenWing);
 
     const matchesSearch = 
       leader.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -53,6 +55,19 @@ const Leadership = ({ onOpenJoinModal }) => {
 
   return (
     <div className="bg-[#ECEFF1]/70 py-4 sm:py-8 lg:py-10 px-2.5 sm:px-6 lg:px-8 min-h-screen text-slate-800 selection:bg-themeBlue selection:text-white">
+      <SEO
+        title="സംസ്ഥാന & ജില്ലാ നേതൃത്വം | Leadership"
+        description="കുറുക്കോളി മൊയ്തീൻ എം.എൽ.എ (സംസ്ഥാന പ്രസിഡന്റ്), ഒ.കെ. കുഞ്ഞിക്കോമു മാസ്റ്റർ, പി.എം.കെ. കാഞ്ഞിയൂർ അടക്കമുള്ള എൽ.എൻ.എസ് സംസ്ഥാന-ജില്ലാ-മണ്ഡലം ഭാരവാഹികൾ."
+        canonicalPath="/leadership"
+        type="website"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ProfilePage",
+          "name": "ലഹരി നിർമ്മാർജന സമിതി - നേതൃത്വം",
+          "description": "സംസ്ഥാന, ജില്ലാ, മണ്ഡലം ഭാരവാഹികൾ.",
+          "url": "https://www.laharinirmarjanasamithi.com/leadership"
+        }}
+      />
       
       {/* =========================================================================
           MAIN EDITORIAL CONTAINER (Classic Editorial Layout of Leadership Page)
@@ -240,10 +255,11 @@ const Leadership = ({ onOpenJoinModal }) => {
               </div>
               <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
                 <div className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed space-y-1.5">
-                  <p className="font-bold text-slate-900">മലപ്പുറം ഈസ്റ്റ് ജില്ലാ സമിതി:</p>
+                  <p className="font-bold text-slate-900">മലപ്പുറം ഈസ്റ്റ് സമിതി &amp; വനിതാ വിംഗ്:</p>
                   <p>&bull; സയ്യിദ് ഫസൽ ജിഫ്രി തങ്ങൾ (പ്രസിഡന്റ്)</p>
                   <p>&bull; പി.പി. അബൂബക്കർ മനു എടവണ്ണ (ജനറൽ സെക്രട്ടറി)</p>
                   <p>&bull; മൊയ്തീൻ കുട്ടി ഹാജി പാലസ് (ട്രഷറർ)</p>
+                  <p className="pt-1 text-[11px] text-slate-500 font-sans font-bold">&bull; Women's Wing: സക്കീന പുൽപ്പടൻ, ഡോ. സജ്ന മോൾ, റീന ടീച്ചർ</p>
                 </div>
                 <div>
                   <button
@@ -251,7 +267,7 @@ const Leadership = ({ onOpenJoinModal }) => {
                     onClick={() => setSelectedCategory('malappuram-east')}
                     className="w-full sm:w-auto bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded-full shadow-2xs transition-colors text-center"
                   >
-                    EAST DISTRICT (3)
+                    EAST DISTRICT ({leaders.filter(l => l.category === 'malappuram-east').length})
                   </button>
                 </div>
               </div>
@@ -267,10 +283,11 @@ const Leadership = ({ onOpenJoinModal }) => {
               </div>
               <div className="p-4 sm:p-5 flex-grow flex flex-col justify-between space-y-4 bg-[#F8FAFC]">
                 <div className="text-slate-600 font-malayalam text-xs sm:text-sm leading-relaxed space-y-1.5">
-                  <p className="font-bold text-slate-900">മലപ്പുറം വെസ്റ്റ് ജില്ലാ സമിതി:</p>
+                  <p className="font-bold text-slate-900">മലപ്പുറം വെസ്റ്റ് സമിതി &amp; വനിതാ വിംഗ്:</p>
                   <p>&bull; സി.കെ.എം. ബാപ്പു ഹാജി താനൂർ (പ്രസിഡന്റ്)</p>
                   <p>&bull; ഷാനവാസ് തുറക്കൽ കാടാമ്പുഴ (ജനറൽ സെക്രട്ടറി)</p>
                   <p>&bull; പി.പി. കുഞ്ഞിമുഹമ്മദ് തവനൂർ (ട്രഷറർ)</p>
+                  <p className="pt-1 text-[11px] text-slate-500 font-sans font-bold">&bull; Women's Wing: ഖദീജ മൂത്തേടത്ത്, നസീബ അസീസ്, വി.പി. സുലൈഖ</p>
                 </div>
                 <div>
                   <button
@@ -278,7 +295,7 @@ const Leadership = ({ onOpenJoinModal }) => {
                     onClick={() => setSelectedCategory('malappuram-west')}
                     className="w-full sm:w-auto bg-[#E53935] hover:bg-[#D32F2F] text-white text-[11px] font-black uppercase tracking-wider px-4 py-2 rounded-full shadow-2xs transition-colors text-center"
                   >
-                    WEST DISTRICT (3)
+                    WEST DISTRICT ({leaders.filter(l => l.category === 'malappuram-west').length})
                   </button>
                 </div>
               </div>
@@ -333,7 +350,9 @@ const Leadership = ({ onOpenJoinModal }) => {
                   ? leaders.length 
                   : cat.id === 'mandalam'
                     ? mandalamLeaders.length
-                    : leaders.filter(l => l.category === cat.id).length;
+                    : cat.id === 'women-wing'
+                      ? leaders.filter(l => l.isWomenWing).length
+                      : leaders.filter(l => l.category === cat.id).length;
                 const isActive = selectedCategory === cat.id;
 
                 return (
@@ -359,8 +378,8 @@ const Leadership = ({ onOpenJoinModal }) => {
             </div>
           </div>
 
-          {/* Leaders Grid (4 in a row on Desktop, 2 on Tablet, 1 on Mobile) */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 pt-6">
+          {/* Leaders Grid (4 in a row on Desktop, 2 on Tablet & Mobile) */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-5 pt-6">
             {filteredLeaders.map((leader) => (
               <LeaderCard key={leader.id} leader={leader} onOpenContact={onOpenJoinModal} />
             ))}
@@ -397,8 +416,8 @@ const Leadership = ({ onOpenJoinModal }) => {
             </span>
           </div>
 
-          {/* Grid: 4 in a row on Desktop, 2 on Tablet, 1 on Mobile */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+          {/* Grid: 4 in a row on Desktop, 2 on Mobile */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
             {mandalamLeaders.map((item, idx) => (
               <div
                 key={item.id || idx}

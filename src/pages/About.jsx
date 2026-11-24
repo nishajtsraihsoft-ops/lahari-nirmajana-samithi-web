@@ -31,12 +31,26 @@ import {
   samithiContact,
   statistics
 } from '../data/objectives';
+import SEO from '../components/SEO';
 
 const About = ({ onOpenJoinModal }) => {
   const [selectedMilestone, setSelectedMilestone] = useState(null);
 
   return (
     <div className="bg-[#ECEFF1]/70 py-6 sm:py-10 px-3 sm:px-6 lg:px-8 min-h-screen text-slate-800 selection:bg-themeBlue selection:text-white">
+      <SEO
+        title="ലക്ഷ്യങ്ങളും ചരിത്രവും | About LNS"
+        description="2005-ൽ മാറാക്കരയിൽ ആരംഭിച്ച് 14 ജില്ലകളിലേക്കും പടർന്ന ലഹരി നിർമ്മാർജന സമിതിയുടെ (LNS) ചരിത്രവും കർമ്മലക്ഷ്യങ്ങളും സംഘടനാ ഘടനയും."
+        canonicalPath="/about"
+        type="website"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "name": "ലഹരി നിർമ്മാർജന സമിതി - ചരിത്രവും ലക്ഷ്യങ്ങളും",
+          "description": "2005 മുതൽ കേരളത്തിൽ പ്രവർത്തിക്കുന്ന ലഹരി നിർമ്മാർജന സമിതിയുടെ ചരിത്രവും ലക്ഷ്യങ്ങളും സംഘടനാ ഘടനയും.",
+          "url": "https://www.laharinirmarjanasamithi.com/about"
+        }}
+      />
       
       {/* =========================================================================
           MAIN BOXED CONTAINER (Matches Editorial Boxed Layout of Reference Image)

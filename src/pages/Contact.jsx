@@ -15,6 +15,7 @@ import {
   MessageCircle
 } from 'lucide-react';
 import { samithiContact } from '../data/objectives';
+import SEO from '../components/SEO';
 
 const PURPOSE_LABELS = {
   'school-session': 'സ്കൂൾ / കോളേജ് ബോധവൽക്കരണം (School/College Awareness)',
@@ -103,6 +104,25 @@ const Contact = () => {
 
   return (
     <div className="bg-[#ECEFF1]/70 py-6 sm:py-10 px-3 sm:px-6 lg:px-8 min-h-screen text-slate-800 selection:bg-themeBlue selection:text-white">
+      <SEO
+        title="സമ്പർക്കം & 24x7 ഹെൽപ്‌ലൈൻ | Contact Us"
+        description="ലഹരി നിർമ്മാർജന സമിതി സംസ്ഥാന കമ്മിറ്റി ഓഫീസ് കുന്നുമ്മൽ, മലപ്പുറം. 24 മണിക്കൂറും പ്രവർത്തിക്കുന്ന സൗജന്യ ഫോൺ ഹെൽപ്‌ലൈൻ: +91 95675 55661."
+        canonicalPath="/contact"
+        type="website"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ContactPage",
+          "name": "ലഹരി നിർമ്മാർജന സമിതി - സമ്പർക്കം",
+          "description": "സംസ്ഥാന കമ്മിറ്റി ഓഫീസ് വിവരങ്ങളും 24x7 ഹെൽപ്‌ലൈനും.",
+          "url": "https://www.laharinirmarjanasamithi.com/contact",
+          "mainEntity": {
+            "@type": "ContactPoint",
+            "telephone": "+91-9567555661",
+            "contactType": "emergency helpline",
+            "availableLanguage": ["Malayalam", "English"]
+          }
+        }}
+      />
       
       {/* =========================================================================
           MAIN BOXED CONTAINER (Matches Editorial Boxed Layout of Reference Design)
@@ -117,8 +137,8 @@ const Contact = () => {
         <section className="p-6 sm:p-8 lg:p-10 border-b border-slate-200">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             
-            {/* Left Column: 3 Vertical Photo Strips with Color Banner Bars (7 Cols on LG) */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
+            {/* Left Column: 3 Vertical Photo Strips with Color Banner Bars (Hidden on Mobile screens, visible on LG Desktop) */}
+            <div className="hidden lg:flex lg:col-span-7 flex-col justify-between">
               <div className="grid grid-cols-3 gap-2.5 sm:gap-3 h-64 sm:h-80 md:h-96">
                 
                 {/* Photo Strip 1 (Full Color, No Grayscale) */}
@@ -156,7 +176,7 @@ const Contact = () => {
                       HELPLINE
                     </div>
                     <div className="text-[9px] sm:text-[11px] font-bold tracking-wider uppercase opacity-95 mt-0.5">
-                      24X7 TOLL-FREE
+                      24X7 ASSISTANCE
                     </div>
                   </div>
                 </div>
@@ -350,7 +370,7 @@ const Contact = () => {
                 <div className="p-4 rounded-lg bg-slate-50 border border-slate-200/80 space-y-1">
                   <div className="font-bold text-slate-900 flex items-center gap-2">
                     <Phone className="w-4 h-4 text-[#0284C7]" />
-                    <span>Toll-Free Helpline</span>
+                    <span>24x7 Helpline</span>
                   </div>
                   <p className="text-slate-600 text-xs">
                     {samithiContact.helpline} (24x7 Assistance Across Kerala)

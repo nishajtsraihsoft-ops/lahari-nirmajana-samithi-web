@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { galleryImages } from '../data/gallery';
+import SEO from '../components/SEO';
 
 const Gallery = () => {
   const [activeImageIndex, setActiveImageIndex] = useState(null);
@@ -32,21 +33,34 @@ const Gallery = () => {
 
   return (
     <div className="bg-[#ECEFF1]/70 py-5 sm:py-8 lg:py-10 px-2.5 sm:px-6 lg:px-8 min-h-screen selection:bg-themeBlue selection:text-white flex flex-col justify-start">
+      <SEO
+        title="ഫോട്ടോ ഗ്യാലറി | Photo Gallery"
+        description="സംസ്ഥാന സമ്മേളനങ്ങൾ, പടയൊരുക്കം ക്യാമ്പുകൾ, റാലികൾ, ബോധവൽക്കരണ സദസ്സുകൾ എന്നിവയുടെ ചിത്രങ്ങൾ അടങ്ങിയ ഔദ്യോഗിക ഗ്യാലറി."
+        canonicalPath="/gallery"
+        type="website"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "ImageGallery",
+          "name": "ലഹരി നിർമ്മാർജന സമിതി - ഫോട്ടോ ഗ്യാലറി",
+          "description": "ലഹരി നിർമ്മാർജന സമിതിയുടെ പ്രധാന പരിപാടികളുടെ ഫോട്ടോകൾ.",
+          "url": "https://www.laharinirmarjanasamithi.com/gallery"
+        }}
+      />
       
       {/* =========================================================================
           BOX-TYPE CONTAINER (Seamless Editorial Frame, Pure Images List)
          ========================================================================= */}
       <div className="max-w-7xl w-full mx-auto bg-white shadow-xl sm:shadow-2xl rounded-2xl sm:rounded-3xl border border-slate-200/80 overflow-hidden p-4 sm:p-7 lg:p-10">
         
-        {/* Images Grid (4 in a row on Desktop, 3 on Tablet, 2 on Small Screen, 1 on Mobile) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* Images Grid (4 in a row on Desktop, 3 on Tablet, 2 on Mobile) */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:gap-6">
           {galleryImages.map((img, idx) => (
             <div
               key={img.id || idx}
               onClick={() => setActiveImageIndex(idx)}
               className="group relative rounded-xl sm:rounded-2xl overflow-hidden border border-slate-200/90 bg-slate-100 shadow-xs hover:shadow-xl transition-all duration-300 cursor-pointer active:scale-98"
             >
-              <div className="w-full aspect-[4/3] overflow-hidden bg-slate-100">
+              <div className="w-full aspect-[3/2] overflow-hidden bg-slate-100">
                 <img
                   src={img.image}
                   alt=""

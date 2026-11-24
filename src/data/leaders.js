@@ -5,6 +5,7 @@ export const leadershipCategories = [
   { id: 'state-committee', name: 'സംസ്ഥാന സമിതി', englishName: 'State Committee' },
   { id: 'malappuram-east', name: 'മലപ്പുറം ഈസ്റ്റ്', englishName: 'Malappuram East' },
   { id: 'malappuram-west', name: 'മലപ്പുറം വെസ്റ്റ്', englishName: 'Malappuram West' },
+  { id: 'women-wing', name: 'വനിതാ വിംഗ്', englishName: "Women's Wing" },
   { id: 'mandalam', name: 'മണ്ഡലം നേതൃത്വം', englishName: 'Mandalam Leaders' },
 ];
 
@@ -107,9 +108,54 @@ export const leaders = [
     bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം ഈസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ ട്രഷററായി പ്രവർത്തിക്കുന്നു.',
     term: 'District Treasurer'
   },
-  // 8. CKM Bappu Haji Tanur - President, Malappuram West District
+  // 8. Sakeena Pulppadan - President, Malappuram East District Women's Wing
   {
     id: 'lead-8',
+    name: 'സക്കീന പുൽപ്പടൻ',
+    englishName: 'Sakeena Pulppadan',
+    designation: 'ജില്ലാ പ്രസിഡന്റ്, വനിതാ വിംഗ്',
+    englishDesignation: "President, Women's Wing (Malappuram East)",
+    committee: 'Malappuram East',
+    category: 'malappuram-east',
+    isWomenWing: true,
+    district: 'മലപ്പുറം ഈസ്റ്റ് (Malappuram East)',
+    image: '/leaders/Sakeena_Pulppadan_LNS_Malappuram_East_District_Women_Wing_President.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം ഈസ്റ്റ് ജില്ലാ വനിതാ വിംഗ് പ്രസിഡന്റ്.',
+    term: "Women's Wing President"
+  },
+  // 9. Dr. Sajna Mol Amiyan - Secretary, Malappuram East District Women's Wing
+  {
+    id: 'lead-9',
+    name: 'ഡോ. സജ്ന മോൾ ആമിയൻ',
+    englishName: 'Dr. Sajna Mol Amiyan',
+    designation: 'ജില്ലാ സെക്രട്ടറി, വനിതാ വിംഗ്',
+    englishDesignation: "Secretary, Women's Wing (Malappuram East)",
+    committee: 'Malappuram East',
+    category: 'malappuram-east',
+    isWomenWing: true,
+    district: 'മലപ്പുറം ഈസ്റ്റ് (Malappuram East)',
+    image: '/leaders/Dr_Sajna_Mol_Amiyan_District_Secretary.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം ഈസ്റ്റ് ജില്ലാ വനിതാ വിംഗ് സെക്രട്ടറി.',
+    term: "Women's Wing Secretary"
+  },
+  // 10. Reena Teacher Perinthalmanna - Treasurer, Malappuram East District Women's Wing
+  {
+    id: 'lead-10',
+    name: 'റീന ടീച്ചർ (പെരിന്തൽമണ്ണ)',
+    englishName: 'Reena Teacher (Perinthalmanna)',
+    designation: 'ജില്ലാ ട്രഷറർ, വനിതാ വിംഗ്',
+    englishDesignation: "Treasurer, Women's Wing (Malappuram East)",
+    committee: 'Malappuram East',
+    category: 'malappuram-east',
+    isWomenWing: true,
+    district: 'പെരിന്തൽമണ്ണ / മലപ്പുറം ഈസ്റ്റ്',
+    image: '/leaders/Reena_Teacher_Pettamanna_District_Treasurer.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം ഈസ്റ്റ് ജില്ലാ വനിതാ വിംഗ് ട്രഷറർ.',
+    term: "Women's Wing Treasurer"
+  },
+  // 11. CKM Bappu Haji Tanur - President, Malappuram West District
+  {
+    id: 'lead-11',
     name: 'സി.കെ.എം. ബാപ്പു ഹാജി (താനൂർ)',
     englishName: 'C. K. M. Bappu Haji (Tanur)',
     designation: 'ജില്ലാ പ്രസിഡന്റ്, മലപ്പുറം വെസ്റ്റ്',
@@ -121,9 +167,9 @@ export const leaders = [
     bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ പ്രസിഡന്റായി തീരദേശ മേഖലകളിലടക്കം പ്രവർത്തനങ്ങൾ നയിക്കുന്നു.',
     term: 'District President'
   },
-  // 9. Shanavas Thurakkal Kadampuzha - General Secretary, Malappuram West District
+  // 12. Shanavas Thurakkal Kadampuzha - General Secretary, Malappuram West District
   {
-    id: 'lead-9',
+    id: 'lead-12',
     name: 'ഷാനവാസ് തുറക്കൽ (കാടാമ്പുഴ)',
     englishName: 'Shanavas Thurakkal (Kadampuzha)',
     designation: 'ജില്ലാ ജനറൽ സെക്രട്ടറി, മലപ്പുറം വെസ്റ്റ്',
@@ -135,9 +181,9 @@ export const leaders = [
     bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ ജനറൽ സെക്രട്ടറിയായി വിപുലമായ പ്രവർത്തനങ്ങൾ സംഘടിപ്പിക്കുന്നു.',
     term: 'District General Secretary'
   },
-  // 10. P.P. Kunjimuhammed Thavanur - Treasurer, Malappuram West District
+  // 13. P.P. Kunjimuhammed Thavanur - Treasurer, Malappuram West District
   {
-    id: 'lead-10',
+    id: 'lead-13',
     name: 'പി.പി. കുഞ്ഞിമുഹമ്മദ് (തവനൂർ)',
     englishName: 'P. P. Kunjimuhammed (Thavanur)',
     designation: 'ജില്ലാ ട്രഷറർ, മലപ്പുറം വെസ്റ്റ്',
@@ -148,6 +194,51 @@ export const leaders = [
     image: '/leaders/PP_Kunjimuhammed_Thavanur_Treasurer_LNS_Malappuram_West_District.png',
     bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ കമ്മിറ്റിയുടെ ട്രഷററായി പ്രവർത്തിക്കുന്നു.',
     term: 'District Treasurer'
+  },
+  // 14. Khadija Moothedath Ponnani - President, Malappuram West District Women's Wing
+  {
+    id: 'lead-14',
+    name: 'ഖദീജ മൂത്തേടത്ത് (പൊന്നാനി)',
+    englishName: 'Khadija Moothedath (Ponnani)',
+    designation: 'ജില്ലാ പ്രസിഡന്റ്, വനിതാ വിംഗ്',
+    englishDesignation: "President, Women's Wing (Malappuram West)",
+    committee: 'Malappuram West',
+    category: 'malappuram-west',
+    isWomenWing: true,
+    district: 'പൊന്നാനി / മലപ്പുറം വെസ്റ്റ്',
+    image: '/leaders/Khadija_Moothedath_West_District_President_Ponnani.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ വനിതാ വിംഗ് പ്രസിഡന്റ്.',
+    term: "Women's Wing President"
+  },
+  // 15. Naseeba Aziz Mayyeri Tirur - General Secretary, Malappuram West District Women's Wing
+  {
+    id: 'lead-15',
+    name: 'നസീബ അസീസ് മയ്യേരി (തിരൂർ)',
+    englishName: 'Naseeba Aziz Mayyeri (Tirur)',
+    designation: 'ജില്ലാ ജനറൽ സെക്രട്ടറി, വനിതാ വിംഗ്',
+    englishDesignation: "General Secretary, Women's Wing (Malappuram West)",
+    committee: 'Malappuram West',
+    category: 'malappuram-west',
+    isWomenWing: true,
+    district: 'തിരൂർ / മലപ്പുറം വെസ്റ്റ്',
+    image: '/leaders/Naseeba_Aziz_Mayyeri_West_District_General_Secretary_Tirur.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ വനിതാ വിംഗ് ജനറൽ സെക്രട്ടറി.',
+    term: "Women's Wing Gen. Secretary"
+  },
+  // 16. V.P. Sulaikha Tanur - Treasurer, Malappuram West District Women's Wing
+  {
+    id: 'lead-16',
+    name: 'വി.പി. സുലൈഖ (താനൂർ)',
+    englishName: 'V. P. Sulaikha (Tanur)',
+    designation: 'ജില്ലാ ട്രഷറർ, വനിതാ വിംഗ്',
+    englishDesignation: "Treasurer, Women's Wing (Malappuram West)",
+    committee: 'Malappuram West',
+    category: 'malappuram-west',
+    isWomenWing: true,
+    district: 'താനൂർ / മലപ്പുറം വെസ്റ്റ്',
+    image: '/leaders/VP_Sulaikha_West_District_Treasurer_Tanur.png',
+    bio: 'ലഹരി നിർമ്മാർജന സമിതി മലപ്പുറം വെസ്റ്റ് ജില്ലാ വനിതാ വിംഗ് ട്രഷറർ.',
+    term: "Women's Wing Treasurer"
   }
 ];
 

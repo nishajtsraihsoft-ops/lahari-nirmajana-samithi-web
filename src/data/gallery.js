@@ -1,26 +1,29 @@
-// ലഹരി നിർമ്മാർജന സമിതി (LNS) - ഫോട്ടോ ഗ്യാലറി
+// ലഹരി നിർമ്മാർജന സമിതി (LNS) - ഔദ്യോഗിക ഫോട്ടോ ഗ്യാലറി
+// Images strictly taken from public/gallery/ folder only
 
-export const galleryImages = [
-  { id: 'img-1', image: '/hero-image.png' },
-  { id: 'img-2', image: 'https://images.unsplash.com/photo-1544654803-b69140b285a4?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-3', image: '/hero-image-2.jpg' },
-  { id: 'img-4', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-5', image: '/hero-image-3.jpg' },
-  { id: 'img-6', image: 'https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-7', image: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-8', image: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-9', image: 'https://images.unsplash.com/photo-1569437061241-a848be43cc82?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-10', image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-11', image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-12', image: 'https://images.unsplash.com/photo-1529070538774-1843cb3265df?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-13', image: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-14', image: 'https://images.unsplash.com/photo-1526976668912-1a811878dd37?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-15', image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1400&q=85' },
-  { id: 'img-16', image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1400&q=85' }
+const GALLERY_FILES = [
+  '1.jpeg', '2.jpeg', '3.jpeg', '4.jpeg', '5.jpeg',
+  '6.jpeg', '7.jpeg', '8.jpeg', '9.jpeg', '10.jpeg',
+  '11.jpeg', '12.jpeg', '13.jpeg', '14.jpeg', '15.jpeg',
+  '16.jpeg', '17.jpeg', '18.jpeg', '19.jpeg', '20.jpeg',
+  '21.jpeg', '22.jpeg', '23.jpeg', '24.jpeg', '25.jpeg',
+  '26.jpeg', '27.jpeg', '28.jpeg', '29.jpeg', '30.jpeg',
+  '32.jpeg', '33.jpeg', '34.jpeg', '35.jpeg', '36.jpeg',
+  '37.jpeg', '38.jpeg', '39.jpeg', '40.jpeg', '43.jpeg',
+  '44.jpeg', '45.jpeg', '46.jpeg', '47.jpeg', '48.jpeg',
+  '49.jpeg', '50.jpeg', '51.jpeg', '52.jpeg', '53.jpeg',
+  '54.jpeg', '55.jpeg', '56.jpeg', '57.jpeg', '58.jpeg',
+  '59.jpeg', '60.jpeg', '61.jpeg', '62.jpeg', '63.jpeg',
+  '64.jpeg', '65.jpeg'
 ];
 
+export const galleryImages = GALLERY_FILES.map((fileName, index) => ({
+  id: `gal-${index + 1}`,
+  image: `/gallery/${fileName}`
+}));
+
 export const galleryCategories = [
-  { id: 'all', name: 'എല്ലാം', englishName: 'All Media' }
+  { id: 'all', name: 'എല്ലാം', englishName: 'All Photos' }
 ];
 
 export const galleryItems = galleryImages;

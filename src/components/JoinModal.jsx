@@ -1,6 +1,19 @@
-import React, { useState } from 'react';
-import { X, CheckCircle, Heart, Phone, Mail, MapPin, User, ShieldCheck, MessageCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { 
+  X, 
+  CheckCircle2, 
+  Phone, 
+  MapPin, 
+  User, 
+  ShieldCheck, 
+  MessageCircle, 
+  FileText,
+  ChevronDown
+} from 'lucide-react';
 import { samithiContact } from '../data/objectives';
+
+const JOIN_WHATSAPP_NUMBER = '9567555661';
+const JOIN_WHATSAPP_DISPLAY = '+91 95675 55661';
 
 const KERALA_DISTRICTS = [
   'മലപ്പുറം (Malappuram)',
@@ -20,41 +33,52 @@ const KERALA_DISTRICTS = [
 ];
 
 const VOLUNTEER_ROLES = [
-  'Youth & Campus Ambassador (വിദ്യാർത്ഥി അംബാസഡർ)',
-  'Awareness Campaign Speaker (ബോധവൽക്കരണ പ്രഭാഷകൻ)',
-  'Event & Rally Coordinator (റാലി & പരിപാടി കോർഡിനേറ്റർ)',
-  'Counseling & Support Volunteer (കൗൺസിലിംഗ് സന്നദ്ധപ്രവർത്തകൻ)',
-  'Social Media Campaigner (സോഷ്യൽ മീഡിയ പ്രചാരകൻ)',
-  'Local Ward Organizer (പ്രാദേശിക വാർഡ് പ്രവർത്തകൻ)'
+  'ക്യാമ്പസ് ബോധവൽക്കരണം (Campus Vigilance)',
+  'ജനകീയ കൂട്ടായ്മകൾ (Community Volunteering)',
+  'റാലികളും ക്യാമ്പയിനുകളും (Mass Action Camps)',
+  'കൗൺസിലിംഗ് & സഹായം (Counseling Support)',
+  'സോഷ്യൽ മീഡിയ പ്രചാരണം (Media Outreach)',
+  'മറ്റ് സന്നദ്ധ പ്രവർത്തനങ്ങൾ (General Volunteer)'
 ];
 
 const JoinModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     phone: '',
-    email: '',
     district: 'മലപ്പുറം (Malappuram)',
-    role: 'Youth & Campus Ambassador (വിദ്യാർത്ഥി അംബാസഡർ)',
+    role: 'ക്യാമ്പസ് ബോധവൽക്കരണം (Campus Vigilance)',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
 
+  // Prevent background scroll and support Escape key
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   const validate = () => {
     const errs = {};
-    if (!formData.fullName.trim()) errs.fullName = 'Please enter your full name';
-    if (!formData.phone.trim()) {
-      errs.phone = 'Please enter your phone number';
-    } else if (!/^[0-9+\s-]{10,15}$/.test(formData.phone.trim())) {
-      errs.phone = 'Please enter a valid phone number';
+    if (!formData.fullName.trim()) {
+      errs.fullName = 'പേര് നൽകുക (Enter your full name)';
     }
-    if (!formData.email.trim()) {
-      errs.email = 'Please enter your email address';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
-      errs.email = 'Please enter a valid email address';
+    if (!formData.phone.trim()) {
+      errs.phone = 'ഫോൺ നമ്പർ നൽകുക (Enter phone number)';
+    } else if (!/^[0-9+\s-]{10,15}$/.test(formData.phone.trim())) {
+      errs.phone = 'ശരിയായ 10 അക്ക നമ്പർ നൽകുക (Enter valid 10-digit number)';
     }
     setErrors(errs);
     return Object.keys(errs).length === 0;
@@ -65,11 +89,10 @@ const JoinModal = ({ isOpen, onClose }) => {
       `*ലഹരി നിർമ്മാർജന സമിതി (LNS)*\n\n` +
       `👤 *പേര് (Name):* ${data.fullName.trim()}\n` +
       `📞 *ഫോൺ (Phone):* ${data.phone.trim()}\n` +
-      `📧 *ഇമെയിൽ (Email):* ${data.email.trim()}\n` +
       `📍 *ജില്ല (District):* ${data.district}\n` +
       `🎯 *മേഖല (Role):* ${data.role}\n` +
-      (data.message.trim() ? `💬 *കുറിപ്പ് (Notes):* ${data.message.trim()}\n` : '') +
-      `\n---\n_Sent via Lahari Nirmaargana Samithi Website_`;
+      (data.message?.trim() ? `💬 *സ്ഥലം / കുറിപ്പ് (Notes):* ${data.message.trim()}\n` : '') +
+      `\n---\n_ലഹരി നിർമ്മാർജന സമിതി വെബ്സൈറ്റ് വഴി അയച്ചത്_`;
   };
 
   const handleSubmit = (e) => {
@@ -78,7 +101,7 @@ const JoinModal = ({ isOpen, onClose }) => {
     setIsSubmitting(true);
 
     const waText = getWhatsAppMessage();
-    const waUrl = `https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent(waText)}`;
+    const waUrl = `https://wa.me/91${JOIN_WHATSAPP_NUMBER}?text=${encodeURIComponent(waText)}`;
 
     // Open WhatsApp directly
     window.open(waUrl, '_blank', 'noopener,noreferrer');
@@ -93,9 +116,8 @@ const JoinModal = ({ isOpen, onClose }) => {
     setFormData({
       fullName: '',
       phone: '',
-      email: '',
       district: 'മലപ്പുറം (Malappuram)',
-      role: 'Youth & Campus Ambassador (വിദ്യാർത്ഥി അംബാസഡർ)',
+      role: 'ക്യാമ്പസ് ബോധവൽക്കരണം (Campus Vigilance)',
       message: ''
     });
     setIsSubmitted(false);
@@ -104,186 +126,218 @@ const JoinModal = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-black/70 backdrop-blur-xs transition-opacity animate-fadeIn font-malayalam">
+    <div 
+      className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-xs p-3 sm:p-4 flex min-h-full items-center justify-center animate-fadeIn"
+      onClick={onClose}
+    >
       <div 
-        className="relative w-full max-w-xl bg-white rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-gray-100 max-h-[92vh] flex flex-col"
+        className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl overflow-hidden border border-slate-100 flex flex-col my-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* ഹെഡർ */}
-        <div className="bg-themeBlue text-white p-4 sm:p-6 relative">
+        {/* Subtle Brand Accent Stripe */}
+        <div className="h-1.5 w-full bg-gradient-to-r from-themeRed via-themeBlue to-themeGreen shrink-0" />
+
+        {/* Minimal Clean Header */}
+        <div className="px-5 sm:px-6 py-4 border-b border-slate-100 flex items-center justify-between gap-3 bg-white">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-100 flex items-center justify-center shrink-0">
+              <MessageCircle className="w-5 h-5" />
+            </div>
+            <div>
+              <h3 className="text-base sm:text-lg font-black text-slate-900 font-sans tracking-tight leading-snug">
+                Join Our Mission
+              </h3>
+              <p className="text-[11px] sm:text-xs text-slate-500 font-malayalam leading-tight mt-0.5">
+                ലഹരിമുക്ത സമൂഹത്തിനായി ഞങ്ങളോടൊപ്പം ചേരൂ
+              </p>
+            </div>
+          </div>
+
           <button
             onClick={onClose}
             aria-label="Close"
-            className="absolute top-4 right-4 sm:top-5 sm:right-5 p-1.5 rounded-full text-white/80 hover:text-white hover:bg-white/10 transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4" />
           </button>
-          
-          <div className="flex items-center gap-2 mb-1">
-            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-white/20 text-green-200">
-              Lahari Nirmaargana Samithi (LNS)
-            </span>
-          </div>
-          <h3 className="text-xl sm:text-2xl font-black">
-            Join Our Mission
-          </h3>
-          <p className="text-themeGreen-light text-xs sm:text-sm font-bold">
-            ഞങ്ങളോടൊപ്പം ചേരൂ
-          </p>
-          <p className="text-blue-100 text-xs sm:text-sm mt-0.5">
-            ലഹരിമുക്ത സമൂഹത്തിനായി സന്നദ്ധപ്രവർത്തകനായി രജിസ്റ്റർ ചെയ്യാം. വിവരങ്ങൾ ഔദ്യോഗിക വാട്സ്ആപ്പിലേക്ക് നേരിട്ട് കൈമാറാം.
-          </p>
         </div>
 
-        {/* ബോഡി */}
-        <div className="p-4 sm:p-6 overflow-y-auto flex-1">
+        {/* Modal Body */}
+        <div className="p-5 sm:p-6 overflow-y-auto max-h-[calc(90vh-80px)]">
           {isSubmitted ? (
-            <div className="text-center py-6 sm:py-8 space-y-3 sm:space-y-4">
-              <div className="w-16 h-16 bg-[#198754]/15 text-[#198754] rounded-full flex items-center justify-center mx-auto shadow-inner">
-                <CheckCircle className="w-10 h-10" />
+            <div className="text-center py-6 space-y-4 font-malayalam">
+              <div className="w-14 h-14 bg-emerald-50 text-emerald-600 rounded-full flex items-center justify-center mx-auto border border-emerald-100">
+                <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h4 className="text-xl font-black text-gray-900">
-                Connecting to WhatsApp!
-              </h4>
-              <p className="text-xs sm:text-sm text-gray-700 max-w-md mx-auto leading-relaxed">
-                ലഹരി നിർമ്മാർജന സമിതിയുടെ ഔദ്യോഗിക വാട്സ്ആപ്പിലേക്ക് (+91 {samithiContact.rawPhone || '9567555661'}) വിവരങ്ങൾ കൈമാറിയിരിക്കുന്നു. വാട്സ്ആപ്പ് ഓപ്പൺ ആയില്ലെങ്കിൽ താഴെ ക്ലിക്ക് ചെയ്യുക:
-              </p>
-              <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="space-y-1.5">
+                <h4 className="text-lg font-black text-slate-900 font-sans">
+                  Ready on WhatsApp!
+                </h4>
+                <p className="text-xs text-slate-600 leading-relaxed max-w-xs mx-auto">
+                  നിങ്ങൾ നൽകിയ വിവരങ്ങൾ ലഹരി നിർമ്മാർജന സമിതിയുടെ വാട്സ്ആപ്പിലേക്ക് ({JOIN_WHATSAPP_DISPLAY}) തയ്യാറാക്കിയിരിക്കുന്നു.
+                </p>
+              </div>
+
+              <div className="pt-2 flex flex-col gap-2">
                 <a
-                  href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent(getWhatsAppMessage())}`}
+                  href={`https://wa.me/91${JOIN_WHATSAPP_NUMBER}?text=${encodeURIComponent(getWhatsAppMessage())}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-6 py-2.5 bg-[#198754] hover:bg-[#157347] text-white rounded-xl text-sm font-bold shadow-md transition-all flex items-center justify-center gap-2"
+                  className="w-full py-2.5 px-4 bg-[#198754] hover:bg-[#157347] text-white rounded-xl text-xs font-bold shadow-xs transition-all flex items-center justify-center gap-2 font-sans"
                 >
                   <MessageCircle className="w-4 h-4" />
-                  <span>Open WhatsApp (+91 95675 55661)</span>
+                  <span>Open WhatsApp ({JOIN_WHATSAPP_DISPLAY})</span>
                 </a>
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="w-full sm:w-auto px-6 py-2.5 bg-slate-800 hover:bg-slate-900 text-white rounded-xl text-sm font-bold shadow-md transition-all"
+                  className="w-full py-2 px-4 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-bold transition-colors font-sans"
                 >
-                  Done
+                  Done &amp; Close
                 </button>
               </div>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
-              {/* പേര് */}
+            <form onSubmit={handleSubmit} className="space-y-4 text-left">
+              
+              {/* Full Name Field */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">
-                  Full Name (പൂർണ്ണ നാമം) *
+                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-sans">
+                  Full Name <span className="font-normal font-malayalam text-slate-500">(പേര്)</span> <span className="text-red-500">*</span>
                 </label>
-                <input
-                  type="text"
-                  placeholder="Enter your full name"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className={`w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 transition-all ${
-                    errors.fullName ? 'border-themeRed bg-red-50/20' : 'border-gray-300'
-                  }`}
-                />
-                {errors.fullName && <p className="text-xs text-themeRed mt-1">{errors.fullName}</p>}
+                <div className={`flex items-center w-full h-11 bg-slate-50/80 border rounded-xl transition-all ${
+                  errors.fullName 
+                    ? 'border-red-400 focus-within:ring-2 focus-within:ring-red-200 bg-red-50/20' 
+                    : 'border-slate-200 focus-within:bg-white focus-within:border-themeBlue focus-within:ring-2 focus-within:ring-themeBlue/20'
+                }`}>
+                  <div className="pl-3.5 pr-2.5 text-slate-400 flex items-center justify-center shrink-0">
+                    <User className="w-4 h-4" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Enter your full name"
+                    value={formData.fullName}
+                    onChange={(e) => {
+                      setFormData({ ...formData, fullName: e.target.value });
+                      if (errors.fullName) setErrors({ ...errors, fullName: null });
+                    }}
+                    className="w-full h-full pr-3.5 text-xs sm:text-sm bg-transparent border-0 focus:outline-none focus:ring-0 font-sans text-slate-800 placeholder:text-slate-400"
+                  />
+                </div>
+                {errors.fullName && (
+                  <p className="text-[11px] text-red-500 mt-1 font-malayalam pl-0.5">{errors.fullName}</p>
+                )}
               </div>
 
-              {/* ഫോൺ & ഇമെയിൽ */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1">
-                    Phone Number (ഫോൺ നമ്പർ) *
-                  </label>
+              {/* WhatsApp Phone Field */}
+              <div>
+                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-sans">
+                  WhatsApp Number <span className="font-normal font-malayalam text-slate-500">(ഫോൺ നമ്പർ)</span> <span className="text-red-500">*</span>
+                </label>
+                <div className={`flex items-center w-full h-11 bg-slate-50/80 border rounded-xl transition-all ${
+                  errors.phone 
+                    ? 'border-red-400 focus-within:ring-2 focus-within:ring-red-200 bg-red-50/20' 
+                    : 'border-slate-200 focus-within:bg-white focus-within:border-themeBlue focus-within:ring-2 focus-within:ring-themeBlue/20'
+                }`}>
+                  <div className="pl-3.5 pr-2.5 text-slate-400 flex items-center justify-center shrink-0">
+                    <Phone className="w-4 h-4" />
+                  </div>
                   <input
                     type="tel"
                     placeholder="10-digit mobile number"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 transition-all ${
-                      errors.phone ? 'border-themeRed bg-red-50/20' : 'border-gray-300'
-                    }`}
+                    onChange={(e) => {
+                      setFormData({ ...formData, phone: e.target.value });
+                      if (errors.phone) setErrors({ ...errors, phone: null });
+                    }}
+                    className="w-full h-full pr-3.5 text-xs sm:text-sm bg-transparent border-0 focus:outline-none focus:ring-0 font-sans text-slate-800 placeholder:text-slate-400"
                   />
-                  {errors.phone && <p className="text-xs text-themeRed mt-1">{errors.phone}</p>}
                 </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1">
-                    Email Address (ഇമെയിൽ) *
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="your.email@example.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className={`w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 transition-all ${
-                      errors.email ? 'border-themeRed bg-red-50/20' : 'border-gray-300'
-                    }`}
-                  />
-                  {errors.email && <p className="text-xs text-themeRed mt-1">{errors.email}</p>}
-                </div>
+                {errors.phone && (
+                  <p className="text-[11px] text-red-500 mt-1 font-malayalam pl-0.5">{errors.phone}</p>
+                )}
               </div>
 
-              {/* ജില്ല & താല്പര്യമുള്ള മേഖല */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1">
-                    District (ജില്ല) *
-                  </label>
+              {/* District Dropdown */}
+              <div>
+                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-sans">
+                  District <span className="font-normal font-malayalam text-slate-500">(ജില്ല)</span> <span className="text-red-500">*</span>
+                </label>
+                <div className="flex items-center w-full h-11 bg-slate-50/80 border border-slate-200 rounded-xl focus-within:bg-white focus-within:border-themeBlue focus-within:ring-2 focus-within:ring-themeBlue/20 transition-all relative">
+                  <div className="pl-3.5 pr-2.5 text-slate-400 flex items-center justify-center shrink-0 pointer-events-none">
+                    <MapPin className="w-4 h-4" />
+                  </div>
                   <select
                     value={formData.district}
                     onChange={(e) => setFormData({ ...formData, district: e.target.value })}
-                    className="w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 bg-white"
+                    className="w-full h-full pr-8 text-xs sm:text-sm bg-transparent border-0 focus:outline-none focus:ring-0 font-malayalam text-slate-800 cursor-pointer appearance-none"
                   >
                     {KERALA_DISTRICTS.map((dist) => (
                       <option key={dist} value={dist}>{dist}</option>
                     ))}
                   </select>
+                  <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                 </div>
+              </div>
 
-                <div>
-                  <label className="block text-xs font-bold text-gray-700 mb-1">
-                    Volunteer Role (മേഖല) *
-                  </label>
+              {/* Volunteer Role Dropdown */}
+              <div>
+                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-sans">
+                  Role / Interest <span className="font-normal font-malayalam text-slate-500">(മേഖല)</span> <span className="text-red-500">*</span>
+                </label>
+                <div className="flex items-center w-full h-11 bg-slate-50/80 border border-slate-200 rounded-xl focus-within:bg-white focus-within:border-themeBlue focus-within:ring-2 focus-within:ring-themeBlue/20 transition-all relative">
+                  <div className="pl-3.5 pr-2.5 text-slate-400 flex items-center justify-center shrink-0 pointer-events-none">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
                   <select
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="w-full px-3.5 py-2.5 sm:py-3 text-base sm:text-sm border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30 bg-white"
+                    className="w-full h-full pr-8 text-xs sm:text-sm bg-transparent border-0 focus:outline-none focus:ring-0 font-malayalam text-slate-800 cursor-pointer appearance-none"
                   >
                     {VOLUNTEER_ROLES.map((role) => (
                       <option key={role} value={role}>{role}</option>
                     ))}
                   </select>
+                  <ChevronDown className="absolute right-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
                 </div>
               </div>
 
-              {/* സന്ദേശം */}
+              {/* Optional Location / Notes Field */}
               <div>
-                <label className="block text-xs font-bold text-gray-700 mb-1">
-                  Additional Notes (കൂടുതൽ വിവരങ്ങൾ - Optional)
+                <label className="block text-[11px] font-bold text-slate-700 uppercase tracking-wider mb-1.5 font-sans">
+                  Mandalam / Place <span className="font-normal font-malayalam text-slate-500">(സ്ഥലം / കുറിപ്പ് - Optional)</span>
                 </label>
-                <textarea
-                  rows="2"
-                  placeholder="Any prior experience in anti-drug campaigns or social work..."
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  className="w-full px-3.5 py-2.5 text-base sm:text-sm border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-themeBlue/30"
-                ></textarea>
+                <div className="flex items-center w-full h-11 bg-slate-50/80 border border-slate-200 rounded-xl focus-within:bg-white focus-within:border-themeBlue focus-within:ring-2 focus-within:ring-themeBlue/20 transition-all">
+                  <div className="pl-3.5 pr-2.5 text-slate-400 flex items-center justify-center shrink-0">
+                    <FileText className="w-4 h-4" />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Panchayat / Mandalam / School / College..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    className="w-full h-full pr-3.5 text-xs sm:text-sm bg-transparent border-0 focus:outline-none focus:ring-0 font-sans text-slate-800 placeholder:text-slate-400"
+                  />
+                </div>
               </div>
 
-              {/* സബ്മിറ്റ് ബട്ടൺ - Connected to WhatsApp */}
+              {/* Submit Button */}
               <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 px-4 bg-[#198754] hover:bg-[#157347] text-white font-bold rounded-xl shadow-md transition-all text-sm active:scale-98 flex items-center justify-center gap-2.5"
+                  className="w-full h-11 px-4 bg-[#198754] hover:bg-[#157347] active:scale-98 text-white font-bold rounded-xl shadow-xs hover:shadow transition-all text-xs sm:text-sm flex items-center justify-center gap-2 font-sans"
                 >
-                  <MessageCircle className="w-5 h-5 text-white" />
-                  <span>
-                    {isSubmitting ? 'Opening WhatsApp...' : 'Register on WhatsApp (+91 95675 55661)'}
+                  <MessageCircle className="w-4.5 h-4.5 text-white shrink-0" />
+                  <span className="truncate">
+                    {isSubmitting ? 'Opening WhatsApp...' : `Submit on WhatsApp (${JOIN_WHATSAPP_DISPLAY})`}
                   </span>
                 </button>
-                <p className="text-center text-[11px] text-gray-500 mt-2 font-sans">
-                  Submitting will format and open this registration directly on official WhatsApp (9567555661).
+                <p className="text-center text-[10.5px] text-slate-400 mt-2 font-sans">
+                  Directly opens official WhatsApp ({JOIN_WHATSAPP_DISPLAY}) to send your registration.
                 </p>
               </div>
+
             </form>
           )}
         </div>

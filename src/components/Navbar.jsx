@@ -51,14 +51,14 @@ const Navbar = ({ onOpenJoinModal }) => {
         >
           <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-2">
             
-            {/* Emergency Toll-Free Badge */}
+            {/* Emergency Helpline Badge */}
             <div className="flex items-center gap-1.5 sm:gap-3 flex-wrap justify-center sm:justify-start text-center sm:text-left">
               <span className="inline-flex items-center gap-1 bg-themeRed hover:bg-themeRed-hover px-2 sm:px-2.5 py-0.5 rounded-full font-black text-[10px] sm:text-[11px] tracking-wide text-white shadow-xs transition-colors shrink-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"></span>
                 24x7 Helpline
               </span>
               <span className="text-white/95 text-[10.5px] sm:text-xs">
-                State Helpline: <a href={`tel:${samithiContact.helpline}`} className="font-extrabold underline hover:text-yellow-300 ml-1 transition-colors">{samithiContact.helpline}</a> (Toll-Free)
+                State Helpline: <a href={`tel:${samithiContact.helpline}`} className="font-extrabold underline hover:text-yellow-300 ml-1 transition-colors">{samithiContact.helpline}</a>
               </span>
             </div>
 

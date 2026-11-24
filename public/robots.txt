@@ -1,0 +1,11 @@
+# Robots.txt for Lahari Nirmaargana Samithi (LNS)
+# Website: https://www.laharinirmarjanasamithi.com
+
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.laharinirmarjanasamithi.com
+
+# Sitemaps
+Sitemap: https://www.laharinirmarjanasamithi.com/sitemap.xml

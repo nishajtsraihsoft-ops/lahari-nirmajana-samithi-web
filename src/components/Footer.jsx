@@ -53,37 +53,37 @@ const Footer = ({ onOpenJoinModal }) => {
               <li>
                 <Link to="/" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Home (ഹോം)</span>
+                  <span>Home</span>
                 </Link>
               </li>
               <li>
                 <Link to="/about" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>About Us (ഞങ്ങളെക്കുറിച്ച്)</span>
+                  <span>About Us</span>
                 </Link>
               </li>
               <li>
                 <Link to="/activities" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Our Activities (പ്രവർത്തനങ്ങൾ)</span>
+                  <span>Our Activities</span>
                 </Link>
               </li>
               <li>
                 <Link to="/leadership" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Leadership Directory (നേതൃത്വം)</span>
+                  <span>Leaders</span>
                 </Link>
               </li>
               <li>
                 <Link to="/gallery" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Photo & Media Gallery (ഗ്യാലറി)</span>
+                  <span>Gallery</span>
                 </Link>
               </li>
               <li>
                 <Link to="/contact" className="text-gray-400 hover:text-white flex items-center gap-2 transition-colors">
                   <ArrowRight className="w-3.5 h-3.5 text-themeBlue" />
-                  <span>Contact Us (ബന്ധപ്പെടുക)</span>
+                  <span>Contact Us</span>
                 </Link>
               </li>
             </ul>
@@ -145,7 +145,7 @@ const Footer = ({ onOpenJoinModal }) => {
                 </a>
               </p>
               <p className="text-xs text-gray-400">
-                Toll-free helpline for counseling & assistance
+                24x7 helpline for counseling & assistance
               </p>
             </div>
 

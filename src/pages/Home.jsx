@@ -22,12 +22,31 @@ import {
   Sparkles
 } from 'lucide-react';
 import Hero from '../components/Hero';
+import SEO from '../components/SEO';
 import { objectives, samithiContact, organisationRegions } from '../data/objectives';
 import { activities } from '../data/activities';
 
 const Home = ({ onOpenJoinModal }) => {
   return (
     <div className="space-y-0 pb-16 sm:pb-24 bg-white text-gray-800">
+      <SEO
+        title="ലഹരിമുക്ത സമൂഹത്തിനായി ജനകീയ മുന്നേറ്റം"
+        description="കേരളത്തിലെ വിദ്യാലയങ്ങളിലും കലാലയങ്ങളിലും സമൂഹത്തിലും ലഹരിക്കെതിരായ ജനകീയ പ്രതിരോധം തീർക്കുന്ന ലഹരി നിർമ്മാർജന സമിതി (LNS). 24x7 ഹെൽപ്‌ലൈൻ: +91 95675 55661."
+        canonicalPath="/"
+        type="website"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "ലഹരി നിർമ്മാർജന സമിതി (LNS)",
+          "alternateName": "Lahari Nirmaargana Samithi",
+          "url": "https://www.laharinirmarjanasamithi.com/",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://www.laharinirmarjanasamithi.com/activities?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        }}
+      />
       
       {/* =========================================================================
           1. HERO SLIDER BANNER (Matches Top Slider in Reference Image)
@@ -86,9 +105,10 @@ const Home = ({ onOpenJoinModal }) => {
             <div>
               <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
                 <img 
-                  src="https://images.unsplash.com/photo-1544654803-b69140b285a4?auto=format&fit=crop&w=800&q=80" 
+                  src="/Home/community-volunteering.png" 
                   alt="Community Volunteering"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.currentTarget.src = '/Home/COMMUNITY VOLUNTEERING.png'; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeRed text-white shadow-md">
@@ -124,9 +144,10 @@ const Home = ({ onOpenJoinModal }) => {
             <div>
               <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
                 <img 
-                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80" 
+                  src="/Home/campus-vigilance.png" 
                   alt="Campus Vigilance"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.currentTarget.src = '/Home/CAMPUS VIGILANCE.png'; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeGreen text-white shadow-md">
@@ -161,9 +182,10 @@ const Home = ({ onOpenJoinModal }) => {
             <div>
               <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
                 <img 
-                  src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80" 
+                  src="/Home/mass-action-camps.jpeg" 
                   alt="Mass Action Camps"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.currentTarget.src = '/Home/MASS ACTION CAMPS.jpeg'; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeBlue text-white shadow-md">
@@ -198,9 +220,10 @@ const Home = ({ onOpenJoinModal }) => {
             <div>
               <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
                 <img 
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80" 
+                  src="/Home/counseling-rehab.png" 
                   alt="Counseling & Rehab"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  onError={(e) => { e.currentTarget.src = '/Home/COUNSELING & REHAB.png'; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                 <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeGreen text-white shadow-md">
