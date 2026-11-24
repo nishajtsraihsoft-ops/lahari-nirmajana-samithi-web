@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
 const DEFAULT_TITLE = 'ലഹരി നിർമ്മാർജന സമിതി (LNS) | ലഹരിമുക്ത സമൂഹത്തിനായി ജനകീയ മുന്നേറ്റം';
-const DEFAULT_DESC = 'ലഹരി എന്ന സാമൂഹിക വിപത്തിനെതിരെ ജനകീയ പ്രതിരോധം തീർക്കുന്ന കേരളത്തിലെ പ്രമുഖ ജനകീയ പ്രസ്ഥാനം. വിദ്യാലയ ജാഗ്രത, പടയൊരുക്കം ക്യാമ്പുകൾ, കൗൺസിലിംഗ് & പുനരധിവാസം. 24x7 ഹെൽപ്‌ലൈൻ: +91 95675 55661.';
+const DEFAULT_DESC = 'ലഹരിമുക്ത സമൂഹത്തിനായി ജനകീയ മുന്നേറ്റം. 24x7 ഹെൽപ്‌ലൈൻ: +91 95675 55661.';
 const DEFAULT_KEYWORDS = 'ലഹരി നിർമ്മാർജന സമിതി, Lahari Nirmaargana Samithi, LNS Kerala, anti drug movement kerala, drug free kerala, വിമുക്തി, ലഹരിവിരുദ്ധ ക്യാമ്പയിൻ, campus vigilance, malappuram, 9567555661, www.laharinirmarjanasamithi.com';
 const SITE_URL = 'https://www.laharinirmarjanasamithi.com';
-const DEFAULT_IMAGE = '/og-image.jpg';
+const DEFAULT_IMAGE = '/og-image.jpg?v=2';
 
 /**
  * Reusable SEO component that updates document head tags on route transitions
@@ -23,7 +23,7 @@ const SEO = ({
   const currentPath = canonicalPath || location.pathname;
   const canonicalUrl = `${SITE_URL}${currentPath === '/' ? '' : currentPath}`;
   const pageTitle = title 
-    ? `${title} | ലഹരി നിർമ്മാർജന സമിതി (LNS)`
+    ? (title.includes('ലഹരി നിർമ്മാർജന സമിതി') ? title : `${title} | ലഹരി നിർമ്മാർജന സമിതി (LNS)`)
     : DEFAULT_TITLE;
   const imageUrl = image.startsWith('http') ? image : `${SITE_URL}${image}`;
 

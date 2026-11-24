@@ -30,8 +30,8 @@ const Home = ({ onOpenJoinModal }) => {
   return (
     <div className="space-y-0 pb-16 sm:pb-24 bg-white text-gray-800">
       <SEO
-        title="ലഹരിമുക്ത സമൂഹത്തിനായി ജനകീയ മുന്നേറ്റം"
-        description="കേരളത്തിലെ വിദ്യാലയങ്ങളിലും കലാലയങ്ങളിലും സമൂഹത്തിലും ലഹരിക്കെതിരായ ജനകീയ പ്രതിരോധം തീർക്കുന്ന ലഹരി നിർമ്മാർജന സമിതി (LNS). 24x7 ഹെൽപ്‌ലൈൻ: +91 95675 55661."
+        title="ലഹരി നിർമ്മാർജന സമിതി (LNS)"
+        description="ലഹരിമുക്ത സമൂഹത്തിനായി ജനകീയ മുന്നേറ്റം. 24x7 ഹെൽപ്‌ലൈൻ: +91 95675 55661."
         canonicalPath="/"
         type="website"
         schema={{
