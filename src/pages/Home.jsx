@@ -101,170 +101,113 @@ const Home = ({ onOpenJoinModal }) => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
           
           {/* Program Card 1 */}
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-2">
-            <div>
-              <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
-                <img 
-                  src="/Home/community-volunteering.png" 
-                  alt="Community Volunteering"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => { e.currentTarget.src = '/Home/COMMUNITY VOLUNTEERING.png'; }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeRed text-white shadow-md">
-                  Grassroots Outreach
-                </span>
-              </div>
-              <div className="p-6 space-y-2 text-left">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-themeRed">
-                  COMMUNITY VOLUNTEERING
-                </p>
-                <h3 className="font-malayalam text-lg sm:text-xl font-black text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
-                  ജനകീയ കൂട്ടായ്മകൾ
-                </h3>
-                <p className="font-malayalam text-xs text-gray-600 leading-relaxed font-normal">
-                  പ്രാദേശിക വാർഡുകളിലും പഞ്ചായത്തുകളിലും ലഹരിക്കെതിരായ ജനകീയ ജാഗ്രതാ സമിതികളും ബോധവൽക്കരണ കൂട്ടായ്മകളും.
-                </p>
-              </div>
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">
+            <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
+              <img 
+                src="/Home/community-volunteering.png" 
+                alt="Community Volunteering"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => { e.currentTarget.src = '/Home/COMMUNITY VOLUNTEERING.png'; }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeRed text-white shadow-md">
+                Grassroots Outreach
+              </span>
             </div>
-            <div className="p-6 pt-0">
-              <button
-                type="button"
-                onClick={onOpenJoinModal}
-                className="w-full py-3 px-4 rounded-xl bg-themeRed hover:bg-themeRed-hover text-white text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group/btn active:scale-98"
-              >
-                <span>Join Community Programs</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-              </button>
+            <div className="p-6 pb-7 space-y-2 text-left">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-themeRed">
+                COMMUNITY VOLUNTEERING
+              </p>
+              <h3 className="font-malayalam text-lg sm:text-xl font-black text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
+                ജനകീയ കൂട്ടായ്മകൾ
+              </h3>
+              <p className="font-malayalam text-xs text-gray-600 leading-relaxed font-normal">
+                പ്രാദേശിക വാർഡുകളിലും പഞ്ചായത്തുകളിലും ലഹരിക്കെതിരായ ജനകീയ ജാഗ്രതാ സമിതികളും ബോധവൽക്കരണ കൂട്ടായ്മകളും.
+              </p>
             </div>
           </div>
 
           {/* Program Card 2 */}
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-2">
-            <div>
-              <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
-                <img 
-                  src="/Home/campus-vigilance.png" 
-                  alt="Campus Vigilance"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => { e.currentTarget.src = '/Home/CAMPUS VIGILANCE.png'; }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeGreen text-white shadow-md">
-                  Youth & Students
-                </span>
-              </div>
-              <div className="p-6 space-y-2 text-left">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-themeGreen">
-                  CAMPUS VIGILANCE
-                </p>
-                <h3 className="font-malayalam text-lg sm:text-xl font-black text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
-                  വിദ്യാലയ ബോധവൽക്കരണം
-                </h3>
-                <p className="font-malayalam text-xs text-gray-600 leading-relaxed font-normal">
-                  സ്കൂളുകളിലും കോളേജുകളിലും വിദ്യാർത്ഥി സംരക്ഷണ സെല്ലുകളും ലഹരിവിരുദ്ധ സെമിനാറുകളും ബോധവൽക്കരണവും.
-                </p>
-              </div>
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">
+            <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
+              <img 
+                src="/Home/campus-vigilance.png" 
+                alt="Campus Vigilance"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => { e.currentTarget.src = '/Home/CAMPUS VIGILANCE.png'; }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeGreen text-white shadow-md">
+                Youth & Students
+              </span>
             </div>
-            <div className="p-6 pt-0">
-              <Link
-                to="/activities"
-                className="w-full py-3 px-4 rounded-xl bg-themeBlue hover:bg-themeBlue-hover text-white text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group/btn"
-              >
-                <span>View Campus Programs</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
+            <div className="p-6 pb-7 space-y-2 text-left">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-themeGreen">
+                CAMPUS VIGILANCE
+              </p>
+              <h3 className="font-malayalam text-lg sm:text-xl font-black text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
+                വിദ്യാലയ ബോധവൽക്കരണം
+              </h3>
+              <p className="font-malayalam text-xs text-gray-600 leading-relaxed font-normal">
+                സ്കൂളുകളിലും കോളേജുകളിലും വിദ്യാർത്ഥി സംരക്ഷണ സെല്ലുകളും ലഹരിവിരുദ്ധ സെമിനാറുകളും ബോധവൽക്കരണവും.
+              </p>
             </div>
           </div>
 
           {/* Program Card 3 */}
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-2">
-            <div>
-              <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
-                <img 
-                  src="/Home/mass-action-camps.jpeg" 
-                  alt="Mass Action Camps"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => { e.currentTarget.src = '/Home/MASS ACTION CAMPS.jpeg'; }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeBlue text-white shadow-md">
-                  Public Mobilization
-                </span>
-              </div>
-              <div className="p-6 space-y-2 text-left">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-themeBlue">
-                  MASS ACTION CAMPS
-                </p>
-                <h3 className="font-malayalam text-lg sm:text-xl font-black text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
-                  പടയൊരുക്കം ക്യാമ്പുകൾ
-                </h3>
-                <p className="font-malayalam text-xs text-gray-600 leading-relaxed font-normal">
-                  നൂറുകണക്കിന് വോളന്റിയർമാർ അണിനിരന്ന പടയൊരുക്കം ലഹരിവിരുദ്ധ ക്യാമ്പുകളും സംസ്ഥാന സമ്മേളനങ്ങളും.
-                </p>
-              </div>
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">
+            <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
+              <img 
+                src="/Home/mass-action-camps.jpeg" 
+                alt="Mass Action Camps"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => { e.currentTarget.src = '/Home/MASS ACTION CAMPS.jpeg'; }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeBlue text-white shadow-md">
+                Public Mobilization
+              </span>
             </div>
-            <div className="p-6 pt-0">
-              <Link
-                to="/activities"
-                className="w-full py-3 px-4 rounded-xl bg-themeBlue hover:bg-themeBlue-hover text-white text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group/btn"
-              >
-                <span>View Action Camps</span>
-                <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-              </Link>
+            <div className="p-6 pb-7 space-y-2 text-left">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-themeBlue">
+                MASS ACTION CAMPS
+              </p>
+              <h3 className="font-malayalam text-lg sm:text-xl font-black text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
+                പടയൊരുക്കം ക്യാമ്പുകൾ
+              </h3>
+              <p className="font-malayalam text-xs text-gray-600 leading-relaxed font-normal">
+                നൂറുകണക്കിന് വോളന്റിയർമാർ അണിനിരന്ന പടയൊരുക്കം ലഹരിവിരുദ്ധ ക്യാമ്പുകളും സംസ്ഥാന സമ്മേളനങ്ങളും.
+              </p>
             </div>
           </div>
 
           {/* Program Card 4 */}
-          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-2">
-            <div>
-              <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
-                <img 
-                  src="/Home/counseling-rehab.png" 
-                  alt="Counseling & Rehab"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  onError={(e) => { e.currentTarget.src = '/Home/COUNSELING & REHAB.png'; }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeGreen text-white shadow-md">
-                  Confidential & Free
-                </span>
-              </div>
-              <div className="p-6 space-y-2 text-left">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-themeGreen">
-                  COUNSELING &amp; REHAB
-                </p>
-                <h3 className="font-malayalam text-lg sm:text-xl font-black text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
-                  കൗൺസിലിംഗും സഹായവും
-                </h3>
-                <p className="font-malayalam text-xs text-gray-600 leading-relaxed font-normal">
-                  24x7 ഹെൽപ്‌ലൈനിലൂടെ ലഹരിബാധിതർക്കും കുടുംബങ്ങൾക്കും സൗജന്യ ഫോൺ കൗൺസിലിംഗും പുനരധിവാസ മാർഗനിർദ്ദേശവും.
-                </p>
-              </div>
+          <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2">
+            <div className="relative aspect-4/3 overflow-hidden bg-gray-100">
+              <img 
+                src="/Home/counseling-rehab.png" 
+                alt="Counseling & Rehab"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                onError={(e) => { e.currentTarget.src = '/Home/COUNSELING & REHAB.png'; }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+              <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeGreen text-white shadow-md">
+                Confidential & Free
+              </span>
             </div>
-            <div className="p-6 pt-0">
-              <a
-                href={`tel:${samithiContact.helpline}`}
-                className="w-full py-3 px-4 rounded-xl bg-themeGreen hover:bg-themeGreen-hover text-white text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 group/btn"
-              >
-                <PhoneCall className="w-3.5 h-3.5" />
-                <span>Call: {samithiContact.helpline}</span>
-              </a>
+            <div className="p-6 pb-7 space-y-2 text-left">
+              <p className="text-[11px] font-bold uppercase tracking-wider text-themeGreen">
+                COUNSELING &amp; REHAB
+              </p>
+              <h3 className="font-malayalam text-lg sm:text-xl font-black text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
+                കൗൺസിലിംഗും സഹായവും
+              </h3>
+              <p className="font-malayalam text-xs text-gray-600 leading-relaxed font-normal">
+                24x7 ഹെൽപ്‌ലൈനിലൂടെ ലഹരിബാധിതർക്കും കുടുംബങ്ങൾക്കും സൗജന്യ ഫോൺ കൗൺസിലിംഗും പുനരധിവാസ മാർഗനിർദ്ദേശവും.
+              </p>
             </div>
           </div>
 
-        </div>
-
-        {/* STYLIZED CHEVRON BROWSE LINK */}
-        <div className="text-center mt-8 sm:mt-12 px-2">
-          <Link
-            to="/about"
-            className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full bg-blue-50/70 hover:bg-blue-100/80 text-[10.5px] sm:text-xs font-black tracking-wider sm:tracking-widest uppercase text-themeBlue transition-all group border border-themeBlue/20 shadow-xs max-w-full text-center flex-wrap justify-center"
-          >
-            <span>&gt;&gt;&gt;</span>
-            <span className="underline underline-offset-4">BROWSE ALL OBJECTIVES &amp; GOALS</span>
-            <span>&lt;&lt;&lt;</span>
-          </Link>
         </div>
       </section>
 
