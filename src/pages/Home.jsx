@@ -18,8 +18,7 @@ import {
   HandHeart,
   ChevronRight,
   ShieldCheck,
-  Eye,
-  Sparkles
+  Eye
 } from 'lucide-react';
 import Hero from '../components/Hero';
 import SEO from '../components/SEO';
@@ -486,10 +485,6 @@ const Home = ({ onOpenJoinModal }) => {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
             <div className="text-left space-y-1.5 max-w-2xl">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/60 text-amber-800 text-[10.5px] sm:text-xs font-black uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
-                <span>Field Reports &bull; Ground Impact</span>
-              </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-gray-900 font-sans">
                 FROM OUR MOVEMENT
               </h2>
