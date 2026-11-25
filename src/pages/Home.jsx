@@ -293,7 +293,7 @@ const Home = ({ onOpenJoinModal }) => {
                   NUMBER OF PROGRAMMES
                 </span>
                 <span className="font-mono text-xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight block">
-                  600+
+                  50+
                 </span>
               </div>
             </div>
