@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Link, useLocation } from 'react-router-dom';
-import { Menu, X, PhoneCall, HeartHandshake, ChevronRight, ShieldCheck, MessageCircle } from 'lucide-react';
+import { Menu, X, PhoneCall, HeartHandshake, ChevronRight, ShieldCheck, MessageCircle, Instagram } from 'lucide-react';
 import { samithiContact } from '../data/objectives';
 
 const NAV_LINKS = [
@@ -62,8 +62,19 @@ const Navbar = ({ onOpenJoinModal }) => {
               </span>
             </div>
 
-            {/* Right Action: WhatsApp Contact & Malayalam Slogan */}
-            <div className="flex items-center gap-2 sm:gap-3 text-[11px] text-blue-100">
+            {/* Right Action: WhatsApp Contact, Instagram & Malayalam Slogan */}
+            <div className="flex items-center gap-2 sm:gap-2.5 text-[11px] text-blue-100">
+              <a
+                href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram @lns_malappuram"
+                className="inline-flex items-center gap-1.5 text-white hover:text-pink-200 transition-all font-semibold bg-white/10 hover:bg-white/20 px-2.5 sm:px-3 py-0.5 rounded-full border border-white/15 text-[10px] sm:text-[11px]"
+              >
+                <Instagram className="w-3.5 h-3.5 text-pink-400" />
+                <span>Instagram</span>
+              </a>
+
               <a
                 href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent('Hello Lahari Nirmaargana Samithi, I would like to contact your office.')}`}
                 target="_blank"
@@ -215,6 +226,17 @@ const Navbar = ({ onOpenJoinModal }) => {
               >
                 <MessageCircle className="w-4 h-4 text-themeGreen" />
                 <span>WhatsApp Contact (9567555661)</span>
+              </a>
+
+              <a
+                href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-pink-700 font-bold bg-pink-50 hover:bg-pink-100 border border-pink-200 text-sm transition-colors"
+              >
+                <Instagram className="w-4 h-4 text-pink-600" />
+                <span>Instagram: @lns_malappuram</span>
               </a>
             </div>
           </div>

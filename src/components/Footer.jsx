@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Heart, ArrowRight, Award, ShieldCheck, Building } from 'lucide-react';
+import { Phone, Mail, MapPin, Heart, ArrowRight, Award, ShieldCheck, Building, Instagram, MessageCircle } from 'lucide-react';
 import { samithiContact } from '../data/objectives';
 
 const Footer = ({ onOpenJoinModal }) => {
@@ -41,6 +41,20 @@ const Footer = ({ onOpenJoinModal }) => {
               <p className="font-malayalam text-xs text-green-300 mt-1 font-bold">
                 ലഹരിക്കെതിരെ ഒന്നിക്കാം... ലഹരിമുക്ത സമൂഹത്തിനായി കൈകോർക്കാം!
               </p>
+            </div>
+
+            {/* Social Media Link: Instagram */}
+            <div className="pt-2">
+              <a
+                href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow LNS on Instagram"
+                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:from-purple-700 hover:via-pink-700 hover:to-amber-600 text-white text-xs font-bold transition-all shadow-md hover:scale-102"
+              >
+                <Instagram className="w-4 h-4 text-white shrink-0" />
+                <span>Follow on Instagram (@lns_malappuram)</span>
+              </a>
             </div>
           </div>
 
@@ -158,6 +172,30 @@ const Footer = ({ onOpenJoinModal }) => {
                   {samithiContact.state} – {samithiContact.pincode}
                 </span>
               </div>
+            </div>
+
+            {/* Quick Social Badges */}
+            <div className="pt-2 flex items-center gap-2">
+              <a
+                href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram @lns_malappuram"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-pink-950/60 border border-pink-700/50 text-pink-300 hover:text-white hover:bg-pink-900/80 text-xs font-semibold transition-all"
+              >
+                <Instagram className="w-3.5 h-3.5 text-pink-400" />
+                <span>Instagram</span>
+              </a>
+              <a
+                href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent('Hello Lahari Nirmaargana Samithi, I would like to contact your office.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-700/50 text-emerald-300 hover:text-white hover:bg-emerald-900/80 text-xs font-semibold transition-all"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                <span>WhatsApp</span>
+              </a>
             </div>
           </div>
 

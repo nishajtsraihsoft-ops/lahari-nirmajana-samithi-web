@@ -235,6 +235,8 @@ export const samithiContact = {
   joinWhatsAppNumber: '9567555661',
   joinWhatsAppFormatted: '+91 95675 55661',
   joinWhatsAppUrl: 'https://wa.me/919567555661',
+  instagram: 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag==',
+  instagramHandle: '@lns_malappuram',
   fullAddress: 'സി.എച്ച്. ബിൽഡിംഗ്, കുന്നുമ്മൽ, മലപ്പുറം, കേരളം – 676505.'
 };
 
