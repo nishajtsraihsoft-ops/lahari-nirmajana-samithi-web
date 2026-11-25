@@ -14,7 +14,13 @@ const GALLERY_FILES = [
   '49.jpeg', '50.jpeg', '51.jpeg', '52.jpeg', '53.jpeg',
   '54.jpeg', '55.jpeg', '56.jpeg', '57.jpeg', '58.jpeg',
   '59.jpeg', '60.jpeg', '61.jpeg', '62.jpeg', '63.jpeg',
-  '64.jpeg', '65.jpeg'
+  '64.jpeg', '65.jpeg', '66.jpeg', '67.jpeg', '68.jpeg',
+  '69.jpeg', '70.jpeg', '71.jpeg', '72.jpeg', '73.jpeg',
+  '74.jpeg', '75.jpeg', '76.jpeg', '77.jpeg', '78.jpeg',
+  '79.jpeg', '80.jpeg', '81.jpeg', '82.jpeg', '83.jpeg',
+  '84.jpeg', '85.jpeg', '86.jpeg', '87.jpeg', '88.jpeg',
+  '89.jpeg', '90.jpeg', '91.jpeg', '92.jpeg', '93.jpeg',
+  '94.jpeg', '95.jpeg', '96.jpeg'
 ];
 
 export const galleryImages = GALLERY_FILES.map((fileName, index) => ({
