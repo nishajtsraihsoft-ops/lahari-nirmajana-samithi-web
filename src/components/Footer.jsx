@@ -43,17 +43,17 @@ const Footer = ({ onOpenJoinModal }) => {
               </p>
             </div>
 
-            {/* Social Media Link: Instagram */}
-            <div className="pt-2">
+            {/* Social Media Link: Instagram (Icon Only) */}
+            <div className="pt-2 flex items-center gap-2.5">
               <a
                 href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="Follow LNS on Instagram"
-                className="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:from-purple-700 hover:via-pink-700 hover:to-amber-600 text-white text-xs font-bold transition-all shadow-md hover:scale-102"
+                aria-label="Instagram @lns_malappuram"
+                title="Instagram @lns_malappuram"
+                className="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white flex items-center justify-center transition-all hover:scale-110 shadow-md"
               >
-                <Instagram className="w-4 h-4 text-white shrink-0" />
-                <span>Follow on Instagram (@lns_malappuram)</span>
+                <Instagram className="w-5 h-5 text-white" />
               </a>
             </div>
           </div>
@@ -174,27 +174,27 @@ const Footer = ({ onOpenJoinModal }) => {
               </div>
             </div>
 
-            {/* Quick Social Badges */}
-            <div className="pt-2 flex items-center gap-2">
+            {/* Quick Social Badges - Icon Only */}
+            <div className="pt-2 flex items-center gap-2.5">
               <a
                 href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram @lns_malappuram"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-pink-950/60 border border-pink-700/50 text-pink-300 hover:text-white hover:bg-pink-900/80 text-xs font-semibold transition-all"
+                title="Instagram @lns_malappuram"
+                className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
               >
-                <Instagram className="w-3.5 h-3.5 text-pink-400" />
-                <span>Instagram</span>
+                <Instagram className="w-4 h-4 text-white" />
               </a>
               <a
                 href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent('Hello Lahari Nirmaargana Samithi, I would like to contact your office.')}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-700/50 text-emerald-300 hover:text-white hover:bg-emerald-900/80 text-xs font-semibold transition-all"
+                title="WhatsApp"
+                className="w-8 h-8 rounded-full bg-[#198754] hover:bg-[#157347] text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
               >
-                <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
-                <span>WhatsApp</span>
+                <MessageCircle className="w-4 h-4 text-white" />
               </a>
             </div>
           </div>

@@ -62,17 +62,17 @@ const Navbar = ({ onOpenJoinModal }) => {
               </span>
             </div>
 
-            {/* Right Action: WhatsApp Contact, Instagram & Malayalam Slogan */}
+            {/* Right Action: WhatsApp Contact, Instagram Icon & Malayalam Slogan */}
             <div className="flex items-center gap-2 sm:gap-2.5 text-[11px] text-blue-100">
               <a
                 href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram @lns_malappuram"
-                className="inline-flex items-center gap-1.5 text-white hover:text-pink-200 transition-all font-semibold bg-white/10 hover:bg-white/20 px-2.5 sm:px-3 py-0.5 rounded-full border border-white/15 text-[10px] sm:text-[11px]"
+                title="Instagram: @lns_malappuram"
+                className="w-6 h-6 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white flex items-center justify-center transition-transform hover:scale-110 shadow-xs shrink-0"
               >
-                <Instagram className="w-3.5 h-3.5 text-pink-400" />
-                <span>Instagram</span>
+                <Instagram className="w-3.5 h-3.5 text-white" />
               </a>
 
               <a
@@ -151,8 +151,19 @@ const Navbar = ({ onOpenJoinModal }) => {
               ))}
             </nav>
 
-            {/* Desktop Action Button */}
-            <div className="hidden sm:flex items-center gap-3">
+            {/* Desktop Action Button & Instagram Icon */}
+            <div className="hidden sm:flex items-center gap-2.5">
+              <a
+                href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram @lns_malappuram"
+                title="Instagram: @lns_malappuram"
+                className="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white flex items-center justify-center transition-all hover:scale-105 shadow-xs"
+              >
+                <Instagram className="w-4 h-4 text-white" />
+              </a>
+
               <button
                 type="button"
                 onClick={onOpenJoinModal}
@@ -228,16 +239,19 @@ const Navbar = ({ onOpenJoinModal }) => {
                 <span>WhatsApp Contact (9567555661)</span>
               </a>
 
-              <a
-                href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl text-pink-700 font-bold bg-pink-50 hover:bg-pink-100 border border-pink-200 text-sm transition-colors"
-              >
-                <Instagram className="w-4 h-4 text-pink-600" />
-                <span>Instagram: @lns_malappuram</span>
-              </a>
+              <div className="flex items-center justify-center pt-2">
+                <a
+                  href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  aria-label="Instagram @lns_malappuram"
+                  title="Instagram: @lns_malappuram"
+                  className="w-10 h-10 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white flex items-center justify-center shadow-md hover:scale-105 transition-transform"
+                >
+                  <Instagram className="w-5 h-5 text-white" />
+                </a>
+              </div>
             </div>
           </div>
         )}

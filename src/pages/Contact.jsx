@@ -388,31 +388,32 @@ const Contact = () => {
                   </p>
                 </div>
 
-                {/* Social Media: Instagram */}
-                <div className="p-4 rounded-lg bg-gradient-to-r from-pink-50/80 via-purple-50/50 to-white border border-pink-200/80 space-y-2.5">
-                  <div className="flex items-center justify-between">
-                    <div className="font-bold text-slate-900 flex items-center gap-2">
-                      <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 text-white flex items-center justify-center shadow-xs">
-                        <Instagram className="w-4 h-4" />
-                      </div>
-                      <span className="text-xs sm:text-sm">Official Instagram</span>
-                    </div>
-                    <span className="text-[11px] font-mono font-bold text-pink-700 bg-pink-100/80 px-2 py-0.5 rounded-full border border-pink-200/60">
-                      @lns_malappuram
-                    </span>
-                  </div>
-                  <p className="text-slate-600 text-xs">
-                    Follow our official Instagram handle for the latest campus vigilance campaigns, updates & photo coverage.
-                  </p>
+                {/* Social Media Channels (Icon Only) */}
+                <div className="p-3.5 rounded-lg bg-slate-50 border border-slate-200/80 flex items-center justify-between">
                   <div>
+                    <span className="block font-bold text-slate-900 text-xs sm:text-sm">Connect With Us</span>
+                    <span className="block text-[11px] text-slate-500 font-malayalam">സോഷ്യൽ മീഡിയ</span>
+                  </div>
+                  <div className="flex items-center gap-2.5">
                     <a
                       href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-gradient-to-r from-purple-600 via-pink-600 to-amber-500 hover:from-purple-700 hover:via-pink-700 hover:to-amber-600 text-white text-xs font-bold shadow-xs hover:shadow transition-all"
+                      aria-label="Instagram @lns_malappuram"
+                      title="Instagram @lns_malappuram"
+                      className="w-9 h-9 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white flex items-center justify-center shadow-xs hover:scale-110 transition-transform"
                     >
-                      <Instagram className="w-3.5 h-3.5" />
-                      <span>Follow on Instagram</span>
+                      <Instagram className="w-4 h-4 text-white" />
+                    </a>
+                    <a
+                      href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent('Hello Lahari Nirmaargana Samithi, I would like to contact your office.')}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="WhatsApp"
+                      title="WhatsApp: 9567555661"
+                      className="w-9 h-9 rounded-full bg-[#198754] hover:bg-[#157347] text-white flex items-center justify-center shadow-xs hover:scale-110 transition-transform"
+                    >
+                      <MessageCircle className="w-4 h-4 text-white" />
                     </a>
                   </div>
                 </div>
