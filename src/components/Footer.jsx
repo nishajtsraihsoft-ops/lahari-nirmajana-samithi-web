@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Heart, ArrowRight, Award, ShieldCheck, Building, Instagram, MessageCircle } from 'lucide-react';
+import { MapPin, Heart, ArrowRight, Instagram } from 'lucide-react';
 import { samithiContact } from '../data/objectives';
 
 const Footer = ({ onOpenJoinModal }) => {
@@ -172,30 +172,6 @@ const Footer = ({ onOpenJoinModal }) => {
                   {samithiContact.state} – {samithiContact.pincode}
                 </span>
               </div>
-            </div>
-
-            {/* Quick Social Badges - Icon Only */}
-            <div className="pt-2 flex items-center gap-2.5">
-              <a
-                href={samithiContact.instagram || 'https://www.instagram.com/lns_malappuram?utm_source=qr&stkn=MWIzajdzam5yeWJ1ag=='}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram @lns_malappuram"
-                title="Instagram @lns_malappuram"
-                className="w-8 h-8 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 hover:opacity-90 text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
-              >
-                <Instagram className="w-4 h-4 text-white" />
-              </a>
-              <a
-                href={`https://wa.me/91${samithiContact.rawPhone || '9567555661'}?text=${encodeURIComponent('Hello Lahari Nirmaargana Samithi, I would like to contact your office.')}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                title="WhatsApp"
-                className="w-8 h-8 rounded-full bg-[#198754] hover:bg-[#157347] text-white flex items-center justify-center transition-all hover:scale-110 shadow-sm"
-              >
-                <MessageCircle className="w-4 h-4 text-white" />
-              </a>
             </div>
           </div>
 
