@@ -219,8 +219,8 @@ const Home = ({ onOpenJoinModal }) => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 lg:gap-8">
             
             {/* Stat Card 1 */}
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between text-center hover:-translate-y-1.5 group">
-              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center mb-1.5 sm:mb-2">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between text-center hover:-translate-y-1.5 group">
+              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center mb-2">
                 <svg className="w-full h-full text-themeBlue" viewBox="0 0 100 100" fill="none">
                   <circle cx="50" cy="50" r="44" stroke="currentColor" strokeWidth="2.5" />
                   <circle cx="50" cy="50" r="41" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
@@ -238,22 +238,19 @@ const Home = ({ onOpenJoinModal }) => {
                   <HandHeart className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 stroke-[1.5]" />
                 </div>
               </div>
-              <div className="space-y-0.5 sm:space-y-1">
+              <div className="space-y-1">
                 <span className="text-[9px] sm:text-[10px] lg:text-[11px] font-black uppercase tracking-tight sm:tracking-wider text-gray-500 leading-snug block">
                   NUMBER OF VOLUNTEERS
                 </span>
                 <span className="font-mono text-xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight block">
-                  10,000+
-                </span>
-                <span className="font-malayalam text-[10px] sm:text-xs text-themeGreen font-bold block">
-                  സന്നദ്ധപ്രവർത്തകർ
+                  1,000+
                 </span>
               </div>
             </div>
 
             {/* Stat Card 2 */}
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between text-center hover:-translate-y-1.5 group">
-              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center mb-1.5 sm:mb-2">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between text-center hover:-translate-y-1.5 group">
+              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center mb-2">
                 <svg className="w-full h-full text-themeRed" viewBox="0 0 100 100" fill="none">
                   <circle cx="50" cy="50" r="44" stroke="currentColor" strokeWidth="2" strokeDasharray="4 4" />
                   <circle cx="50" cy="50" r="39" stroke="currentColor" strokeWidth="1" />
@@ -262,22 +259,19 @@ const Home = ({ onOpenJoinModal }) => {
                   <UserCheck className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 stroke-[1.5]" />
                 </div>
               </div>
-              <div className="space-y-0.5 sm:space-y-1">
+              <div className="space-y-1">
                 <span className="text-[9px] sm:text-[10px] lg:text-[11px] font-black uppercase tracking-tight sm:tracking-wider text-gray-500 leading-snug block">
                   HOURS OF CAMPAIGNING
                 </span>
                 <span className="font-mono text-xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight block">
-                  1,530,600
-                </span>
-                <span className="font-malayalam text-[10px] sm:text-xs text-themeRed font-bold block">
-                  പ്രവർത്തന മണിക്കൂറുകൾ
+                  1,500+
                 </span>
               </div>
             </div>
 
             {/* Stat Card 3 */}
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between text-center hover:-translate-y-1.5 group">
-              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center mb-1.5 sm:mb-2">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between text-center hover:-translate-y-1.5 group">
+              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center mb-2">
                 <svg className="w-full h-full text-themeBlue" viewBox="0 0 100 100" fill="none">
                   <circle cx="50" cy="50" r="44" stroke="currentColor" strokeWidth="2.5" />
                   <circle cx="50" cy="50" r="41" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
@@ -295,22 +289,19 @@ const Home = ({ onOpenJoinModal }) => {
                   <FileText className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 stroke-[1.5]" />
                 </div>
               </div>
-              <div className="space-y-0.5 sm:space-y-1">
+              <div className="space-y-1">
                 <span className="text-[9px] sm:text-[10px] lg:text-[11px] font-black uppercase tracking-tight sm:tracking-wider text-gray-500 leading-snug block">
                   NUMBER OF PROGRAMMES
                 </span>
                 <span className="font-mono text-xl sm:text-3xl lg:text-4xl font-black text-gray-900 leading-tight block">
                   600+
                 </span>
-                <span className="font-malayalam text-[10px] sm:text-xs text-themeGreen font-bold block">
-                  ലഹരിവിരുദ്ധ പരിപാടികൾ
-                </span>
               </div>
             </div>
 
             {/* Stat Card 4 */}
-            <div className="bg-white rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between text-center hover:-translate-y-1.5 group">
-              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center mb-1.5 sm:mb-2">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-between text-center hover:-translate-y-1.5 group">
+              <div className="relative w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center mb-2">
                 <svg className="w-full h-full text-themeGreen" viewBox="0 0 100 100" fill="none">
                   <circle cx="50" cy="50" r="44" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 5" />
                   <circle cx="50" cy="50" r="39" stroke="currentColor" strokeWidth="1" />
@@ -319,15 +310,12 @@ const Home = ({ onOpenJoinModal }) => {
                   <Clock className="w-6 h-6 sm:w-8 sm:h-8 lg:w-9 lg:h-9 stroke-[1.5]" />
                 </div>
               </div>
-              <div className="space-y-0.5 sm:space-y-1">
+              <div className="space-y-1">
                 <span className="text-[9px] sm:text-[10px] lg:text-[11px] font-black uppercase tracking-tight sm:tracking-wider text-gray-500 leading-snug block">
                   PEOPLE NEEDED TO MAKE IMPACT
                 </span>
                 <span className="text-xl sm:text-3xl lg:text-4xl font-black tracking-wider text-themeGreen leading-tight font-sans block">
                   YOU
-                </span>
-                <span className="font-malayalam text-[10px] sm:text-xs text-gray-700 font-bold block">
-                  താങ്കൾ (കൈകോർക്കൂ)
                 </span>
               </div>
             </div>
