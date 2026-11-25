@@ -478,103 +478,183 @@ const Home = ({ onOpenJoinModal }) => {
       </section>
 
       {/* =========================================================================
-          6. FROM OUR MOVEMENT / BLOG (Standard & Modern Card Design)
+          6. FROM OUR MOVEMENT / HIGHLIGHTS (Creative & Mobile-Friendly)
          ========================================================================= */}
-      <section className="py-16 sm:py-24 bg-gray-50/50 border-t border-gray-100">
+      <section className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-gray-50/70 via-white to-gray-50/50 border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="text-center mb-12 sm:mb-16">
-            <span className="text-xs font-black uppercase tracking-widest text-amber-700/80 block mb-1">
-              Field Reports &amp; Inspiring Stories
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-widest text-gray-900 font-sans">
-              FROM OUR MOVEMENT
-            </h2>
-            <p className="font-malayalam text-xs sm:text-sm font-bold text-gray-600 mt-1">
-              വാർത്തകളും പുതിയ വിവരങ്ങളും
-            </p>
+          {/* Section Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 sm:mb-12 gap-4">
+            <div className="text-left space-y-1.5 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 border border-amber-200/60 text-amber-800 text-[10.5px] sm:text-xs font-black uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                <span>Field Reports &bull; Ground Impact</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black uppercase tracking-tight text-gray-900 font-sans">
+                FROM OUR MOVEMENT
+              </h2>
+              <p className="font-malayalam text-xs sm:text-sm font-semibold text-gray-600 leading-relaxed">
+                ലഹരിമുക്ത സമൂഹത്തിനായി നാടുണർത്തുന്ന സമിതിയുടെ പ്രധാന മുന്നേറ്റങ്ങളും പ്രവർത്തനങ്ങളും.
+              </p>
+            </div>
+
+            <div className="flex items-center self-start md:self-end">
+              <Link
+                to="/gallery"
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-themeBlue hover:text-themeBlue-hover py-2 group transition-colors"
+              >
+                <span>View Full Photo Gallery</span>
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          {/* Cards Grid: 1 col on mobile, 2 on tablet, 3 on desktop */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-7">
             
-            {/* Story Card 1 */}
-            <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-2">
-              <div>
-                <div className="relative aspect-16/10 overflow-hidden bg-gray-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1000&q=80"
-                    alt="Community Awareness Sessions"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeBlue text-white shadow-md">
-                    Community Action
+            {/* Story Card 1 - Statewide Action */}
+            <article className="group bg-white rounded-2xl sm:rounded-3xl border border-gray-100/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col overflow-hidden">
+              <div className="relative aspect-16/10 overflow-hidden bg-gray-100">
+                <img
+                  src="/gallery/1.jpeg"
+                  alt="Statewide Mass Mobilization by Lahari Nirmjana Samithi"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeRed text-white shadow-md inline-flex items-center gap-1">
+                    <Users className="w-3 h-3" />
+                    <span>Statewide Action</span>
                   </span>
                 </div>
-                <div className="p-6 sm:p-8 space-y-3 text-left">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-themeBlue block">
-                    STATEWIDE NETWORK &bull; HEALTHY SOCIETY
+                <div className="absolute bottom-3 left-3 sm:left-4 right-3 text-white">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-gray-200 uppercase tracking-widest block">
+                    Mass Mobilization &bull; കേരളം
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
-                    Community Gatherings &amp; Grassroots Drug-Free Networks
-                  </h3>
-                  <div className="p-4 rounded-2xl bg-blue-50/50 border border-blue-100/60">
-                    <p className="font-malayalam text-xs sm:text-sm text-gray-700 leading-relaxed font-normal italic">
-                      "ലഹരിക്കെതിരെയുള്ള പോരാട്ടം ഒരു വ്യക്തിയുടെയോ സംഘടനയുടെയോ മാത്രം ഉത്തരവാദിത്തമല്ല. സമൂഹത്തിലെ ഓരോ വ്യക്തിക്കും ഈ പോരാട്ടത്തിൽ പങ്കാളിയാകാനുണ്ട്."
-                    </p>
-                  </div>
                 </div>
               </div>
-              <div className="p-6 sm:p-8 pt-0">
-                <Link
-                  to="/about"
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-themeBlue hover:bg-themeBlue-hover text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all group/btn"
-                >
-                  <span>Read More</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </div>
 
-            {/* Story Card 2 */}
-            <div className="bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 overflow-hidden flex flex-col justify-between group hover:-translate-y-2">
-              <div>
-                <div className="relative aspect-16/10 overflow-hidden bg-gray-100">
-                  <img
-                    src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=1000&q=80"
-                    alt="Campus Anti-Drug Class"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
-                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeGreen text-white shadow-md">
-                    Youth Safety
-                  </span>
-                </div>
-                <div className="p-6 sm:p-8 space-y-3 text-left">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-themeGreen block">
-                    CAMPUS PROGRAM &bull; AWARENESS CAMPAIGN
-                  </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 group-hover:text-themeGreen transition-colors leading-snug">
-                    Empowering Students: Anti-Substance Seminars Across Schools
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-themeRed transition-colors leading-snug">
+                    ജനകീയ പടയൊരുക്കം: ലഹരിക്കെതിരെ പൊതുസമൂഹ മുന്നേറ്റം
                   </h3>
-                  <div className="p-4 rounded-2xl bg-green-50/50 border border-green-100/60">
-                    <p className="font-malayalam text-xs sm:text-sm text-gray-700 leading-relaxed font-normal">
-                      വിദ്യാർത്ഥികളിലും കലാലയങ്ങളിലും ലഹരിവിരുദ്ധ അവബോധം സൃഷ്ടിച്ചു സുരക്ഷിതമായ ഭാവിയെ കരുപിടിപ്പിക്കാൻ സംഘടിപ്പിക്കുന്ന പ്രത്യേക ക്ലാസ്സുകൾ.
-                    </p>
-                  </div>
+                  <p className="text-xs sm:text-[13px] text-gray-600 font-malayalam leading-relaxed">
+                    കേരളത്തിലുടനീളം ഗ്രാമ-നഗര വ്യത്യാസമില്ലാതെ ജനങ്ങളെ അണിനിരത്തി ലഹരി മാഫിയകൾക്കെതിരെ ശക്തമായ ജനകീയ പ്രതിരോധം തീർക്കുന്നു.
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
+                  <Link
+                    to="/activities"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-themeRed hover:text-themeRed-hover group/link py-1"
+                  >
+                    <span>Explore Activities</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                  <span className="text-[10px] text-gray-600 font-semibold uppercase tracking-wider">
+                    LNS Movement
+                  </span>
                 </div>
               </div>
-              <div className="p-6 sm:p-8 pt-0">
-                <button
-                  type="button"
-                  onClick={onOpenJoinModal}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-themeGreen hover:bg-themeGreen-hover text-white text-xs font-bold uppercase tracking-wider shadow-md transition-all group/btn"
-                >
-                  <HeartHandshake className="w-4 h-4" />
-                  <span>Join Our Awareness Network</span>
-                </button>
+            </article>
+
+            {/* Story Card 2 - Campus Vigilance */}
+            <article className="group bg-white rounded-2xl sm:rounded-3xl border border-gray-100/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col overflow-hidden">
+              <div className="relative aspect-16/10 overflow-hidden bg-gray-100">
+                <img
+                  src="/gallery/16.jpeg"
+                  alt="Campus Anti-Drug Seminar and Awareness Class"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeBlue text-white shadow-md inline-flex items-center gap-1">
+                    <GraduationCap className="w-3 h-3" />
+                    <span>Campus Vigilance</span>
+                  </span>
+                </div>
+                <div className="absolute bottom-3 left-3 sm:left-4 right-3 text-white">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-gray-200 uppercase tracking-widest block">
+                    Youth Protection &bull; വിദ്യാലയം
+                  </span>
+                </div>
               </div>
-            </div>
+
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-themeBlue transition-colors leading-snug">
+                    വിദ്യാർത്ഥി സംരക്ഷണ സെല്ലുകൾ വിദ്യാലയങ്ങളിൽ സജീവം
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-gray-600 font-malayalam leading-relaxed">
+                    സ്കൂളുകളിലും കോളേജുകളിലും ലഹരിവിരുദ്ധ സെമിനാറുകൾ സംഘടിപ്പിച്ചു വിദ്യാർത്ഥികളിൽ ജാഗ്രതയും ആത്മവിശ്വാസവും വളർത്തുന്നു.
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
+                  <Link
+                    to="/about"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-themeBlue hover:text-themeBlue-hover group/link py-1"
+                  >
+                    <span>Read About Mission</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
+                  </Link>
+                  <span className="text-[10px] text-gray-600 font-semibold uppercase tracking-wider">
+                    Youth Focus
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            {/* Story Card 3 - Free Counseling & Helpline */}
+            <article className="group bg-white rounded-2xl sm:rounded-3xl border border-gray-100/90 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col overflow-hidden md:col-span-2 lg:col-span-1">
+              <div className="relative aspect-16/10 overflow-hidden bg-gray-100">
+                <img
+                  src="/gallery/23.jpeg"
+                  alt="Counseling and Family Rehabilitation Guidance"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                <div className="absolute top-3 left-3 sm:top-4 sm:left-4">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-wider bg-themeGreen text-white shadow-md inline-flex items-center gap-1">
+                    <HeartHandshake className="w-3 h-3" />
+                    <span>Free Counseling</span>
+                  </span>
+                </div>
+                <div className="absolute bottom-3 left-3 sm:left-4 right-3 text-white">
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-gray-200 uppercase tracking-widest block">
+                    24x7 Helpline &bull; പുനരധിവാസം
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-base sm:text-lg font-bold text-gray-900 group-hover:text-themeGreen transition-colors leading-snug">
+                    കുടുംബങ്ങൾക്ക് ആശ്വാസമായി കൗൺസിലിംഗും സഹായവും
+                  </h3>
+                  <p className="text-xs sm:text-[13px] text-gray-600 font-malayalam leading-relaxed">
+                    ലഹരിക്കടിമപ്പെട്ടവർക്കും അവരുടെ കുടുംബങ്ങൾക്കും രഹസ്യസ്വഭാവത്തോടെ സൗജന്യ കൗൺസിലിംഗും വിദഗ്ദ്ധ ചികിത്സാ മാർഗ്ഗനിർദ്ദേശങ്ങളും.
+                  </p>
+                </div>
+
+                <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
+                  <a
+                    href="tel:+919567555661"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-themeGreen hover:text-themeGreen-hover group/link py-1"
+                  >
+                    <PhoneCall className="w-3.5 h-3.5" />
+                    <span>Call Helpline: 95675 55661</span>
+                  </a>
+                  <span className="text-[10px] text-gray-600 font-semibold uppercase tracking-wider">
+                    24x7 Support
+                  </span>
+                </div>
+              </div>
+            </article>
 
           </div>
         </div>
